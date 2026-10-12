@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>R Vijaya Baskaran | PCB & Hardware Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F3F7;--surface:#fff;--ink:#1A1626;--muted:#5E5873;--line:#DAD6E4;--accent:#5B2A9E;--accent-ink:#fff;--gold:#B8901F;--board:#2B1850;--trace:#8C6BD0;
+--head:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;--body:"IBM Plex Sans","Segoe UI",Arial,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#130F1D;--surface:#1D1730;--ink:#EFEBF8;--muted:#A9A1C0;--line:#352C50;--accent:#A98BEA;--accent-ink:#130F1D;--gold:#E0B83F;--board:#0D0918;--trace:#8C6BD0}}
+:root[data-theme="dark"]{--bg:#130F1D;--surface:#1D1730;--ink:#EFEBF8;--muted:#A9A1C0;--line:#352C50;--accent:#A98BEA;--accent-ink:#130F1D;--gold:#E0B83F;--board:#0D0918;--trace:#8C6BD0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{font:700 18px var(--head);text-decoration:none;white-space:nowrap}
+.nav nav{display:flex;gap:4px;overflow-x:auto}
+.nav nav a{padding:6px 10px;border-radius:8px;text-decoration:none;font-size:14px;color:var(--muted);white-space:nowrap}
+.nav nav a:hover,.nav nav a.on{color:var(--ink);background:var(--line)}
+.tbtn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 10px;cursor:pointer;font:inherit;font-size:14px}
+section{padding:72px 0 8px}
+h2{font:700 clamp(26px,4vw,36px)/1.15 var(--head);margin:0 0 28px;letter-spacing:-.01em}
+h1{font:800 clamp(38px,7vw,68px)/1.02 var(--head);margin:0 0 16px;letter-spacing:-.02em}
+.hero{padding-top:48px}
+.hero .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:36px;align-items:center}
+.role{font:600 20px var(--head);color:var(--accent);margin:0 0 14px}
+.lead{color:var(--muted);max-width:52ch;margin:0 0 24px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;padding:11px 18px;border-radius:10px;text-decoration:none;font-weight:600;border:1px solid var(--accent)}
+.btn.p{background:var(--accent);color:var(--accent-ink)}
+.btn:hover{transform:translateY(-1px)}
+.board{background:var(--board);border-radius:18px;padding:14px;border:1px solid var(--line)}
+.board svg{width:100%;height:auto;display:block}
+.tr{fill:none;stroke:var(--trace);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:600;animation:draw 2.2s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.pad{fill:var(--gold);cursor:pointer;stroke:#0000;stroke-width:6;transition:r .15s}
+.pad:hover,.pad:focus,.pad.on{stroke:var(--gold);stroke-opacity:.35;outline:none}
+.pl{font:600 11px var(--body);fill:#CFC6E8;pointer-events:none}
+.chip{fill:#150D2B;stroke:var(--gold);stroke-width:1.5}
+.chipt{font:700 13px var(--head);fill:#EFEBF8}
+.readout{margin:10px 4px 2px;min-height:68px;color:#E4DDF5;font-size:14px}
+.readout b{color:var(--gold);font-family:var(--head);font-size:16px}
+.stats{display:flex;gap:28px;margin-top:30px;flex-wrap:wrap}
+.stats div{font-size:14px;color:var(--muted)}
+.stats strong{display:block;font:700 26px var(--head);color:var(--ink)}
+.about p{max-width:70ch;margin:0 0 14px;color:var(--muted)}
+.about p:first-child{color:var(--ink);font-size:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chips button{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer;font:inherit;font-size:14px}
+.chips button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.sk{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.sk h3{margin:0 0 10px;font:700 17px var(--head)}
+.sk ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.sk li{font-size:13.5px;padding:3px 10px;border:1px solid var(--line);border-radius:6px;color:var(--muted)}
+.sk.dim{opacity:.3}
+.projects{display:grid;gap:14px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.proj>button{all:unset;box-sizing:border-box;display:flex;width:100%;gap:16px;align-items:flex-start;justify-content:space-between;padding:20px 22px;cursor:pointer}
+.proj>button:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+.proj h3{margin:0 0 4px;font:700 20px var(--head)}
+.proj .sum{margin:0;color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tags span{font-size:12.5px;padding:2px 9px;border-radius:6px;background:var(--bg);border:1px solid var(--line)}
+.plus{font:600 24px/1 var(--head);color:var(--accent);transition:transform .25s}
+.proj.open .plus{transform:rotate(45deg)}
+.det{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}
+.proj.open .det{grid-template-rows:1fr}
+.det>div{overflow:hidden}
+.det ul{margin:0;padding:0 22px 20px 42px;color:var(--muted)}
+.det li{margin-bottom:6px}
+.tl{border-left:2px solid var(--line);margin-left:6px;padding-left:24px;display:grid;gap:22px}
+.tl article{position:relative}
+.tl article::before{content:"";position:absolute;left:-31px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.tl h3{margin:0;font:700 18px var(--head)}
+.tl p{margin:2px 0;color:var(--muted);font-size:15px}
+.score{display:inline-block;margin-top:4px;font-weight:600;color:var(--ink);background:var(--surface);border:1px solid var(--line);padding:2px 10px;border-radius:6px;font-size:14px}
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.cert{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;padding:16px 18px}
+.cert h3{margin:0 0 4px;font:700 18px var(--head)}
+.cert p{margin:0;color:var(--muted)}
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.ct{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;text-decoration:none;display:block}
+.ct small{display:block;color:var(--muted)}
+.ct span{font-weight:600;word-break:break-all}
+.ct:hover{border-color:var(--accent)}
+footer{padding:48px 0 40px;color:var(--muted);font-size:14px}
+@media (max-width:820px){.hero .grid{grid-template-columns:1fr}.nav nav a{padding:6px 8px}}
+@media (prefers-reduced-motion:reduce){.tr{animation:none;stroke-dashoffset:0}html{scroll-behavior:auto}.det,.plus{transition:none}}
+
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.85}
+.blob{position:fixed;z-index:0;pointer-events:none;border-radius:50%;filter:blur(90px);opacity:.22;background:var(--accent);width:44vmax;height:44vmax;animation:drift 26s ease-in-out infinite alternate}
+.blob.b2{background:var(--gold);opacity:.12;right:-12vmax;bottom:-14vmax;animation-duration:32s;animation-direction:alternate-reverse}
+.blob.b1{left:-14vmax;top:-12vmax}
+@keyframes drift{to{transform:translate(9vmax,6vmax) scale(1.15)}}
+main,footer{position:relative;z-index:1}
+#prog{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--gold));z-index:20}
+.caret{display:inline-block;width:2px;height:1em;background:var(--accent);margin-left:3px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.pad{stroke:var(--gold);stroke-opacity:0;animation:breathe 2.6s ease-in-out infinite}
+.pad:nth-of-type(2n){animation-delay:.9s}
+.pad:hover,.pad:focus,.pad.on{animation:none;stroke-opacity:.5}
+@keyframes breathe{50%{stroke-opacity:.4}}
+.board{transition:transform .18s ease-out;will-change:transform}
+.sk,.cert,.ct,.proj{background-image:radial-gradient(260px circle at var(--mx,-300px) var(--my,-300px),color-mix(in srgb,var(--accent) 18%,transparent),transparent 70%)}
+.sk,.cert,.proj{transition:border-color .2s}
+.sk:hover,.cert:hover,.proj:hover{border-color:var(--accent)}
+@media (prefers-reduced-motion:reduce){.blob,.caret,.pad{animation:none}.board{transition:none}}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><canvas id="bg" aria-hidden="true"></canvas><div id="prog"></div>
+<header class="nav"><div class="wrap">
+<a class="logo" href="#top">R. Vijaya Baskaran</a>
+<nav aria-label="Sections"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#certs">Certifications</a><a href="#contact">Contact</a></nav>
+<button class="tbtn" id="theme" aria-label="Toggle light or dark theme">Theme</button>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap grid">
+<div>
+<h1>R Vijaya Baskaran</h1>
+<p class="role"><span id="typed">PCB Design &amp; Hardware Engineer</span><span class="caret"></span></p>
+<p class="lead">ECE student in Chennai who designs reliable embedded hardware: schematics and PCB layouts in KiCad, ESP32 firmware, and hands-on debugging at the bench.</p>
+<div class="btns"><a class="btn p" href="#projects">View projects</a><a class="btn" href="#contact">Get in touch</a></div>
+<div class="stats"><div><strong id="cnt">5</strong>hardware projects</div><div><strong>KiCad</strong>schematic to layout</div><div><strong>ESP32</strong>main platform</div></div>
+</div>
+<div class="board">
+<svg viewBox="0 0 480 300" role="img" aria-label="Interactive PCB. Select a pad to see where each skill was used.">
+<rect x="150" y="85" width="180" height="130" rx="8" class="chip"/>
+<text x="240" y="145" text-anchor="middle" class="chipt">ESP32</text>
+<text x="240" y="164" text-anchor="middle" class="pl">select a pad</text>
+<g id="traces">
+<path class="tr" d="M150 110H90V50H40"/><path class="tr" d="M150 140H60V110H40" style="animation-delay:.2s"/>
+<path class="tr" d="M150 170H70V210H40" style="animation-delay:.4s"/><path class="tr" d="M150 200H100V255H40" style="animation-delay:.6s"/>
+<path class="tr" d="M330 110H390V50H440" style="animation-delay:.3s"/><path class="tr" d="M330 150H420V150H440" style="animation-delay:.5s"/>
+<path class="tr" d="M330 190H380V255H440" style="animation-delay:.7s"/>
+</g>
+<g id="pads">
+<circle class="pad" tabindex="0" role="button" data-k="I2C" cx="40" cy="50" r="9"/><text class="pl" x="40" y="32" text-anchor="middle">I2C</text>
+<circle class="pad" tabindex="0" role="button" data-k="UART" cx="40" cy="110" r="9"/><text class="pl" x="40" y="130" text-anchor="middle">UART</text>
+<circle class="pad" tabindex="0" role="button" data-k="SPI" cx="40" cy="210" r="9"/><text class="pl" x="40" y="230" text-anchor="middle">SPI</text>
+<circle class="pad" tabindex="0" role="button" data-k="GND" cx="40" cy="255" r="9"/><text class="pl" x="40" y="277" text-anchor="middle">GND</text>
+<circle class="pad" tabindex="0" role="button" data-k="WIFI" cx="440" cy="50" r="9"/><text class="pl" x="440" y="32" text-anchor="middle">Wi-Fi</text>
+<circle class="pad" tabindex="0" role="button" data-k="SENS" cx="440" cy="150" r="9"/><text class="pl" x="440" y="130" text-anchor="middle">Sensors</text>
+<circle class="pad" tabindex="0" role="button" data-k="PWR" cx="440" cy="255" r="9"/><text class="pl" x="440" y="277" text-anchor="middle">Power</text>
+</g>
+</svg>
+<div class="readout" id="readout" aria-live="polite"><b>Hover or tap a pad</b><br>Each pad is a skill from my projects.</div>
+</div>
+</div></section>
+
+<section id="about" class="about"><div class="wrap">
+<h2>About</h2>
+<p>I'm pursuing a Bachelor's in Electronics and Communication Engineering, with design and development experience in embedded systems and hardware.</p>
+<p>I design schematics and PCB layouts in KiCad and debug hardware at the circuit level. My work includes custom ESP32 boards, IoT gas detectors, smart crop monitoring, underwater laser communication, and VHF-UHF based airport communication systems.</p>
+<p>I care about building reliable hardware, and I'm looking for a role as a PCB Design Engineer or Hardware Engineer.</p>
+</div></section>
+
+<section id="skills"><div class="wrap">
+<h2>Skills</h2>
+<div class="chips" id="skfilter" role="group" aria-label="Filter skills"></div>
+<div class="skills" id="skills-grid"></div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+<h2>Projects</h2>
+<div class="chips" id="pfilter" role="group" aria-label="Filter projects"></div>
+<div class="projects" id="plist"></div>
+</div></section>
+
+<section id="education"><div class="wrap">
+<h2>Education</h2>
+<div class="tl">
+<article><h3>Bachelor's Degree in Electronics and Communication Engineering</h3><p>St. Joseph College of Engineering, Chennai</p><p>09/2023 to present</p><span class="score">CGPA 7.4 / 10</span></article>
+<article><h3>Senior Secondary (XII), Computer Science</h3><p>St Thresa's Matric Hr Sec School, Chennai</p><p>06/2022 to 05/2023</p><span class="score">65 / 100</span></article>
+</div>
+</div></section>
+
+<section id="certs"><div class="wrap">
+<h2>Certifications</h2>
+<div class="certs">
+<div class="cert"><h3>Altium Education</h3><p>PCB Basics</p></div>
+<div class="cert"><h3>GUVI (HCL)</h3><p>PCB Design using EasyEDA</p></div>
+</div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+<h2>Contact</h2>
+<div class="contact">
+<a class="ct" href="mailto:vijaybaskaran117@gmail.com"><small>Email</small><span>vijaybaskaran117@gmail.com</span></a>
+<a class="ct" href="tel:+918072131353"><small>Phone</small><span>+91 8072131353</span></a>
+<a class="ct" href="https://www.linkedin.com/in/vijaya-baskaran/" target="_blank" rel="noopener"><small>LinkedIn</small><span>in/vijaya-baskaran</span></a>
+</div>
+<p style="margin-top:16px"><button class="tbtn" id="copy">Copy email address</button> <span id="cmsg" aria-live="polite" style="color:var(--muted);font-size:14px;margin-left:8px"></span></p>
+</div></section>
+</main>
+<footer><div class="wrap">R Vijaya Baskaran &middot; Chennai, India</div></footer>
+
+<script>
+const NETS={
+I2C:["I2C","Drove a 16\u00d72 I2C LCD from the ESP32 in the Smart Crop Monitoring System."],
+UART:["UART","Serial communication, one of the protocols I use across ESP32 projects."],
+SPI:["SPI","Sensor and peripheral interfacing over SPI on ESP32 designs."],
+GND:["Grounding","Grounding, copper pours and decoupling capacitors on the Custom ESP32 Sensor Board."],
+WIFI:["Wi-Fi","Sent live gas readings and alerts to Blynk from the IoT Gas Detection Alert System."],
+SENS:["Sensor interfacing","DHT, ultrasonic, LDR, gas (MQ-2) and PIR sensors with threshold-based monitoring."],
+PWR:["Power distribution","Power distribution and trace-width selection on the Custom ESP32 Sensor Board."]};
+const ro=document.getElementById("readout");
+document.querySelectorAll(".pad").forEach(p=>{
+const show=()=>{document.querySelectorAll(".pad").forEach(x=>x.classList.remove("on"));p.classList.add("on");const n=NETS[p.dataset.k];ro.innerHTML="<b></b><br><span></span>";ro.firstChild.textContent=n[0];ro.lastChild.textContent=n[1]};
+p.addEventListener("mouseenter",show);p.addEventListener("focus",show);p.addEventListener("click",show);
+p.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();show()}})});
+
+const SK=[
+["PCB Design","Intermediate PCB Designer",["KiCad","Schematic Design","PCB Layout","Routing","Footprint Creation"]],
+["Embedded","Embedded Systems",["ESP32","Arduino IDE","Embedded C","Sensor Interfacing"]],
+["PCB Design","PCB Fundamentals",["Grounding","Vias","Trace Width","Copper Pour","DRC"]],
+["Embedded","Communication",["I2C","UART","Wi-Fi","SPI"]],
+["Tools","Software",["KiCad","EasyEDA","LTspice"]],
+["Tools","Hardware",["Soldering","Circuit Debugging","Component Selection"]]];
+function chips(id,list,cb){const box=document.getElementById(id);let cur="All";
+const draw=()=>{box.innerHTML="";["All",...list].forEach(l=>{const b=document.createElement("button");b.textContent=l;b.setAttribute("aria-pressed",l===cur);b.onclick=()=>{cur=l;draw();cb(l)};box.appendChild(b)})};draw()}
+const sg=document.getElementById("skills-grid");
+SK.forEach(([cat,title,items])=>{const d=document.createElement("div");d.className="sk";d.dataset.c=cat;d.innerHTML="<h3></h3><ul></ul>";d.firstChild.textContent=title;items.forEach(i=>{const li=document.createElement("li");li.textContent=i;d.lastChild.appendChild(li)});sg.appendChild(d)});
+chips("skfilter",["PCB Design","Embedded","Tools"],f=>sg.querySelectorAll(".sk").forEach(s=>s.classList.toggle("dim",f!=="All"&&s.dataset.c!==f)));
+
+const PR=[
+{t:"Custom ESP32 Sensor Board",c:"PCB Design",s:"A custom ESP32-based PCB for temperature and gas sensing with integrated power and sensor interfaces.",g:["KiCad","ESP32","PCB Design"],d:["Created the schematic, component footprints, net connections, PCB layout, and routing using KiCad.","Implemented power distribution, sensor interfaces, grounding, decoupling capacitors, and connector placement for reliable operation.","Applied PCB design practices including trace-width selection, copper pours, vias, and design-rule checking before fabrication."]},
+{t:"IoT Gas Detection Alert System",c:"IoT",s:"An IoT-enabled system that monitors hazardous gas levels and sends remote alerts.",g:["ESP32","MQ-2","Blynk"],d:["Interfaced an MQ-2 gas sensor with ESP32 for continuous gas-level measurement and threshold detection.","Developed firmware to process sensor readings and transmit real-time status information through Wi-Fi.","Integrated Blynk for remote monitoring and alert notification through a mobile interface."]},
+{t:"Smart Crop Monitoring System",c:"IoT",s:"An IoT-based agricultural system that continuously monitors environmental and field conditions.",g:["ESP32","IoT","Sensors","Wokwi"],d:["Integrated DHT, ultrasonic, LDR, gas, and PIR sensors with an ESP32 and 16\u00d72 I2C LCD.","Implemented sensor data acquisition and threshold-based monitoring using embedded C/C++.","Developed and validated the system logic using Wokwi simulation for real-time parameter monitoring."]},
+{t:"Airport Runway Communication Safety System",c:"Communication",s:"A prototype for wireless communication and safety monitoring between airport ground units.",g:["ESP32","RF","Sensors"],d:["Integrated an ESP32 with wireless communication and sensors to monitor runway-area conditions and transmit status information.","Implemented sensor acquisition, threshold-based event detection, and wireless data transmission using embedded firmware.","Designed the system architecture to provide real-time safety-status information to a remote monitoring unit."]},
+{t:"Underwater Laser Communication System",c:"Communication",s:"A prototype optical link for sending digital information through an underwater channel.",g:["Laser","Photodiode","Embedded Systems"],d:["Developed transmitter and receiver sections using a laser source and photodiode for optical data transmission.","Studied the effects of water attenuation, alignment, and noise on communication performance.","Demonstrated wireless data transfer through a simulated underwater communication environment."]}];
+const pl=document.getElementById("plist");
+PR.forEach((p,i)=>{const a=document.createElement("article");a.className="proj";a.dataset.c=p.c;
+a.innerHTML='<button aria-expanded="false" aria-controls="d'+i+'"><div><h3></h3><p class="sum"></p><div class="tags"></div></div><span class="plus" aria-hidden="true">+</span></button><div class="det" id="d'+i+'"><div><ul></ul></div></div>';
+const b=a.querySelector("button");a.querySelector("h3").textContent=p.t;a.querySelector(".sum").textContent=p.s;
+p.g.forEach(x=>{const s=document.createElement("span");s.textContent=x;a.querySelector(".tags").appendChild(s)});
+p.d.forEach(x=>{const li=document.createElement("li");li.textContent=x;a.querySelector("ul").appendChild(li)});
+b.onclick=()=>{const o=a.classList.toggle("open");b.setAttribute("aria-expanded",o)};pl.appendChild(a)});
+chips("pfilter",["PCB Design","IoT","Communication"],f=>pl.querySelectorAll(".proj").forEach(a=>a.hidden=f!=="All"&&a.dataset.c!==f));
+
+const root=document.documentElement;
+document.getElementById("theme").onclick=()=>{const dark=root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;root.dataset.theme=dark?"light":"dark"};
+document.getElementById("copy").onclick=async()=>{const m=document.getElementById("cmsg");try{await navigator.clipboard.writeText("vijaybaskaran117@gmail.com");m.textContent="Copied"}catch(e){m.textContent="Copy failed. Use the email card above."}};
+const links=[...document.querySelectorAll(".nav nav a")];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(l=>l.classList.toggle("on",l.getAttribute("href")==="#"+e.target.id))}),{rootMargin:"-40% 0px -55% 0px"});
+document.querySelectorAll("main section[id]").forEach(s=>io.observe(s));
+
+(function(){
+const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const c=document.getElementById("bg"),x=c.getContext("2d"),G=48;
+let W,H,paths=[],mx=-999,my=-999,col={},fr=0;
+function colors(){const s=getComputedStyle(document.documentElement);col={a:s.getPropertyValue("--accent").trim(),l:s.getPropertyValue("--line").trim(),g:s.getPropertyValue("--gold").trim()}}
+function build(){const d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;c.width=W*d;c.height=H*d;x.setTransform(d,0,0,d,0,0);paths=[];const n=Math.round(W*H/24000);
+for(let i=0;i<n;i++){const pts=[[Math.floor(Math.random()*W/G)*G,Math.floor(Math.random()*H/G)*G]];let dir=Math.random()<.5?0:1;const seg=[];let L=0;
+for(let k=0,m=3+Math.floor(Math.random()*4);k<m;k++){const len=(1+Math.floor(Math.random()*4))*G*(Math.random()<.5?-1:1),l=pts[pts.length-1];pts.push(dir?[l[0],l[1]+len]:[l[0]+len,l[1]]);dir^=1;const e=Math.abs(len);seg.push(e);L+=e}
+paths.push({pts,seg,L,p:Math.random()*L,sp:.5+Math.random()*1})}}
+function at(p,t){let d=t;for(let k=0;k<p.seg.length;k++){if(d<=p.seg[k]){const a=p.pts[k],b=p.pts[k+1],f=d/p.seg[k];return[a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f]}d-=p.seg[k]}return p.pts[p.pts.length-1]}
+function frame(){if(++fr%120===0)colors();x.clearRect(0,0,W,H);
+if(mx>0){const g=x.createRadialGradient(mx,my,0,mx,my,220);g.addColorStop(0,col.a+"33");g.addColorStop(1,col.a+"00");x.fillStyle=g;x.fillRect(mx-220,my-220,440,440)}
+x.lineWidth=1.5;x.lineJoin="round";
+for(const p of paths){
+x.globalAlpha=.6;x.strokeStyle=col.l;x.beginPath();p.pts.forEach((q,i)=>i?x.lineTo(q[0],q[1]):x.moveTo(q[0],q[1]));x.stroke();
+x.fillStyle=col.g;x.globalAlpha=.55;for(const q of [p.pts[0],p.pts[p.pts.length-1]]){x.beginPath();x.arc(q[0],q[1],3.5,0,6.283);x.fill()}
+if(!rm)p.p=(p.p+p.sp)%p.L;
+const h=at(p,p.p),dd=Math.hypot(h[0]-mx,h[1]-my),b=dd<170?1-dd/170:0;
+x.fillStyle=col.a;
+for(let t=0;t<14;t++){const q=at(p,(p.p-t*4+p.L)%p.L);x.globalAlpha=Math.max(0,.9-t/16)*(.4+b*.6);x.beginPath();x.arc(q[0],q[1],Math.max(.8,2.6-t*.1+b*1.6),0,6.283);x.fill()}}
+x.globalAlpha=1;if(!rm)requestAnimationFrame(frame)}
+colors();build();frame();
+let rt;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{build();if(rm)frame()},200)});
+addEventListener("pointermove",e=>{mx=e.clientX;my=e.clientY});
+addEventListener("pointerleave",()=>{mx=my=-999});
+const refresh=()=>setTimeout(()=>{colors();if(rm)frame()},50);
+document.getElementById("theme").addEventListener("click",refresh);
+matchMedia("(prefers-color-scheme:dark)").addEventListener("change",refresh);
+
+const pr=document.getElementById("prog");
+addEventListener("scroll",()=>{const h=document.documentElement.scrollHeight-innerHeight;pr.style.width=(h>0?scrollY/h*100:0)+"%"},{passive:true});
+
+const SEL=".sk,.cert,.ct,.proj";
+document.addEventListener("pointermove",e=>{const t=e.target.closest&&e.target.closest(SEL);if(t){const r=t.getBoundingClientRect();t.style.setProperty("--mx",e.clientX-r.left+"px");t.style.setProperty("--my",e.clientY-r.top+"px")}});
+document.addEventListener("pointerout",e=>{const t=e.target.closest&&e.target.closest(SEL);if(t&&!t.contains(e.relatedTarget)){t.style.removeProperty("--mx");t.style.removeProperty("--my")}});
+
+const bd=document.querySelector(".board");
+if(!rm&&matchMedia("(hover:hover)").matches){
+bd.addEventListener("pointermove",e=>{const r=bd.getBoundingClientRect(),dx=(e.clientX-r.left)/r.width-.5,dy=(e.clientY-r.top)/r.height-.5;bd.style.transform="perspective(900px) rotateY("+dx*8+"deg) rotateX("+(-dy*8)+"deg)"});
+bd.addEventListener("pointerleave",()=>bd.style.transform="")}
+
+if(!rm){
+const ns="http://www.w3.org/2000/svg";
+document.querySelectorAll("#traces .tr").forEach((p,i)=>{const cc=document.createElementNS(ns,"circle");cc.setAttribute("r","3.5");cc.setAttribute("fill","#E0B83F");cc.setAttribute("opacity","0");
+const a=document.createElementNS(ns,"animateMotion");a.setAttribute("path",p.getAttribute("d"));a.setAttribute("dur",(2.4+i*.35)+"s");a.setAttribute("begin",(2.4+i*.3)+"s");a.setAttribute("repeatCount","indefinite");
+const o=document.createElementNS(ns,"set");o.setAttribute("attributeName","opacity");o.setAttribute("to","1");o.setAttribute("begin",(2.4+i*.3)+"s");
+cc.append(a,o);document.getElementById("traces").appendChild(cc)});
+
+const ty=document.getElementById("typed"),R=["PCB Design Engineer","Hardware Engineer","Embedded Systems Developer","PCB Design & Hardware Engineer"];let ri=0,ci=R[3].length,del=true;
+setTimeout(function tick(){const w=R[ri];if(del){ci--;if(ci<=0){del=false;ri=(ri+1)%R.length}}else{ci++;if(ci>=w.length)del=true}
+ty.textContent=R[ri].slice(0,Math.max(ci,0));setTimeout(tick,del&&ci>=R[ri].length?1600:del?35:70)},1800);
+
+const cn=document.getElementById("cnt");let on=false;
+new IntersectionObserver((es,ob)=>{if(es[0].isIntersecting&&!on){on=true;let n=0;const iv=setInterval(()=>{cn.textContent=++n;if(n>=5)clearInterval(iv)},180)}}).observe(cn)}
+})();
+</script>
+</body>
+</html>
