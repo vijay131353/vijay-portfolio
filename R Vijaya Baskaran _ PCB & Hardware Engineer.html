@@ -3,313 +3,3217 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>R Vijaya Baskaran | PCB & Hardware Engineer</title>
+<title>R. Vijaya Baskaran | Embedded Systems &amp; Hardware Engineer</title>
+<meta name="description" content="Portfolio of R. Vijaya Baskaran — Electronics and Communication Engineering student building embedded systems, IoT devices, sensor-based platforms, PCB designs, communication systems, and practical hardware prototypes.">
+<meta name="author" content="R. Vijaya Baskaran">
+<link rel="canonical" href="https://vijay-portfolio-nine-alpha.vercel.app/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vijay-portfolio-nine-alpha.vercel.app/">
+<meta property="og:title" content="R. Vijaya Baskaran | Embedded Systems &amp; Hardware Engineer">
+<meta property="og:description" content="ECE student building embedded systems, IoT devices, sensor platforms, PCB designs in KiCad, ESP32 firmware, and practical hardware prototypes.">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://vijay-portfolio-nine-alpha.vercel.app/">
+<meta name="twitter:title" content="R. Vijaya Baskaran | Embedded Systems &amp; Hardware Engineer">
+<meta name="twitter:description" content="ECE student building embedded systems, IoT devices, sensor platforms, PCB designs in KiCad, ESP32 firmware, and practical hardware prototypes.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B0E14'/%3E%3Crect x='8' y='8' width='16' height='16' rx='3' fill='%237C3AED'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23F59E0B'/%3E%3Cpath d='M4 16h4M24 16h4M16 4v4M16 24v4' stroke='%2338BDF8' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#F4F3F7;--surface:#fff;--ink:#1A1626;--muted:#5E5873;--line:#DAD6E4;--accent:#5B2A9E;--accent-ink:#fff;--gold:#B8901F;--board:#2B1850;--trace:#8C6BD0;
---head:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;--body:"IBM Plex Sans","Segoe UI",Arial,sans-serif;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#130F1D;--surface:#1D1730;--ink:#EFEBF8;--muted:#A9A1C0;--line:#352C50;--accent:#A98BEA;--accent-ink:#130F1D;--gold:#E0B83F;--board:#0D0918;--trace:#8C6BD0}}
-:root[data-theme="dark"]{--bg:#130F1D;--surface:#1D1730;--ink:#EFEBF8;--muted:#A9A1C0;--line:#352C50;--accent:#A98BEA;--accent-ink:#130F1D;--gold:#E0B83F;--board:#0D0918;--trace:#8C6BD0}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--body)}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
-.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
-.logo{font:700 18px var(--head);text-decoration:none;white-space:nowrap}
-.nav nav{display:flex;gap:4px;overflow-x:auto}
-.nav nav a{padding:6px 10px;border-radius:8px;text-decoration:none;font-size:14px;color:var(--muted);white-space:nowrap}
-.nav nav a:hover,.nav nav a.on{color:var(--ink);background:var(--line)}
-.tbtn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 10px;cursor:pointer;font:inherit;font-size:14px}
-section{padding:72px 0 8px}
-h2{font:700 clamp(26px,4vw,36px)/1.15 var(--head);margin:0 0 28px;letter-spacing:-.01em}
-h1{font:800 clamp(38px,7vw,68px)/1.02 var(--head);margin:0 0 16px;letter-spacing:-.02em}
-.hero{padding-top:48px}
-.hero .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:36px;align-items:center}
-.role{font:600 20px var(--head);color:var(--accent);margin:0 0 14px}
-.lead{color:var(--muted);max-width:52ch;margin:0 0 24px}
-.btns{display:flex;flex-wrap:wrap;gap:10px}
-.btn{display:inline-block;padding:11px 18px;border-radius:10px;text-decoration:none;font-weight:600;border:1px solid var(--accent)}
-.btn.p{background:var(--accent);color:var(--accent-ink)}
-.btn:hover{transform:translateY(-1px)}
-.board{background:var(--board);border-radius:18px;padding:14px;border:1px solid var(--line)}
-.board svg{width:100%;height:auto;display:block}
-.tr{fill:none;stroke:var(--trace);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:600;animation:draw 2.2s ease-out forwards}
-@keyframes draw{to{stroke-dashoffset:0}}
-.pad{fill:var(--gold);cursor:pointer;stroke:#0000;stroke-width:6;transition:r .15s}
-.pad:hover,.pad:focus,.pad.on{stroke:var(--gold);stroke-opacity:.35;outline:none}
-.pl{font:600 11px var(--body);fill:#CFC6E8;pointer-events:none}
-.chip{fill:#150D2B;stroke:var(--gold);stroke-width:1.5}
-.chipt{font:700 13px var(--head);fill:#EFEBF8}
-.readout{margin:10px 4px 2px;min-height:68px;color:#E4DDF5;font-size:14px}
-.readout b{color:var(--gold);font-family:var(--head);font-size:16px}
-.stats{display:flex;gap:28px;margin-top:30px;flex-wrap:wrap}
-.stats div{font-size:14px;color:var(--muted)}
-.stats strong{display:block;font:700 26px var(--head);color:var(--ink)}
-.about p{max-width:70ch;margin:0 0 14px;color:var(--muted)}
-.about p:first-child{color:var(--ink);font-size:18px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-.chips button{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer;font:inherit;font-size:14px}
-.chips button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
-.sk{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
-.sk h3{margin:0 0 10px;font:700 17px var(--head)}
-.sk ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-.sk li{font-size:13.5px;padding:3px 10px;border:1px solid var(--line);border-radius:6px;color:var(--muted)}
-.sk.dim{opacity:.3}
-.projects{display:grid;gap:14px}
-.proj{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.proj>button{all:unset;box-sizing:border-box;display:flex;width:100%;gap:16px;align-items:flex-start;justify-content:space-between;padding:20px 22px;cursor:pointer}
-.proj>button:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
-.proj h3{margin:0 0 4px;font:700 20px var(--head)}
-.proj .sum{margin:0;color:var(--muted);font-size:15px}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.tags span{font-size:12.5px;padding:2px 9px;border-radius:6px;background:var(--bg);border:1px solid var(--line)}
-.plus{font:600 24px/1 var(--head);color:var(--accent);transition:transform .25s}
-.proj.open .plus{transform:rotate(45deg)}
-.det{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}
-.proj.open .det{grid-template-rows:1fr}
-.det>div{overflow:hidden}
-.det ul{margin:0;padding:0 22px 20px 42px;color:var(--muted)}
-.det li{margin-bottom:6px}
-.tl{border-left:2px solid var(--line);margin-left:6px;padding-left:24px;display:grid;gap:22px}
-.tl article{position:relative}
-.tl article::before{content:"";position:absolute;left:-31px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
-.tl h3{margin:0;font:700 18px var(--head)}
-.tl p{margin:2px 0;color:var(--muted);font-size:15px}
-.score{display:inline-block;margin-top:4px;font-weight:600;color:var(--ink);background:var(--surface);border:1px solid var(--line);padding:2px 10px;border-radius:6px;font-size:14px}
-.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-.cert{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;padding:16px 18px}
-.cert h3{margin:0 0 4px;font:700 18px var(--head)}
-.cert p{margin:0;color:var(--muted)}
-.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-.ct{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;text-decoration:none;display:block}
-.ct small{display:block;color:var(--muted)}
-.ct span{font-weight:600;word-break:break-all}
-.ct:hover{border-color:var(--accent)}
-footer{padding:48px 0 40px;color:var(--muted);font-size:14px}
-@media (max-width:820px){.hero .grid{grid-template-columns:1fr}.nav nav a{padding:6px 8px}}
-@media (prefers-reduced-motion:reduce){.tr{animation:none;stroke-dashoffset:0}html{scroll-behavior:auto}.det,.plus{transition:none}}
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.85}
-.blob{position:fixed;z-index:0;pointer-events:none;border-radius:50%;filter:blur(90px);opacity:.22;background:var(--accent);width:44vmax;height:44vmax;animation:drift 26s ease-in-out infinite alternate}
-.blob.b2{background:var(--gold);opacity:.12;right:-12vmax;bottom:-14vmax;animation-duration:32s;animation-direction:alternate-reverse}
-.blob.b1{left:-14vmax;top:-12vmax}
-@keyframes drift{to{transform:translate(9vmax,6vmax) scale(1.15)}}
-main,footer{position:relative;z-index:1}
-#prog{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--gold));z-index:20}
-.caret{display:inline-block;width:2px;height:1em;background:var(--accent);margin-left:3px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.pad{stroke:var(--gold);stroke-opacity:0;animation:breathe 2.6s ease-in-out infinite}
-.pad:nth-of-type(2n){animation-delay:.9s}
-.pad:hover,.pad:focus,.pad.on{animation:none;stroke-opacity:.5}
-@keyframes breathe{50%{stroke-opacity:.4}}
-.board{transition:transform .18s ease-out;will-change:transform}
-.sk,.cert,.ct,.proj{background-image:radial-gradient(260px circle at var(--mx,-300px) var(--my,-300px),color-mix(in srgb,var(--accent) 18%,transparent),transparent 70%)}
-.sk,.cert,.proj{transition:border-color .2s}
-.sk:hover,.cert:hover,.proj:hover{border-color:var(--accent)}
-@media (prefers-reduced-motion:reduce){.blob,.caret,.pad{animation:none}.board{transition:none}}
+<style>
+:root {
+  --bg: #0B0E14;
+  --surface: #121722;
+  --card: #182030;
+  --card-hover: #1E283D;
+  --line: #26334D;
+  --line-light: #1A2336;
+  --ink: #F1F5F9;
+  --muted: #94A3B8;
+  --accent: #8B5CF6;
+  --accent-light: #A78BFA;
+  --accent-glow: rgba(139, 92, 246, 0.22);
+  --gold: #F59E0B;
+  --gold-glow: rgba(245, 158, 11, 0.2);
+  --cyan: #06B6D4;
+  --emerald: #10B981;
+  --rose: #F43F5E;
+  --board: #0E131F;
+  --trace: #7C3AED;
+  --head: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+  --mono: "JetBrains Mono", monospace;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+:root[data-theme="light"] {
+  --bg: #F8FAFC;
+  --surface: #FFFFFF;
+  --card: #F1F5F9;
+  --card-hover: #E2E8F0;
+  --line: #CBD5E1;
+  --line-light: #E2E8F0;
+  --ink: #0F172A;
+  --muted: #475569;
+  --accent: #6D28D9;
+  --accent-light: #7C3AED;
+  --accent-glow: rgba(109, 40, 217, 0.15);
+  --gold: #D97706;
+  --gold-glow: rgba(217, 119, 6, 0.15);
+  --cyan: #0891B2;
+  --emerald: #059669;
+  --rose: #E11D48;
+  --board: #1E1633;
+  --trace: #8B5CF6;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #F8FAFC;
+    --surface: #FFFFFF;
+    --card: #F1F5F9;
+    --card-hover: #E2E8F0;
+    --line: #CBD5E1;
+    --line-light: #E2E8F0;
+    --ink: #0F172A;
+    --muted: #475569;
+    --accent: #6D28D9;
+    --accent-light: #7C3AED;
+    --accent-glow: rgba(109, 40, 217, 0.15);
+    --gold: #D97706;
+    --gold-glow: rgba(217, 119, 6, 0.15);
+    --cyan: #0891B2;
+    --emerald: #059669;
+    --rose: #E11D48;
+    --board: #1E1633;
+    --trace: #8B5CF6;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(76px + env(safe-area-inset-top, 0px));
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.65 var(--body);
+  overflow-x: hidden;
+  position: relative;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Background animation */
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.ambient-blob {
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  width: 48vmax;
+  height: 48vmax;
+}
+.blob-1 {
+  background: var(--accent);
+  top: -15vmax;
+  left: -15vmax;
+}
+.blob-2 {
+  background: var(--cyan);
+  bottom: -15vmax;
+  right: -15vmax;
+  opacity: 0.1;
+}
+
+main, footer, header {
+  position: relative;
+  z-index: 1;
+}
+
+#scroll-progress {
+  position: fixed;
+  top: env(safe-area-inset-top, 0px);
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--cyan), var(--gold));
+  z-index: 100;
+  transition: width 0.1s ease-out;
+}
+
+/* Header & Nav */
+header.nav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.nav .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  gap: 16px;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo {
+  font: 700 18px/1.2 var(--head);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.logo-badge {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+  color: var(--accent-light);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  padding: 2px 7px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.logo-badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--emerald);
+  box-shadow: 0 0 6px var(--emerald);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-links a {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.nav-links a:hover, .nav-links a.on {
+  color: var(--ink);
+  background: var(--card);
+}
+
+.nav-links a.on {
+  border: 1px solid var(--line);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tbtn {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: 9px;
+  padding: 7px 12px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.tbtn:hover {
+  border-color: var(--accent);
+  background: var(--card);
+}
+
+.hamburger-btn {
+  display: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.hamburger-btn svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Mobile Drawer */
+.mobile-drawer {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 85vw);
+  background: var(--surface);
+  border-left: 1px solid var(--line);
+  z-index: 1000;
+  padding: 24px;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -10px 0 30px rgba(0,0,0,0.4);
+}
+
+.mobile-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.drawer-overlay.open {
+  opacity: 1;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.drawer-links a {
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  border: 1px solid transparent;
+}
+
+.drawer-links a:hover, .drawer-links a.on {
+  background: var(--card);
+  border-color: var(--line);
+}
+
+/* Headings & Sections */
+section {
+  padding: 84px 0 20px;
+}
+
+.section-head {
+  margin-bottom: 36px;
+}
+
+.section-tag {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+h1 {
+  font: 800 clamp(38px, 6.5vw, 64px)/1.04 var(--head);
+  margin: 0 0 16px;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+h2 {
+  font: 700 clamp(28px, 4vw, 40px)/1.12 var(--head);
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+h3 {
+  font: 700 clamp(19px, 2.5vw, 22px)/1.2 var(--head);
+  margin: 0 0 6px;
+  color: var(--ink);
+}
+
+.section-desc {
+  color: var(--muted);
+  font-size: 16px;
+  max-width: 65ch;
+  margin: 0;
+}
+
+/* Hero Section */
+.hero {
+  padding-top: 56px;
+  padding-bottom: 40px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  color: var(--accent-light);
+  margin-bottom: 18px;
+}
+
+.hero-role-wrapper {
+  min-height: 38px;
+  margin-bottom: 16px;
+}
+
+.hero-role {
+  font: 700 clamp(20px, 3vw, 28px)/1.2 var(--head);
+  color: var(--accent-light);
+}
+
+.caret {
+  display: inline-block;
+  width: 3px;
+  height: 1.1em;
+  background: var(--accent);
+  margin-left: 4px;
+  vertical-align: -3px;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.hero-lead {
+  font-size: 17px;
+  line-height: 1.68;
+  color: var(--muted);
+  max-width: 54ch;
+  margin: 0 0 28px;
+}
+
+.hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 34px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: 10px;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: 0 6px 20px var(--accent-glow);
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #FFFFFF;
+  border-color: var(--accent);
+}
+
+.btn.primary:hover {
+  background: var(--accent-light);
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.stat-item {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.stat-num {
+  display: block;
+  font: 800 24px/1 var(--head);
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+/* Interactive PCB Graphic Card */
+.pcb-board-card {
+  background: var(--board);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.pcb-board-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.08), transparent 70%);
+  pointer-events: none;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+.board-header span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.board-header .live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--emerald);
+  box-shadow: 0 0 8px var(--emerald);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.pcb-svg-wrapper {
+  width: 100%;
+}
+
+.pcb-svg-wrapper svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.tr {
+  fill: none;
+  stroke: var(--trace);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.pad {
+  fill: var(--gold);
+  cursor: pointer;
+  stroke: transparent;
+  stroke-width: 8;
+  transition: all 0.2s ease;
+}
+
+.pad:hover, .pad:focus, .pad.on {
+  stroke: var(--gold);
+  stroke-opacity: 0.45;
+  outline: none;
+}
+
+.pl {
+  font: 600 11px var(--mono);
+  fill: #E2E8F0;
+  pointer-events: none;
+}
+
+.chip {
+  fill: #110B24;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+}
+
+.chipt {
+  font: 800 14px var(--head);
+  fill: #FFFFFF;
+}
+
+.board-readout {
+  margin-top: 14px;
+  padding: 12px 14px;
+  background: color-mix(in srgb, var(--surface) 60%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  min-height: 72px;
+  color: var(--ink);
+  font-size: 13.5px;
+}
+
+.board-readout b {
+  color: var(--gold);
+  font-family: var(--head);
+  font-size: 15px;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.board-readout span {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* About Section */
+.about-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 36px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.about-p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.about-p.highlight {
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.lifecycle-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.step-card {
+  background: var(--card);
+  border: 1px solid var(--line-light);
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  position: relative;
+}
+
+.step-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent-light);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.step-name {
+  font: 700 13.5px var(--head);
+  color: var(--ink);
+}
+
+/* Filter Chips */
+.chips-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.chip-btn {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--muted);
+  padding: 7px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.chip-btn:hover {
+  color: var(--ink);
+  border-color: var(--accent);
+}
+
+.chip-btn[aria-pressed="true"] {
+  background: var(--accent);
+  color: #FFFFFF;
+  border-color: var(--accent);
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.skill-category-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.skill-category-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.skill-cat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.skill-cat-title {
+  font: 700 17px var(--head);
+  color: var(--ink);
+  margin: 0;
+}
+
+.skill-cat-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent-light);
+  background: var(--card);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.skill-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.skill-badge {
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--card);
+  border: 1px solid var(--line-light);
+  color: var(--muted);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.skill-category-card:hover .skill-badge {
+  color: var(--ink);
+}
+
+.skill-badge.highlight-badge {
+  border-color: color-mix(in srgb, var(--gold) 40%, transparent);
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+  color: var(--gold);
+  font-weight: 500;
+}
+
+/* Projects Section */
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Flagship Featured Project Card */
+.flagship-card {
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  border-radius: 20px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 40px var(--accent-glow);
+}
+
+.flagship-ribbon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--accent);
+  color: #FFFFFF;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.flagship-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.project-status-badge {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.status-working {
+  background: color-mix(in srgb, var(--emerald) 15%, transparent);
+  color: var(--emerald);
+  border: 1px solid color-mix(in srgb, var(--emerald) 35%, transparent);
+}
+
+.status-pcb {
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+  color: var(--accent-light);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.status-dev {
+  background: color-mix(in srgb, var(--gold) 15%, transparent);
+  color: var(--gold);
+  border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+}
+
+.status-exp {
+  background: color-mix(in srgb, var(--cyan) 15%, transparent);
+  color: var(--cyan);
+  border: 1px solid color-mix(in srgb, var(--cyan) 35%, transparent);
+}
+
+.status-academic {
+  background: color-mix(in srgb, var(--muted) 15%, transparent);
+  color: var(--muted);
+  border: 1px solid var(--line);
+}
+
+.flagship-lead {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 78ch;
+  margin-bottom: 24px;
+}
+
+/* Seismic Live Simulator Display */
+.seismic-simulator {
+  background: #080C14;
+  border: 1px solid #1E293B;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 24px;
+}
+
+.sim-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #1E293B;
+}
+
+.sim-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sim-title {
+  font-family: var(--head);
+  font-weight: 700;
+  font-size: 15px;
+  color: #F8FAFC;
+}
+
+.sim-ap-badge {
+  font-family: var(--mono);
+  font-size: 11px;
+  background: #1E293B;
+  color: #38BDF8;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #334155;
+}
+
+.sim-telemetry-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.telem-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #94A3B8;
+}
+
+.telem-pill strong {
+  color: #F8FAFC;
+}
+
+.telem-pill.status-pill {
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.telem-pill.status-pill.normal {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.telem-pill.status-pill.warning {
+  background: rgba(245, 158, 11, 0.25);
+  color: #FBBF24;
+  border: 1px solid rgba(245, 158, 11, 0.5);
+}
+
+.telem-pill.status-pill.high {
+  background: rgba(239, 68, 68, 0.3);
+  color: #F87171;
+  border: 1px solid rgba(239, 68, 68, 0.6);
+  animation: shake 0.3s infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+.sd-pulse-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #94A3B8;
+}
+
+.sd-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38BDF8;
+  transition: opacity 0.1s;
+}
+
+.seismic-canvas-container {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background: #05070D;
+  border-radius: 8px;
+  border: 1px solid #1E293B;
+  overflow: hidden;
+}
+
+#seismic-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.canvas-legend {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  display: flex;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  pointer-events: none;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sim-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sim-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sim-btn {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #1E293B;
+  color: #F1F5F9;
+  border: 1px solid #334155;
+  transition: all 0.15s ease;
+}
+
+.sim-btn:hover {
+  background: #334155;
+  border-color: #38BDF8;
+}
+
+.sim-btn.active {
+  background: #7C3AED;
+  border-color: #A78BFA;
+  color: #FFFFFF;
+}
+
+.sim-disclaimer {
+  font-size: 11.5px;
+  color: #64748B;
+  font-style: italic;
+}
+
+/* Standard Project Card */
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.project-main-header {
+  padding: 24px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+}
+
+.project-main-header:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+}
+
+.project-title-area {
+  flex: 1;
+}
+
+.project-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.project-category-tag {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--accent-light);
+  font-weight: 500;
+}
+
+.project-summary {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tech-tag {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: var(--card);
+  border: 1px solid var(--line-light);
+  color: var(--muted);
+}
+
+.expand-toggle {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-light);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.project-card.open .expand-toggle {
+  background: var(--accent);
+  color: #FFFFFF;
+  border-color: var(--accent);
+}
+
+.expand-toggle svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.25s ease;
+}
+
+.project-card.open .expand-toggle svg {
+  transform: rotate(180deg);
+}
+
+/* Collapsible Detailed Drawer */
+.project-details-drawer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  border-top: 0px solid var(--line);
+}
+
+.project-card.open .project-details-drawer {
+  grid-template-rows: 1fr;
+  border-top-width: 1px;
+}
+
+.drawer-inner {
+  overflow: hidden;
+}
+
+.drawer-content {
+  padding: 24px 28px 28px;
+  background: color-mix(in srgb, var(--card) 45%, transparent);
+}
+
+/* Technical Details Layout */
+.tech-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.detail-block {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.detail-block-title {
+  font: 700 14px var(--head);
+  color: var(--ink);
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.detail-block-title svg {
+  width: 16px;
+  height: 16px;
+  color: var(--accent);
+}
+
+.detail-list {
+  margin: 0;
+  padding: 0 0 0 18px;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.detail-list li {
+  margin-bottom: 6px;
+}
+
+.pin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.pin-table th {
+  text-align: left;
+  padding: 6px 8px;
+  background: var(--card);
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+.pin-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--line-light);
+  color: var(--muted);
+}
+
+.pin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.workflow-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.wf-step {
+  padding: 4px 10px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+}
+
+.wf-arrow {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.honest-box {
+  background: color-mix(in srgb, var(--gold) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent);
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  color: var(--ink);
+  margin-top: 14px;
+}
+
+.honest-box strong {
+  color: var(--gold);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Education & Certs */
+.timeline {
+  border-left: 2px solid var(--line);
+  margin-left: 10px;
+  padding-left: 28px;
+  display: grid;
+  gap: 28px;
+}
+
+.tl-item {
+  position: relative;
+}
+
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: -35px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.tl-date {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent-light);
+  margin-bottom: 4px;
+}
+
+.tl-score {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 3px 12px;
+  border-radius: 6px;
+}
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.cert-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 22px;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+}
+
+/* Contact Section */
+.cta-banner {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 15%, transparent), color-mix(in srgb, var(--cyan) 10%, transparent));
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.cta-banner h2 {
+  margin-bottom: 12px;
+}
+
+.cta-banner p {
+  color: var(--muted);
+  max-width: 58ch;
+  margin: 0 auto 24px;
+  font-size: 17px;
+}
+
+.contact-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.contact-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.15s ease;
+}
+
+.contact-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--accent-glow);
+}
+
+.contact-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-light);
+  flex-shrink: 0;
+}
+
+.contact-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.contact-info small {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+
+.contact-info span {
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--ink);
+  word-break: break-all;
+}
+
+.clipboard-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+#copy-toast {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--emerald);
+  min-height: 20px;
+}
+
+/* Footer */
+footer {
+  padding: 60px 0 40px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  color: var(--muted);
+}
+
+.footer-nav a:hover {
+  color: var(--ink);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 960px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .pcb-board-card {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 820px) {
+  .nav-links {
+    display: none;
+  }
+  .hamburger-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-drawer {
+    display: flex;
+  }
+  .drawer-overlay {
+    display: block;
+  }
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .flagship-card {
+    padding: 22px;
+  }
+  .cta-banner {
+    padding: 28px 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .wrap {
+    padding: 0 16px;
+  }
+  section {
+    padding: 64px 0 16px;
+  }
+  .project-main-header {
+    padding: 20px 18px;
+  }
+  .drawer-content {
+    padding: 18px;
+  }
+  .hero-btns {
+    flex-direction: column;
+  }
+  .hero-btns .btn {
+    width: 100%;
+  }
+  .sim-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  #bg-canvas {
+    display: none;
+  }
+}
 </style>
 </head>
 <body>
-<div class="blob b1"></div><div class="blob b2"></div><canvas id="bg" aria-hidden="true"></canvas><div id="prog"></div>
-<header class="nav"><div class="wrap">
-<a class="logo" href="#top">R. Vijaya Baskaran</a>
-<nav aria-label="Sections"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#certs">Certifications</a><a href="#contact">Contact</a></nav>
-<button class="tbtn" id="theme" aria-label="Toggle light or dark theme">Theme</button>
-</div></header>
 
-<main id="top">
-<section class="hero"><div class="wrap grid">
-<div>
-<h1>R Vijaya Baskaran</h1>
-<p class="role"><span id="typed">PCB Design &amp; Hardware Engineer</span><span class="caret"></span></p>
-<p class="lead">ECE student in Chennai who designs reliable embedded hardware: schematics and PCB layouts in KiCad, ESP32 firmware, and hands-on debugging at the bench.</p>
-<div class="btns"><a class="btn p" href="#projects">View projects</a><a class="btn" href="#contact">Get in touch</a></div>
-<div class="stats"><div><strong id="cnt">5</strong>hardware projects</div><div><strong>KiCad</strong>schematic to layout</div><div><strong>ESP32</strong>main platform</div></div>
-</div>
-<div class="board">
-<svg viewBox="0 0 480 300" role="img" aria-label="Interactive PCB. Select a pad to see where each skill was used.">
-<rect x="150" y="85" width="180" height="130" rx="8" class="chip"/>
-<text x="240" y="145" text-anchor="middle" class="chipt">ESP32</text>
-<text x="240" y="164" text-anchor="middle" class="pl">select a pad</text>
-<g id="traces">
-<path class="tr" d="M150 110H90V50H40"/><path class="tr" d="M150 140H60V110H40" style="animation-delay:.2s"/>
-<path class="tr" d="M150 170H70V210H40" style="animation-delay:.4s"/><path class="tr" d="M150 200H100V255H40" style="animation-delay:.6s"/>
-<path class="tr" d="M330 110H390V50H440" style="animation-delay:.3s"/><path class="tr" d="M330 150H420V150H440" style="animation-delay:.5s"/>
-<path class="tr" d="M330 190H380V255H440" style="animation-delay:.7s"/>
-</g>
-<g id="pads">
-<circle class="pad" tabindex="0" role="button" data-k="I2C" cx="40" cy="50" r="9"/><text class="pl" x="40" y="32" text-anchor="middle">I2C</text>
-<circle class="pad" tabindex="0" role="button" data-k="UART" cx="40" cy="110" r="9"/><text class="pl" x="40" y="130" text-anchor="middle">UART</text>
-<circle class="pad" tabindex="0" role="button" data-k="SPI" cx="40" cy="210" r="9"/><text class="pl" x="40" y="230" text-anchor="middle">SPI</text>
-<circle class="pad" tabindex="0" role="button" data-k="GND" cx="40" cy="255" r="9"/><text class="pl" x="40" y="277" text-anchor="middle">GND</text>
-<circle class="pad" tabindex="0" role="button" data-k="WIFI" cx="440" cy="50" r="9"/><text class="pl" x="440" y="32" text-anchor="middle">Wi-Fi</text>
-<circle class="pad" tabindex="0" role="button" data-k="SENS" cx="440" cy="150" r="9"/><text class="pl" x="440" y="130" text-anchor="middle">Sensors</text>
-<circle class="pad" tabindex="0" role="button" data-k="PWR" cx="440" cy="255" r="9"/><text class="pl" x="440" y="277" text-anchor="middle">Power</text>
-</g>
-</svg>
-<div class="readout" id="readout" aria-live="polite"><b>Hover or tap a pad</b><br>Each pad is a skill from my projects.</div>
-</div>
-</div></section>
+<div class="ambient-blob blob-1" aria-hidden="true"></div>
+<div class="ambient-blob blob-2" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+<div id="scroll-progress"></div>
 
-<section id="about" class="about"><div class="wrap">
-<h2>About</h2>
-<p>I'm pursuing a Bachelor's in Electronics and Communication Engineering, with design and development experience in embedded systems and hardware.</p>
-<p>I design schematics and PCB layouts in KiCad and debug hardware at the circuit level. My work includes custom ESP32 boards, IoT gas detectors, smart crop monitoring, underwater laser communication, and VHF-UHF based airport communication systems.</p>
-<p>I care about building reliable hardware, and I'm looking for a role as a PCB Design Engineer or Hardware Engineer.</p>
-</div></section>
+<!-- Mobile Navigation Drawer -->
+<div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+<aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation" aria-hidden="true">
+  <div class="drawer-header">
+    <span class="logo">R. Vijaya Baskaran</span>
+    <button class="tbtn" id="close-drawer" aria-label="Close navigation menu">✕</button>
+  </div>
+  <nav class="drawer-links" id="drawer-nav">
+    <a href="#top" class="drawer-link">Home</a>
+    <a href="#about" class="drawer-link">About</a>
+    <a href="#skills" class="drawer-link">Skills</a>
+    <a href="#projects" class="drawer-link">Projects</a>
+    <a href="#education" class="drawer-link">Education</a>
+    <a href="#certs" class="drawer-link">Certifications</a>
+    <a href="#contact" class="drawer-link">Contact</a>
+  </nav>
+</aside>
 
-<section id="skills"><div class="wrap">
-<h2>Skills</h2>
-<div class="chips" id="skfilter" role="group" aria-label="Filter skills"></div>
-<div class="skills" id="skills-grid"></div>
-</div></section>
+<!-- Header & Sticky Nav -->
+<header class="nav">
+  <div class="wrap">
+    <a class="logo-group" href="#top" aria-label="R. Vijaya Baskaran - Back to top">
+      <span class="logo">R. Vijaya Baskaran</span>
+      <span class="logo-badge">ECE · Embedded</span>
+    </a>
 
-<section id="projects"><div class="wrap">
-<h2>Projects</h2>
-<div class="chips" id="pfilter" role="group" aria-label="Filter projects"></div>
-<div class="projects" id="plist"></div>
-</div></section>
+    <nav class="nav-links" aria-label="Main Navigation">
+      <a href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#certs">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-<section id="education"><div class="wrap">
-<h2>Education</h2>
-<div class="tl">
-<article><h3>Bachelor's Degree in Electronics and Communication Engineering</h3><p>St. Joseph College of Engineering, Chennai</p><p>09/2023 to present</p><span class="score">CGPA 7.4 / 10</span></article>
-<article><h3>Senior Secondary (XII), Computer Science</h3><p>St Thresa's Matric Hr Sec School, Chennai</p><p>06/2022 to 05/2023</p><span class="score">65 / 100</span></article>
-</div>
-</div></section>
+    <div class="nav-actions">
+      <button class="tbtn" id="theme-btn" aria-label="Toggle color theme" title="Toggle color theme">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <span id="theme-label">Theme</span>
+      </button>
 
-<section id="certs"><div class="wrap">
-<h2>Certifications</h2>
-<div class="certs">
-<div class="cert"><h3>Altium Education</h3><p>PCB Basics</p></div>
-<div class="cert"><h3>GUVI (HCL)</h3><p>PCB Design using EasyEDA</p></div>
-</div>
-</div></section>
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
 
-<section id="contact"><div class="wrap">
-<h2>Contact</h2>
-<div class="contact">
-<a class="ct" href="mailto:vijaybaskaran117@gmail.com"><small>Email</small><span>vijaybaskaran117@gmail.com</span></a>
-<a class="ct" href="tel:+918072131353"><small>Phone</small><span>+91 8072131353</span></a>
-<a class="ct" href="https://www.linkedin.com/in/vijaya-baskaran/" target="_blank" rel="noopener"><small>LinkedIn</small><span>in/vijaya-baskaran</span></a>
-</div>
-<p style="margin-top:16px"><button class="tbtn" id="copy">Copy email address</button> <span id="cmsg" aria-live="polite" style="color:var(--muted);font-size:14px;margin-left:8px"></span></p>
-</div></section>
+<main>
+
+  <!-- Hero Section -->
+  <section id="top" class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--emerald);"></span>
+          Hardware &amp; Firmware Engineer
+        </div>
+        <h1>R. Vijaya Baskaran</h1>
+        
+        <div class="hero-role-wrapper">
+          <span class="hero-role" id="typed-role">Embedded Systems &amp; Hardware Engineer</span><span class="caret" aria-hidden="true"></span>
+        </div>
+
+        <p class="hero-lead">
+          Electronics and Communication Engineering student building embedded systems, IoT devices, sensor-based platforms, PCB designs, communication systems, and practical hardware prototypes.
+        </p>
+
+        <div class="hero-btns">
+          <a class="btn primary" href="#projects">
+            <span>View Projects</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <a class="btn" href="https://github.com/vijay131353" target="_blank" rel="noopener noreferrer">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub</span>
+          </a>
+          <a class="btn" href="#contact">Contact Me</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <strong class="stat-num" id="stat-count">10</strong>
+            Hardware &amp; Embedded Projects
+          </div>
+          <div class="stat-item">
+            <strong class="stat-num">KiCad</strong>
+            Schematics &amp; PCB Layout
+          </div>
+          <div class="stat-item">
+            <strong class="stat-num">ESP32</strong>
+            Firmware &amp; RTOS Architecture
+          </div>
+          <div class="stat-item">
+            <strong class="stat-num">LTspice</strong>
+            Circuit Simulation &amp; Analysis
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive PCB Hero Card -->
+      <div class="pcb-board-card" id="pcb-card">
+        <div class="board-header">
+          <span><span class="live-dot"></span> ESP32 INTERACTIVE PIN BUS</span>
+          <span>SELECT A PAD</span>
+        </div>
+
+        <div class="pcb-svg-wrapper">
+          <svg viewBox="0 0 480 300" role="img" aria-label="Interactive ESP32 PCB diagram. Hover or tap a pad to inspect hardware protocol details.">
+            <!-- Central MCU -->
+            <rect x="150" y="85" width="180" height="130" rx="8" class="chip"/>
+            <text x="240" y="145" text-anchor="middle" class="chipt">ESP32 DevKit</text>
+            <text x="240" y="165" text-anchor="middle" class="pl" fill="#A78BFA">Dual Xtensa LX6</text>
+
+            <!-- PCB Traces -->
+            <g id="pcb-traces">
+              <path class="tr" d="M150 110H90V50H40"/>
+              <path class="tr" d="M150 140H60V110H40"/>
+              <path class="tr" d="M150 170H70V210H40"/>
+              <path class="tr" d="M150 200H100V255H40"/>
+              <path class="tr" d="M330 110H390V50H440"/>
+              <path class="tr" d="M330 150H420V150H440"/>
+              <path class="tr" d="M330 190H380V255H440"/>
+            </g>
+
+            <!-- Interactive Pads -->
+            <g id="pcb-pads">
+              <!-- Left Side -->
+              <circle class="pad" tabindex="0" role="button" data-net="I2C" cx="40" cy="50" r="10" aria-label="I2C Bus Pad"/>
+              <text class="pl" x="40" y="30" text-anchor="middle">I2C</text>
+
+              <circle class="pad" tabindex="0" role="button" data-net="UART" cx="40" cy="110" r="10" aria-label="UART Serial Pad"/>
+              <text class="pl" x="40" y="90" text-anchor="middle">UART</text>
+
+              <circle class="pad" tabindex="0" role="button" data-net="SPI" cx="40" cy="210" r="10" aria-label="SPI Bus Pad"/>
+              <text class="pl" x="40" y="190" text-anchor="middle">SPI</text>
+
+              <circle class="pad" tabindex="0" role="button" data-net="GND" cx="40" cy="255" r="10" aria-label="Ground Plane Pad"/>
+              <text class="pl" x="40" y="280" text-anchor="middle">GND</text>
+
+              <!-- Right Side -->
+              <circle class="pad" tabindex="0" role="button" data-net="WIFI" cx="440" cy="50" r="10" aria-label="Wi-Fi AP Pad"/>
+              <text class="pl" x="440" y="30" text-anchor="middle">Wi-Fi</text>
+
+              <circle class="pad" tabindex="0" role="button" data-net="SENS" cx="440" cy="150" r="10" aria-label="Sensors Interfacing Pad"/>
+              <text class="pl" x="440" y="130" text-anchor="middle">Sensors</text>
+
+              <circle class="pad" tabindex="0" role="button" data-net="PWR" cx="440" cy="255" r="10" aria-label="Power Rail Pad"/>
+              <text class="pl" x="440" y="280" text-anchor="middle">Power</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="board-readout" id="board-readout" aria-live="polite">
+          <b>Hover or tap an interactive pad</b>
+          <span>Each pad highlights how that hardware interface, bus, or protocol was engineered across my projects.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">Engineering Discipline</span>
+        <h2>About Me</h2>
+        <p class="section-desc">Taking hardware concepts from first principles to validated physical prototypes.</p>
+      </div>
+
+      <div class="about-card">
+        <p class="about-p highlight">
+          I am an Electronics and Communication Engineering student at St. Joseph College of Engineering, Chennai, dedicated to embedded systems, PCB engineering, and hardware prototyping.
+        </p>
+        <p class="about-p">
+          My engineering work centers on taking technical ideas through the full hardware lifecycle: from mathematical and circuit simulation in LTspice, schematic capture and PCB layout in KiCad, to bench breadboarding, SMD soldering, and writing bare-metal or RTOS firmware in Embedded C/C++.
+        </p>
+        <p class="about-p">
+          Rather than building purely digital abstractions, I spend my time at the bench: verifying sensor timings with logic analyzers, calibrating analog signals from accelerometers and gas sensors, designing low-noise power rails, and deploying local Wi-Fi web dashboards on the ESP32. I am actively seeking opportunities in Embedded Systems, IoT, PCB Design, and Hardware Engineering.
+        </p>
+
+        <div class="lifecycle-steps" aria-label="Engineering Lifecycle Workflow">
+          <div class="step-card">
+            <div class="step-num">01</div>
+            <div class="step-name">Concept</div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">02</div>
+            <div class="step-name">Circuit / Sim</div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">03</div>
+            <div class="step-name">Schematic</div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">04</div>
+            <div class="step-name">PCB Layout</div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">05</div>
+            <div class="step-name">Firmware</div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">06</div>
+            <div class="step-name">Integration</div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">07</div>
+            <div class="step-name">Bench Testing</div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">08</div>
+            <div class="step-name">Working System</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">Technical Competencies</span>
+        <h2>Engineering Skills</h2>
+        <p class="section-desc">Practical competencies demonstrated across real hardware prototypes and firmware codebases.</p>
+      </div>
+
+      <div class="chips-filter" id="skills-filter" role="group" aria-label="Filter skills by domain"></div>
+
+      <div class="skills-grid" id="skills-grid"></div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">Hardware &amp; Firmware Portfolio</span>
+        <h2>Engineering Projects</h2>
+        <p class="section-desc">Comprehensive case studies demonstrating circuit design, sensor interfacing, embedded firmware, and real-time monitoring.</p>
+      </div>
+
+      <div class="chips-filter" id="projects-filter" role="group" aria-label="Filter projects by domain"></div>
+
+      <div class="projects-container" id="projects-list">
+        <!-- Projects populated dynamically by script -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="education-section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">Academic Background</span>
+        <h2>Education</h2>
+        <p class="section-desc">Undergraduate studies in electronics, communications, and computational systems.</p>
+      </div>
+
+      <div class="timeline">
+        <article class="tl-item">
+          <div class="tl-date">09/2023 – Present · Chennai, India</div>
+          <h3>Bachelor of Engineering in Electronics and Communication Engineering</h3>
+          <p style="color:var(--muted);margin:4px 0 8px;">St. Joseph College of Engineering, Chennai</p>
+          <span class="tl-score">CGPA: 7.4 / 10</span>
+        </article>
+
+        <article class="tl-item">
+          <div class="tl-date">06/2022 – 05/2023 · Chennai, India</div>
+          <h3>Senior Secondary (Class XII) — Computer Science</h3>
+          <p style="color:var(--muted);margin:4px 0 8px;">St Thresa's Matriculation Higher Secondary School, Chennai</p>
+          <span class="tl-score">Score: 65 / 100</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certs" class="certs-section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">Industry Training</span>
+        <h2>Certifications</h2>
+        <p class="section-desc">Focused credentials in printed circuit board design and EDA workflows.</p>
+      </div>
+
+      <div class="certs-grid">
+        <div class="cert-card">
+          <div style="font-family:var(--mono);font-size:12px;color:var(--gold);margin-bottom:6px;">Altium Education</div>
+          <h3>PCB Basics</h3>
+          <p style="color:var(--muted);margin:0;font-size:14px;">Fundamentals of printed circuit design, layer stackup principles, schematic-to-board workflow, component footprints, and manufacturing outputs.</p>
+        </div>
+
+        <div class="cert-card">
+          <div style="font-family:var(--mono);font-size:12px;color:var(--gold);margin-bottom:6px;">GUVI (HCL)</div>
+          <h3>PCB Design using EasyEDA</h3>
+          <p style="color:var(--muted);margin:0;font-size:14px;">Schematic capture, board outline definition, routing constraints, design rule checking, and Gerber export for rapid electronic hardware prototyping.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="wrap">
+      <div class="cta-banner">
+        <h2>Let's Build Something Together</h2>
+        <p>I am actively seeking Embedded Systems, Hardware Engineering, IoT, and PCB Design internships and engineering roles. Reach out for collaborations or project evaluations.</p>
+        
+        <div class="contact-cards-grid">
+          <a class="contact-card" href="mailto:vijaybaskaran117@gmail.com">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-info">
+              <small>Email</small>
+              <span>vijaybaskaran117@gmail.com</span>
+            </div>
+          </a>
+
+          <a class="contact-card" href="tel:+918072131353">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="contact-info">
+              <small>Phone / WhatsApp</small>
+              <span>+91 8072131353</span>
+            </div>
+          </a>
+
+          <a class="contact-card" href="https://www.linkedin.com/in/vijaya-baskaran/" target="_blank" rel="noopener noreferrer">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </div>
+            <div class="contact-info">
+              <small>LinkedIn</small>
+              <span>in/vijaya-baskaran</span>
+            </div>
+          </a>
+
+          <a class="contact-card" href="https://github.com/vijay131353" target="_blank" rel="noopener noreferrer">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </div>
+            <div class="contact-info">
+              <small>GitHub Profile</small>
+              <span>github.com/vijay131353</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="clipboard-action-bar">
+          <button class="tbtn" id="copy-email-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Copy Email Address</span>
+          </button>
+          <span id="copy-toast" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
-<footer><div class="wrap">R Vijaya Baskaran &middot; Chennai, India</div></footer>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap footer-content">
+    <div>
+      <strong>R. Vijaya Baskaran</strong> &middot; Chennai, Tamil Nadu, India
+      <div style="font-size:12.5px;color:var(--muted);margin-top:2px;">Circuit &bull; PCB &bull; Microcontroller &bull; Firmware &bull; Sensors &bull; Web Interface</div>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer Navigation">
+      <a href="#top">Top</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#certs">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
 
 <script>
-const NETS={
-I2C:["I2C","Drove a 16\u00d72 I2C LCD from the ESP32 in the Smart Crop Monitoring System."],
-UART:["UART","Serial communication, one of the protocols I use across ESP32 projects."],
-SPI:["SPI","Sensor and peripheral interfacing over SPI on ESP32 designs."],
-GND:["Grounding","Grounding, copper pours and decoupling capacitors on the Custom ESP32 Sensor Board."],
-WIFI:["Wi-Fi","Sent live gas readings and alerts to Blynk from the IoT Gas Detection Alert System."],
-SENS:["Sensor interfacing","DHT, ultrasonic, LDR, gas (MQ-2) and PIR sensors with threshold-based monitoring."],
-PWR:["Power distribution","Power distribution and trace-width selection on the Custom ESP32 Sensor Board."]};
-const ro=document.getElementById("readout");
-document.querySelectorAll(".pad").forEach(p=>{
-const show=()=>{document.querySelectorAll(".pad").forEach(x=>x.classList.remove("on"));p.classList.add("on");const n=NETS[p.dataset.k];ro.innerHTML="<b></b><br><span></span>";ro.firstChild.textContent=n[0];ro.lastChild.textContent=n[1]};
-p.addEventListener("mouseenter",show);p.addEventListener("focus",show);p.addEventListener("click",show);
-p.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();show()}})});
+/**
+ * R. Vijaya Baskaran - Embedded Systems & Hardware Engineering Portfolio
+ * Pure vanilla JavaScript - Zero dependencies, high performance, fully accessible
+ */
 
-const SK=[
-["PCB Design","Intermediate PCB Designer",["KiCad","Schematic Design","PCB Layout","Routing","Footprint Creation"]],
-["Embedded","Embedded Systems",["ESP32","Arduino IDE","Embedded C","Sensor Interfacing"]],
-["PCB Design","PCB Fundamentals",["Grounding","Vias","Trace Width","Copper Pour","DRC"]],
-["Embedded","Communication",["I2C","UART","Wi-Fi","SPI"]],
-["Tools","Software",["KiCad","EasyEDA","LTspice"]],
-["Tools","Hardware",["Soldering","Circuit Debugging","Component Selection"]]];
-function chips(id,list,cb){const box=document.getElementById(id);let cur="All";
-const draw=()=>{box.innerHTML="";["All",...list].forEach(l=>{const b=document.createElement("button");b.textContent=l;b.setAttribute("aria-pressed",l===cur);b.onclick=()=>{cur=l;draw();cb(l)};box.appendChild(b)})};draw()}
-const sg=document.getElementById("skills-grid");
-SK.forEach(([cat,title,items])=>{const d=document.createElement("div");d.className="sk";d.dataset.c=cat;d.innerHTML="<h3></h3><ul></ul>";d.firstChild.textContent=title;items.forEach(i=>{const li=document.createElement("li");li.textContent=i;d.lastChild.appendChild(li)});sg.appendChild(d)});
-chips("skfilter",["PCB Design","Embedded","Tools"],f=>sg.querySelectorAll(".sk").forEach(s=>s.classList.toggle("dim",f!=="All"&&s.dataset.c!==f)));
+// --- 1. INTERACTIVE HERO PCB BUS DEFINITIONS ---
+const NET_DEFINITIONS = {
+  I2C: [
+    "I2C Serial Bus (GPIO21 / GPIO22)",
+    "Inter-Integrated Circuit 2-wire serial bus configured at 100 kHz standard / 400 kHz fast mode. Interfaced with MPU6050 6-DOF IMU, MLX90640 32x24 Far-Infrared sensor array, and 16x2 character displays."
+  ],
+  UART: [
+    "UART Hardware Serial (GPIO16 / GPIO17)",
+    "Asynchronous full-duplex serial communication. Engineered hardware UART2 for GPS NMEA sentence parsing via TinyGPS++ and LD2410C 24GHz mmWave radar target configuration."
+  ],
+  SPI: [
+    "SPI High-Speed Bus (GPIO18 / 19 / 23 / 5)",
+    "Serial Peripheral Interface clocking up to 20 MHz. Implemented SPI bus communication to interface FAT32 formatted MicroSD card modules for high-frequency CSV vibration logging."
+  ],
+  GND: [
+    "Low-Impedance Grounding & Copper Pours",
+    "Comprehensive ground planes and copper pours with stitching vias on 2-layer KiCad boards to eliminate ground loops and minimize high-frequency return path inductance."
+  ],
+  WIFI: [
+    "Wi-Fi Telemetry & AP Mode (802.11 b/g/n)",
+    "Configured the ESP32 as a standalone Wi-Fi Access Point (SSID: ESP32-SEISMOGRAPH, IP: 192.168.4.1) serving asynchronous HTML5/JS telemetry dashboards with zero external internet dependencies."
+  ],
+  SENS: [
+    "Multi-Sensor Signal Conditioning & Acquisition",
+    "Analog and digital signal acquisition across MPU6050 accelerometers, MQ-2 gas sensors, mmWave presence radar, DHT temperature/humidity sensors, and ultrasonic transceivers."
+  ],
+  PWR: [
+    "Power Distribution & LDO Regulation",
+    "Clean 5V-to-3.3V low-dropout voltage regulation with electrolytic and ceramic bulk decoupling capacitors to prevent brownout resets during peak Wi-Fi radio transmissions."
+  ]
+};
 
-const PR=[
-{t:"Custom ESP32 Sensor Board",c:"PCB Design",s:"A custom ESP32-based PCB for temperature and gas sensing with integrated power and sensor interfaces.",g:["KiCad","ESP32","PCB Design"],d:["Created the schematic, component footprints, net connections, PCB layout, and routing using KiCad.","Implemented power distribution, sensor interfaces, grounding, decoupling capacitors, and connector placement for reliable operation.","Applied PCB design practices including trace-width selection, copper pours, vias, and design-rule checking before fabrication."]},
-{t:"IoT Gas Detection Alert System",c:"IoT",s:"An IoT-enabled system that monitors hazardous gas levels and sends remote alerts.",g:["ESP32","MQ-2","Blynk"],d:["Interfaced an MQ-2 gas sensor with ESP32 for continuous gas-level measurement and threshold detection.","Developed firmware to process sensor readings and transmit real-time status information through Wi-Fi.","Integrated Blynk for remote monitoring and alert notification through a mobile interface."]},
-{t:"Smart Crop Monitoring System",c:"IoT",s:"An IoT-based agricultural system that continuously monitors environmental and field conditions.",g:["ESP32","IoT","Sensors","Wokwi"],d:["Integrated DHT, ultrasonic, LDR, gas, and PIR sensors with an ESP32 and 16\u00d72 I2C LCD.","Implemented sensor data acquisition and threshold-based monitoring using embedded C/C++.","Developed and validated the system logic using Wokwi simulation for real-time parameter monitoring."]},
-{t:"Airport Runway Communication Safety System",c:"Communication",s:"A prototype for wireless communication and safety monitoring between airport ground units.",g:["ESP32","RF","Sensors"],d:["Integrated an ESP32 with wireless communication and sensors to monitor runway-area conditions and transmit status information.","Implemented sensor acquisition, threshold-based event detection, and wireless data transmission using embedded firmware.","Designed the system architecture to provide real-time safety-status information to a remote monitoring unit."]},
-{t:"Underwater Laser Communication System",c:"Communication",s:"A prototype optical link for sending digital information through an underwater channel.",g:["Laser","Photodiode","Embedded Systems"],d:["Developed transmitter and receiver sections using a laser source and photodiode for optical data transmission.","Studied the effects of water attenuation, alignment, and noise on communication performance.","Demonstrated wireless data transfer through a simulated underwater communication environment."]}];
-const pl=document.getElementById("plist");
-PR.forEach((p,i)=>{const a=document.createElement("article");a.className="proj";a.dataset.c=p.c;
-a.innerHTML='<button aria-expanded="false" aria-controls="d'+i+'"><div><h3></h3><p class="sum"></p><div class="tags"></div></div><span class="plus" aria-hidden="true">+</span></button><div class="det" id="d'+i+'"><div><ul></ul></div></div>';
-const b=a.querySelector("button");a.querySelector("h3").textContent=p.t;a.querySelector(".sum").textContent=p.s;
-p.g.forEach(x=>{const s=document.createElement("span");s.textContent=x;a.querySelector(".tags").appendChild(s)});
-p.d.forEach(x=>{const li=document.createElement("li");li.textContent=x;a.querySelector("ul").appendChild(li)});
-b.onclick=()=>{const o=a.classList.toggle("open");b.setAttribute("aria-expanded",o)};pl.appendChild(a)});
-chips("pfilter",["PCB Design","IoT","Communication"],f=>pl.querySelectorAll(".proj").forEach(a=>a.hidden=f!=="All"&&a.dataset.c!==f));
+// Wire up PCB Pads
+const readoutEl = document.getElementById("board-readout");
+document.querySelectorAll(".pad").forEach(pad => {
+  const triggerPad = () => {
+    document.querySelectorAll(".pad").forEach(p => p.classList.remove("on"));
+    pad.classList.add("on");
+    const netKey = pad.dataset.net;
+    const netData = NET_DEFINITIONS[netKey];
+    if (netData) {
+      readoutEl.innerHTML = `<b>${netData[0]}</b><span>${netData[1]}</span>`;
+    }
+  };
 
-const root=document.documentElement;
-document.getElementById("theme").onclick=()=>{const dark=root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;root.dataset.theme=dark?"light":"dark"};
-document.getElementById("copy").onclick=async()=>{const m=document.getElementById("cmsg");try{await navigator.clipboard.writeText("vijaybaskaran117@gmail.com");m.textContent="Copied"}catch(e){m.textContent="Copy failed. Use the email card above."}};
-const links=[...document.querySelectorAll(".nav nav a")];
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(l=>l.classList.toggle("on",l.getAttribute("href")==="#"+e.target.id))}),{rootMargin:"-40% 0px -55% 0px"});
-document.querySelectorAll("main section[id]").forEach(s=>io.observe(s));
+  pad.addEventListener("mouseenter", triggerPad);
+  pad.addEventListener("focus", triggerPad);
+  pad.addEventListener("click", triggerPad);
+  pad.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      triggerPad();
+    }
+  });
+});
 
-(function(){
-const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
-const c=document.getElementById("bg"),x=c.getContext("2d"),G=48;
-let W,H,paths=[],mx=-999,my=-999,col={},fr=0;
-function colors(){const s=getComputedStyle(document.documentElement);col={a:s.getPropertyValue("--accent").trim(),l:s.getPropertyValue("--line").trim(),g:s.getPropertyValue("--gold").trim()}}
-function build(){const d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;c.width=W*d;c.height=H*d;x.setTransform(d,0,0,d,0,0);paths=[];const n=Math.round(W*H/24000);
-for(let i=0;i<n;i++){const pts=[[Math.floor(Math.random()*W/G)*G,Math.floor(Math.random()*H/G)*G]];let dir=Math.random()<.5?0:1;const seg=[];let L=0;
-for(let k=0,m=3+Math.floor(Math.random()*4);k<m;k++){const len=(1+Math.floor(Math.random()*4))*G*(Math.random()<.5?-1:1),l=pts[pts.length-1];pts.push(dir?[l[0],l[1]+len]:[l[0]+len,l[1]]);dir^=1;const e=Math.abs(len);seg.push(e);L+=e}
-paths.push({pts,seg,L,p:Math.random()*L,sp:.5+Math.random()*1})}}
-function at(p,t){let d=t;for(let k=0;k<p.seg.length;k++){if(d<=p.seg[k]){const a=p.pts[k],b=p.pts[k+1],f=d/p.seg[k];return[a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f]}d-=p.seg[k]}return p.pts[p.pts.length-1]}
-function frame(){if(++fr%120===0)colors();x.clearRect(0,0,W,H);
-if(mx>0){const g=x.createRadialGradient(mx,my,0,mx,my,220);g.addColorStop(0,col.a+"33");g.addColorStop(1,col.a+"00");x.fillStyle=g;x.fillRect(mx-220,my-220,440,440)}
-x.lineWidth=1.5;x.lineJoin="round";
-for(const p of paths){
-x.globalAlpha=.6;x.strokeStyle=col.l;x.beginPath();p.pts.forEach((q,i)=>i?x.lineTo(q[0],q[1]):x.moveTo(q[0],q[1]));x.stroke();
-x.fillStyle=col.g;x.globalAlpha=.55;for(const q of [p.pts[0],p.pts[p.pts.length-1]]){x.beginPath();x.arc(q[0],q[1],3.5,0,6.283);x.fill()}
-if(!rm)p.p=(p.p+p.sp)%p.L;
-const h=at(p,p.p),dd=Math.hypot(h[0]-mx,h[1]-my),b=dd<170?1-dd/170:0;
-x.fillStyle=col.a;
-for(let t=0;t<14;t++){const q=at(p,(p.p-t*4+p.L)%p.L);x.globalAlpha=Math.max(0,.9-t/16)*(.4+b*.6);x.beginPath();x.arc(q[0],q[1],Math.max(.8,2.6-t*.1+b*1.6),0,6.283);x.fill()}}
-x.globalAlpha=1;if(!rm)requestAnimationFrame(frame)}
-colors();build();frame();
-let rt;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{build();if(rm)frame()},200)});
-addEventListener("pointermove",e=>{mx=e.clientX;my=e.clientY});
-addEventListener("pointerleave",()=>{mx=my=-999});
-const refresh=()=>setTimeout(()=>{colors();if(rm)frame()},50);
-document.getElementById("theme").addEventListener("click",refresh);
-matchMedia("(prefers-color-scheme:dark)").addEventListener("change",refresh);
+// --- 2. SKILLS DATA ---
+const SKILLS_DATA = [
+  {
+    category: "Embedded Systems",
+    badge: "Core Architecture",
+    domain: "Embedded",
+    skills: ["ESP32 (Xtensa Dual-Core)", "Arduino IDE", "Microcontrollers", "GPIO Control", "I2C Protocol", "SPI Protocol", "UART Bus", "Embedded C/C++", "FreeRTOS Basics", "Timer Interrupts"]
+  },
+  {
+    category: "PCB & Hardware Design",
+    badge: "KiCad & EDA",
+    domain: "PCB & Hardware",
+    skills: ["KiCad 8", "Schematic Capture", "PCB Layout & Routing", "2-Layer Board Design", "Ground Pours & Vias", "Decoupling Strategy", "Component Selection", "Design Rule Checking (DRC)", "BOM Management", "Soldering & SMD Rework"]
+  },
+  {
+    category: "Circuit Design & Simulation",
+    badge: "Verification",
+    domain: "Circuit Simulation",
+    highlight: true,
+    skills: [
+      "LTspice — Circuit simulation, transient analysis, waveform analysis, and circuit verification",
+      "Analog Circuit Analysis",
+      "Waveform Analysis",
+      "Transient Response",
+      "RC Timing Networks",
+      "Voltage Dividers & Bias Networks"
+    ]
+  },
+  {
+    category: "Sensors & Instrumentation",
+    badge: "Transducers",
+    domain: "Sensors",
+    skills: ["MPU6050 (6-DOF IMU)", "NEO-6M GPS Module", "LD2410C 24GHz mmWave Radar", "RCWL-0516 Microwave Radar", "MLX90640 Far-Infrared Array", "MQ-2 Gas Sensor", "DHT11/22", "16×2 I2C LCD", "MicroSD SPI Modules", "Active Buzzers & LEDs"]
+  },
+  {
+    category: "IoT & Connectivity",
+    badge: "Networking",
+    domain: "IoT",
+    skills: ["Wi-Fi (802.11 b/g/n)", "ESP32 Soft-AP Web Server", "Real-Time Web Dashboards", "MicroSD CSV Data Logging", "Blynk IoT Cloud", "Wireless Telemetry", "HTTP/REST Polling"]
+  },
+  {
+    category: "Programming & Firmware",
+    badge: "Software",
+    domain: "Programming",
+    skills: ["C/C++", "Embedded C", "Python (Data Analysis & Plotting)", "JavaScript (Telemetry Visualizations)", "HTML5", "CSS3"]
+  },
+  {
+    category: "Engineering Tools & EDA",
+    badge: "Toolchain",
+    domain: "Tools",
+    skills: ["KiCad", "LTspice", "Arduino IDE", "Wokwi Simulator", "EasyEDA", "Git", "GitHub", "Vercel"]
+  }
+];
 
-const pr=document.getElementById("prog");
-addEventListener("scroll",()=>{const h=document.documentElement.scrollHeight-innerHeight;pr.style.width=(h>0?scrollY/h*100:0)+"%"},{passive:true});
+function renderSkills(filterCategory = "All") {
+  const container = document.getElementById("skills-grid");
+  container.innerHTML = "";
 
-const SEL=".sk,.cert,.ct,.proj";
-document.addEventListener("pointermove",e=>{const t=e.target.closest&&e.target.closest(SEL);if(t){const r=t.getBoundingClientRect();t.style.setProperty("--mx",e.clientX-r.left+"px");t.style.setProperty("--my",e.clientY-r.top+"px")}});
-document.addEventListener("pointerout",e=>{const t=e.target.closest&&e.target.closest(SEL);if(t&&!t.contains(e.relatedTarget)){t.style.removeProperty("--mx");t.style.removeProperty("--my")}});
+  const filtered = filterCategory === "All" 
+    ? SKILLS_DATA 
+    : SKILLS_DATA.filter(s => s.domain === filterCategory || s.category.includes(filterCategory));
 
-const bd=document.querySelector(".board");
-if(!rm&&matchMedia("(hover:hover)").matches){
-bd.addEventListener("pointermove",e=>{const r=bd.getBoundingClientRect(),dx=(e.clientX-r.left)/r.width-.5,dy=(e.clientY-r.top)/r.height-.5;bd.style.transform="perspective(900px) rotateY("+dx*8+"deg) rotateX("+(-dy*8)+"deg)"});
-bd.addEventListener("pointerleave",()=>bd.style.transform="")}
+  filtered.forEach(cat => {
+    const card = document.createElement("div");
+    card.className = "skill-category-card";
+    
+    let badgesHtml = cat.skills.map(skill => {
+      const isLtSpice = skill.startsWith("LTspice");
+      return `<span class="skill-badge ${isLtSpice ? 'highlight-badge' : ''}">${skill}</span>`;
+    }).join("");
 
-if(!rm){
-const ns="http://www.w3.org/2000/svg";
-document.querySelectorAll("#traces .tr").forEach((p,i)=>{const cc=document.createElementNS(ns,"circle");cc.setAttribute("r","3.5");cc.setAttribute("fill","#E0B83F");cc.setAttribute("opacity","0");
-const a=document.createElementNS(ns,"animateMotion");a.setAttribute("path",p.getAttribute("d"));a.setAttribute("dur",(2.4+i*.35)+"s");a.setAttribute("begin",(2.4+i*.3)+"s");a.setAttribute("repeatCount","indefinite");
-const o=document.createElementNS(ns,"set");o.setAttribute("attributeName","opacity");o.setAttribute("to","1");o.setAttribute("begin",(2.4+i*.3)+"s");
-cc.append(a,o);document.getElementById("traces").appendChild(cc)});
+    card.innerHTML = `
+      <div class="skill-cat-header">
+        <h3 class="skill-cat-title">${cat.category}</h3>
+        <span class="skill-cat-tag">${cat.badge}</span>
+      </div>
+      <div class="skill-badges">${badgesHtml}</div>
+    `;
+    container.appendChild(card);
+  });
+}
 
-const ty=document.getElementById("typed"),R=["PCB Design Engineer","Hardware Engineer","Embedded Systems Developer","PCB Design & Hardware Engineer"];let ri=0,ci=R[3].length,del=true;
-setTimeout(function tick(){const w=R[ri];if(del){ci--;if(ci<=0){del=false;ri=(ri+1)%R.length}}else{ci++;if(ci>=w.length)del=true}
-ty.textContent=R[ri].slice(0,Math.max(ci,0));setTimeout(tick,del&&ci>=R[ri].length?1600:del?35:70)},1800);
+// Render Skill Filter Chips
+const skillDomains = ["All", "Embedded", "PCB & Hardware", "Circuit Simulation", "Sensors", "IoT", "Programming", "Tools"];
+const skillsFilterBox = document.getElementById("skills-filter");
+let activeSkillFilter = "All";
 
-const cn=document.getElementById("cnt");let on=false;
-new IntersectionObserver((es,ob)=>{if(es[0].isIntersecting&&!on){on=true;let n=0;const iv=setInterval(()=>{cn.textContent=++n;if(n>=5)clearInterval(iv)},180)}}).observe(cn)}
+function buildSkillFilterChips() {
+  skillsFilterBox.innerHTML = "";
+  skillDomains.forEach(domain => {
+    const btn = document.createElement("button");
+    btn.className = "chip-btn";
+    btn.textContent = domain;
+    btn.setAttribute("aria-pressed", domain === activeSkillFilter);
+    btn.onclick = () => {
+      activeSkillFilter = domain;
+      buildSkillFilterChips();
+      renderSkills(domain);
+    };
+    skillsFilterBox.appendChild(btn);
+  });
+}
+
+// --- 3. COMPREHENSIVE PROJECTS DATA ---
+const PROJECTS_DATA = [
+  {
+    id: "seismic",
+    isFlagship: true,
+    title: "Seismic Event Detection & Vibration Monitoring System",
+    category: "Embedded Systems / IoT / Sensor Monitoring",
+    filterTag: "Embedded",
+    filterTags: ["Embedded", "IoT", "Sensors"],
+    status: "Working Prototype",
+    statusClass: "status-working",
+    summary: "A low-cost embedded vibration monitoring system using an ESP32 and MPU6050 to capture acceleration data, visualize vibration activity through a Wi-Fi web dashboard, provide local alerts, and log measurements to a microSD card for later analysis.",
+    hardware: ["ESP32 DevKit V1", "MPU6050 (6-DOF Accelerometer/Gyroscope)", "MicroSD Card Module", "MicroSD Card (FAT32)", "LED Indicator", "330Ω Resistor", "Active Buzzer", "Breadboard & Jumpers"],
+    software: ["Embedded C/C++", "Arduino Core for ESP32", "Wire (I2C)", "SPI Library", "SD.h Library", "ESPAsyncWebServer / WebServer", "HTML5/Canvas Dashboard"],
+    pinout: [
+      { pin: "GPIO21", role: "I2C SDA", dest: "MPU6050 SDA" },
+      { pin: "GPIO22", role: "I2C SCL", dest: "MPU6050 SCL" },
+      { pin: "GPIO5",  role: "SPI CS",  dest: "MicroSD Chip Select" },
+      { pin: "GPIO23", role: "SPI MOSI", dest: "MicroSD Master Out" },
+      { pin: "GPIO18", role: "SPI SCK", dest: "MicroSD Serial Clock" },
+      { pin: "GPIO19", role: "SPI MISO", dest: "MicroSD Master In" },
+      { pin: "GPIO2",  role: "Digital Output", dest: "330Ω Resistor → Status Alert LED" },
+      { pin: "GPIO27", role: "Digital Output", dest: "Audible Alert Buzzer" }
+    ],
+    architecture: [
+      "MPU6050 Accelerometer",
+      "I2C Acquisition (100 ms)",
+      "ESP32 LX6 Core",
+      "Vector Magnitude & Gravity Compensation",
+      "Threshold Classification Gating",
+      "Outputs: LED + Buzzer + Wi-Fi Dashboard + MicroSD Logging"
+    ],
+    wifiConfig: "Standalone Access Point (SSID: ESP32-SEISMOGRAPH, IP: 192.168.4.1). Zero external router needed.",
+    dashboardDetails: "Client browser polls ESP32 endpoint every ~50ms; rolling FIFO buffer stores ~250 waveform points for smooth multi-axis visualization.",
+    vibrationFormula: "Acceleration Magnitude |a| = sqrt(ax² + ay² + az²). Dynamic vibration activity estimated with 1g Earth gravity compensation.",
+    thresholds: "Prototype Calibration: NORMAL (< 0.03 g), WARNING (0.03 g – 0.15 g), HIGH (> 0.15 g). Note: Stated explicitly as prototype thresholds, not universal earthquake scale ratings.",
+    sdCardDetails: "Logged to /seismic.csv with header: Time_ms,AX_g,AY_g,AZ_g,Vibration_g,Peak_g,Status. Allows straightforward import to Python (Matplotlib/Pandas) or Excel.",
+    challenges: [
+      "Separating 1g static gravitational acceleration from dynamic vibration without causing attitude angle drift.",
+      "Preventing SD card write latency spikes from blocking the continuous I2C sensor acquisition loop.",
+      "Optimizing ESP32 RAM allocation for concurrent Wi-Fi AP serving and waveform data buffering."
+    ],
+    limitations: "The prototype is designed for vibration and event monitoring. Different sources may produce different waveform characteristics, but reliable classification between earthquakes, blasting, industrial machinery, and other sources would require calibrated sensing, controlled datasets, advanced signal processing, and validated classification algorithms.",
+    futureWork: [
+      "Integration of high-sensitivity calibrated geophone transducers.",
+      "Firmware FFT (Fast Fourier Transform) frequency-domain analysis for spectral peak identification.",
+      "Battery-backed RTC or GPS pulse-per-second (PPS) time synchronization.",
+      "Custom KiCad 2-layer PCB shield with low-noise ground planes and 3.3V LDO regulation."
+    ]
+  },
+  {
+    id: "gps",
+    isFlagship: false,
+    title: "ESP32 GPS Live Tracking System",
+    category: "IoT / Embedded Systems / Location Tracking",
+    filterTag: "IoT",
+    filterTags: ["IoT", "Embedded"],
+    status: "Working Prototype",
+    statusClass: "status-working",
+    summary: "An ESP32-based GPS tracking prototype that receives NMEA GPS telemetry through UART, parses coordinate strings using TinyGPS++, and processes real-time location metrics for mobile telemetry.",
+    hardware: ["ESP32 DevKit V1", "NEO-6M GPS Receiver Module", "Active Ceramic Patch Antenna", "Regulated 5V Power Supply", "Breadboard & Jumpers"],
+    software: ["Embedded C/C++", "HardwareSerial(2)", "TinyGPS++ Library", "Wi-Fi Telemetry Server"],
+    pinout: [
+      { pin: "GPIO16 (RX2)", role: "UART Receive", dest: "GPS TX (9600 Baud)" },
+      { pin: "GPIO17 (TX2)", role: "UART Transmit", dest: "GPS RX" },
+      { pin: "VCC / GND", role: "Power Rails", dest: "Regulated 5V / Common Ground" }
+    ],
+    architecture: ["NEO-6M GPS", "UART NMEA Stream", "ESP32 HardwareSerial(2)", "TinyGPS++ Coordinate Parsing", "Wi-Fi Hotspot Telemetry", "Serial Monitor / Web Display"],
+    challenges: [
+      "Handling GPS cold-start satellite acquisition delays and intermittent indoor signal dropouts.",
+      "Parsing high-throughput NMEA sentence streams without buffer overrun or CPU lockups."
+    ],
+    limitations: "Requires line of sight to open sky for satellite lock. Uses local Wi-Fi or mobile hotspot connection; does not include an onboard cellular modem for standalone global tracking.",
+    futureWork: ["Integration with OpenStreetMap / Leaflet browser UI", "Geofencing and velocity alarms", "MicroSD course logging"]
+  },
+  {
+    id: "radar",
+    isFlagship: false,
+    title: "Through-Wall Motion & Presence Detection System",
+    category: "Embedded Systems / Radar / IoT",
+    filterTag: "Sensors",
+    filterTags: ["Sensors", "Embedded", "IoT"],
+    status: "Working Prototype / Development",
+    statusClass: "status-dev",
+    summary: "Exploration of microwave Doppler and 24GHz FMCW mmWave radar for non-optical presence sensing through non-metallic structural barriers.",
+    hardware: ["ESP32", "Phase 1: RCWL-0516 Microwave Doppler Radar (~3.18 GHz)", "Phase 2 Upgraded: LD2410C 24GHz mmWave Radar Module", "0.96 OLED Display", "Piezo Buzzer"],
+    software: ["Embedded C++", "HardwareSerial UART", "LD2410 Configuration Protocol", "Wire (I2C OLED)"],
+    pinout: [
+      { pin: "GPIO16 (RX2)", role: "UART RX", dest: "LD2410C TX (Target Data)" },
+      { pin: "GPIO17 (TX2)", role: "UART TX", dest: "LD2410C RX (Gate Config)" },
+      { pin: "5V / GND", role: "Radar Power", dest: "5V Power Supply (>100mA peak)" }
+    ],
+    architecture: ["Radar Module (RCWL/LD2410C)", "Microwave / mmWave Reflection", "ESP32 Signal Processing", "Micro-Motion vs Macro-Motion Gate", "Wi-Fi / OLED Status Readout"],
+    challenges: [
+      "Distinguishing true human micro-motion from incidental electromagnetic background noise.",
+      "Tuning distance gate thresholds on the LD2410C to prevent false positives through drywall."
+    ],
+    limitations: "CRITICAL: This is NOT an optical camera and does NOT generate image contours or photographs of human bodies. It senses RF reflection energy and Doppler frequency shifts. Cannot penetrate metallic or heavy reinforced barriers.",
+    futureWork: ["Multi-zone presence tracking", "Breathing presence detection gating", "Multi-sensor mesh node array"]
+  },
+  {
+    id: "thermal",
+    isFlagship: false,
+    title: "Thermal Human Presence & Movement Monitoring System",
+    category: "Embedded Systems / Thermal Sensing / IoT",
+    filterTag: "Sensors",
+    filterTags: ["Sensors", "Embedded", "IoT"],
+    status: "Working Prototype",
+    statusClass: "status-working",
+    summary: "A non-contact infrared temperature array system using an MLX90640 sensor to capture 768 individual thermal points for occupancy detection and thermal distribution analysis.",
+    hardware: ["ESP32 DevKit V1", "Melexis MLX90640 Far-Infrared Sensor (32×24 pixels, 55° FOV)", "I2C Pull-Up Resistors (4.7kΩ)", "Common Ground"],
+    software: ["Embedded C/C++", "Wire Library (Fast I2C @ 400kHz / 1MHz)", "Adafruit MLX90640 Library", "Web Heatmap Rendering Engine"],
+    pinout: [
+      { pin: "GPIO21", role: "I2C SDA", dest: "MLX90640 SDA" },
+      { pin: "GPIO22", role: "I2C SCL", dest: "MLX90640 SCL" },
+      { pin: "3.3V / GND", role: "Power Rails", dest: "Clean 3.3V LDO Rail" }
+    ],
+    architecture: ["MLX90640 FIR Array", "32×24 (768 Points) Raw Temperatures", "ESP32 Matrix Processing", "Dynamic Min/Max Temperature Scaling", "Wi-Fi Web Heatmap Stream"],
+    challenges: [
+      "Managing high-bandwidth I2C frame read times to maintain interactive 4–8 FPS refresh rates.",
+      "Computing real-time interpolation and false-color palette mapping on resource-constrained microcontrollers."
+    ],
+    limitations: "CRITICAL: Normal far-infrared sensing requires an unobstructed line of sight. It does NOT penetrate walls, partitions, or standard glass.",
+    futureWork: ["Bicubic matrix interpolation for smooth visual rendering", "Thermal centroid person-tracking algorithms", "High-temperature boundary alert triggers"]
+  },
+  {
+    id: "tester",
+    isFlagship: false,
+    title: "ESP32 Universal Electronic Component Tester",
+    category: "Embedded Systems / Test Equipment / Electronics",
+    filterTag: "Embedded",
+    filterTags: ["Embedded", "PCB & Hardware"],
+    status: "Prototype / Development",
+    statusClass: "status-dev",
+    summary: "An embedded test bench instrument using switched GPIO divider networks to identify passive and active electronic components, measure component values, and test continuity.",
+    hardware: ["ESP32 DevKit V1", "Precision Resistors: 100Ω, 220Ω, 1kΩ, 10kΩ, 100kΩ, 1MΩ", "1N4148 Switching Diode", "2N2222 / BC547 (NPN) & BC557 (PNP)", "16×2 Character LCD Display", "Piezo Continuity Buzzer", "Terminal Test Block"],
+    software: ["Embedded C++", "ADC Voltage Sampling", "Tristate Pin Gating (Input High-Z vs Output)", "RC Time Constant Timing Algorithm"],
+    pinout: [
+      { pin: "GPIO32 - 35", role: "ADC Inputs", dest: "Component Voltage Dividers" },
+      { pin: "GPIO12 - 15", role: "Tristate Drive Pins", dest: "Switched Resistor Rails" },
+      { pin: "GPIO25", role: "PWM / Tone", dest: "Continuity Buzzer" }
+    ],
+    architecture: ["Test Socket Insertion", "GPIO Pin State Sequencing", "ADC Sampling & Divider Ratio Computation", "RC Timing Calculation (Capacitance)", "LCD Display Readout"],
+    challenges: [
+      "Compensating for ESP32 ADC non-linearities at low voltages (<0.15V) and high voltages (>3.1V).",
+      "Designing protection against residual capacitor charges that could damage sensitive GPIO pins."
+    ],
+    limitations: "Prototype breadboard implementation. Lacks high-voltage transient protection and automated ESR (Equivalent Series Resistance) measurement.",
+    futureWork: ["Custom KiCad PCB with ZIF test socket", "Input clamping diodes for overload protection", "Automated auto-ranging firmware"]
+  },
+  {
+    id: "pcb-board",
+    isFlagship: false,
+    title: "Custom ESP32 Sensor Board",
+    category: "PCB & Hardware Design",
+    filterTag: "PCB & Hardware",
+    filterTags: ["PCB & Hardware", "Embedded"],
+    status: "Completed PCB Design",
+    statusClass: "status-pcb",
+    summary: "A custom 2-layer ESP32-based printed circuit board engineered in KiCad for multi-sensor data acquisition with integrated power distribution, decoupling, and connector interfaces.",
+    hardware: ["KiCad 8 EDA Suite", "ESP32-WROOM Footprint", "3.3V Low-Dropout Linear Voltage Regulator", "Electrolytic & 100nF Ceramic Decoupling Capacitors", "Terminal Blocks & JST Connectors"],
+    software: ["KiCad Schematic Editor", "KiCad PCB Layout", "Design Rules Check (DRC)", "Gerber / Drill Generation"],
+    pinout: [
+      { pin: "Power In", role: "5V DC Input", dest: "Terminal Block → Reverse Polarity Diode" },
+      { pin: "VREG", role: "3.3V Regulated Rail", dest: "AMS1117-3.3 → ESP32 VDD + Decoupling" },
+      { pin: "Sensor Headers", role: "I2C / ADC / UART", dest: "Pin Headers for External Sensors" }
+    ],
+    architecture: ["System Requirements Definition", "Schematic Capture & Net Assignment", "Component Footprint Verification", "2-Layer Board Layout", "Ground Plane Pouring & DRC", "Manufacturing Gerber Export"],
+    challenges: [
+      "Careful routing of high-frequency crystal and RF antenna keep-out zones on the board edge.",
+      "Optimizing ground return paths to prevent analog sensor noise during Wi-Fi transmission bursts."
+    ],
+    limitations: "Designed as a 2-layer rapid prototyping board without impedance-controlled trace certification.",
+    futureWork: ["4-layer revision with dedicated internal ground and power planes", "Onboard USB-to-UART CP2102 programming chip"]
+  },
+  {
+    id: "gas",
+    isFlagship: false,
+    title: "IoT Gas Detection Alert System",
+    category: "IoT / Sensor Monitoring",
+    filterTag: "IoT",
+    filterTags: ["IoT", "Sensors"],
+    status: "Working Prototype",
+    statusClass: "status-working",
+    summary: "An IoT safety prototype interfacing an MQ-2 gas sensor with an ESP32 to monitor combustible gas levels, execute threshold alarms, and push notifications to mobile devices.",
+    hardware: ["ESP32 DevKit V1", "MQ-2 Gas / Smoke Sensor Module", "Active Buzzer", "Warning LED", "Regulated 5V Power Source"],
+    software: ["Embedded C/C++", "ADC Filtering Firmware", "Wi-Fi Telemetry", "Blynk IoT Mobile Dashboard"],
+    pinout: [
+      { pin: "GPIO34", role: "Analog Input (ADC1)", dest: "MQ-2 Analog Output (AOUT)" },
+      { pin: "GPIO26", role: "Digital Output", dest: "Alarm Buzzer" },
+      { pin: "GPIO2",  role: "Digital Output", dest: "Status Indicator LED" }
+    ],
+    architecture: ["MQ-2 Gas Concentration", "Analog Sampling & Rolling Average Filter", "ESP32 Threshold Comparator", "Local Audio/Visual Alarm", "Wi-Fi Push Notification to Mobile"],
+    challenges: [
+      "Managing the heater element power requirement (5V @ ~150mA) and the initial 24-hour warm-up stabilization phase.",
+      "Filtering baseline analog voltage drift caused by ambient room temperature fluctuations."
+    ],
+    limitations: "MQ-2 is an electro-chemical heated filament sensor; it indicates general hydrocarbon/smoke presence but does not provide lab-grade gas chromatography identification.",
+    futureWork: ["Digital temperature and humidity compensation using DHT22", "Custom enclosure with flame-arrestor intake mesh"]
+  },
+  {
+    id: "crop",
+    isFlagship: false,
+    title: "Smart Crop Monitoring System",
+    category: "IoT / Agricultural Systems",
+    filterTag: "IoT",
+    filterTags: ["IoT", "Sensors", "Embedded"],
+    status: "Validated Prototype & Simulation",
+    statusClass: "status-working",
+    summary: "An agricultural telemetry system integrating DHT, ultrasonic water level, LDR sunlight, gas, and PIR intrusion sensors with an ESP32 and 16×2 I2C display.",
+    hardware: ["ESP32", "DHT11/22 Temperature & Humidity Sensor", "HC-SR04 Ultrasonic Sensor", "LDR Photoresistor", "PIR Motion Sensor", "16×2 Character LCD with PCF8574 I2C Backpack"],
+    software: ["Embedded C/C++", "LiquidCrystal_I2C Library", "DHT Sensor Library", "Wokwi Hardware Simulation", "Bench Prototype Validation"],
+    pinout: [
+      { pin: "GPIO21 / 22", role: "I2C SDA / SCL", dest: "16×2 LCD Backpack" },
+      { pin: "GPIO4", role: "One-Wire Digital", dest: "DHT Sensor Data" },
+      { pin: "GPIO12 / 14", role: "Trigger / Echo", dest: "Ultrasonic Water Level Sensor" },
+      { pin: "GPIO36", role: "ADC Input", dest: "LDR Sunlight Divider" }
+    ],
+    architecture: ["Multi-Sensor Array", "ESP32 Synchronous Sampling Loop", "Parameter Threshold Checking", "16×2 LCD Field Readout", "Wi-Fi Telemetry Link"],
+    challenges: [
+      "Scheduling asynchronous sensor reads without blocking LCD screen updates.",
+      "Simulating and validating complex multi-sensor edge cases using Wokwi before physical breadboard deployment."
+    ],
+    limitations: "Sensor housings require waterproof ruggedization for permanent open-field outdoor agricultural deployment.",
+    futureWork: ["Low-power deep sleep cycles for extended solar-battery operation", "LoRaWAN long-range telemetry module"]
+  },
+  {
+    id: "laser",
+    isFlagship: false,
+    title: "Underwater Laser Communication System",
+    category: "Communication Systems / Experimental",
+    filterTag: "Communication",
+    filterTags: ["Communication", "Experimental"],
+    status: "Experimental System",
+    statusClass: "status-exp",
+    summary: "An experimental optical wireless communication link using a modulated semiconductor laser transmitter and photodiode receiver to transmit digital data through water.",
+    hardware: ["Laser Diode Transmitter (650nm Red)", "High-Speed PIN Photodiode Receiver", "Transimpedance Amplifier Circuit", "Comparator Stage", "Simulated Water Tank Channel"],
+    software: ["Embedded C++", "UART Pulse-Width Modulation", "Bit-Error Rate Testing Routine"],
+    pinout: [
+      { pin: "GPIO18", role: "PWM / Modulator TX", dest: "Laser Driver Transistor" },
+      { pin: "GPIO19", role: "Digital Input RX", dest: "Comparator Output from Photodiode" }
+    ],
+    architecture: ["Digital Data Stream", "Laser Driver Modulator", "Optical Transmission Through Water", "Photodiode & Transimpedance Amp", "Signal Conditioning Comparator", "Received Data Decoder"],
+    challenges: [
+      "High beam alignment sensitivity over even modest water tank transmission distances.",
+      "Signal attenuation and beam divergence caused by water turbidity and particulate scattering."
+    ],
+    limitations: "Demonstrated as a benchtop experimental tank setup. Does not operate over long ranges or in turbulent, highly turbid open water without complex beam-steering optics.",
+    futureWork: ["Blue-green 450nm–520nm wavelength laser for superior optical transmission in water", "Active tracking photodetector array"]
+  },
+  {
+    id: "airport",
+    isFlagship: false,
+    title: "VHF/UHF Airport Communication Safety System",
+    category: "Communication Systems",
+    filterTag: "Communication",
+    filterTags: ["Communication", "Experimental"],
+    status: "Academic / Prototype System",
+    statusClass: "status-academic",
+    summary: "An academic research prototype investigating wireless RF communication and sensor monitoring for airfield ground operations and perimeter safety.",
+    hardware: ["ESP32 Microcontroller", "RF Transceiver Module", "Proximity & Environmental Sensors", "OLED Ground Status Display"],
+    software: ["Embedded C/C++", "RF Packet Protocol", "Threshold Event Detection State Machine"],
+    pinout: [
+      { pin: "SPI / UART", role: "Transceiver Bus", dest: "RF Data Transceiver" },
+      { pin: "GPIO Inputs", role: "Field Sensors", dest: "Runway Condition Monitors" }
+    ],
+    architecture: ["Runway Sensors", "ESP32 Field Node", "RF Packet Encoding", "Wireless Radio Channel", "Base Station Receiver & Safety Display"],
+    challenges: [
+      "Designing a robust packet acknowledgment protocol resilient against RF packet loss.",
+      "Modeling reliable wireless packet transmission with minimal latency."
+    ],
+    limitations: "Academic and prototype concept only. It is NOT an FAA or ICAO certified operational aviation communication system.",
+    futureWork: ["Frequency-hopping spread-spectrum (FHSS) modulation", "Multi-station ground telemetry relay"]
+  }
+];
+
+function renderProjects(filter = "All") {
+  const container = document.getElementById("projects-list");
+  container.innerHTML = "";
+
+  const filtered = filter === "All"
+    ? PROJECTS_DATA
+    : PROJECTS_DATA.filter(p => p.filterTags.includes(filter));
+
+  filtered.forEach((p, idx) => {
+    if (p.isFlagship) {
+      // Flagship Project 1 - Rich Case Study with Live Simulator
+      const card = document.createElement("article");
+      card.className = "flagship-card";
+      card.id = `project-${p.id}`;
+
+      let pinoutRows = p.pinout.map(r => `
+        <tr>
+          <td><strong>${r.pin}</strong></td>
+          <td>${r.role}</td>
+          <td>${r.dest}</td>
+        </tr>
+      `).join("");
+
+      card.innerHTML = `
+        <div class="flagship-ribbon">★ Flagship Engineering Project</div>
+        <div class="flagship-header">
+          <div>
+            <div style="font-family:var(--mono);font-size:12px;color:var(--accent-light);margin-bottom:4px;">${p.category}</div>
+            <h3 style="font-size:clamp(22px, 3.2vw, 32px);margin:0 0 8px;">${p.title}</h3>
+          </div>
+          <span class="project-status-badge ${p.statusClass}">
+            <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;"></span>
+            ${p.status}
+          </span>
+        </div>
+
+        <p class="flagship-lead">${p.summary}</p>
+
+        <!-- Live Seismic Web Dashboard Simulator -->
+        <div class="seismic-simulator" aria-label="Live Seismic Waveform Simulator">
+          <div class="sim-top-bar">
+            <div class="sim-title-group">
+              <span class="sim-title">Live Vibration Waveform Simulator</span>
+              <span class="sim-ap-badge">AP: ESP32-SEISMOGRAPH (192.168.4.1)</span>
+            </div>
+            <div class="sim-telemetry-strip">
+              <span class="telem-pill">|a| Mag: <strong id="sim-mag">1.002 g</strong></span>
+              <span class="telem-pill">Peak: <strong id="sim-peak">1.018 g</strong></span>
+              <span class="telem-pill status-pill normal" id="sim-status">STATUS: NORMAL</span>
+              <span class="sd-pulse-indicator"><span class="sd-dot" id="sim-sd-dot"></span> SD LOG: ACTIVE</span>
+            </div>
+          </div>
+
+          <div class="seismic-canvas-container">
+            <canvas id="seismic-canvas"></canvas>
+            <div class="canvas-legend">
+              <span class="legend-item" style="color:#06B6D4">■ X-Axis</span>
+              <span class="legend-item" style="color:#A78BFA">■ Y-Axis</span>
+              <span class="legend-item" style="color:#F59E0B">■ Z-Axis</span>
+              <span class="legend-item" style="color:#FFFFFF">─ Magnitude</span>
+            </div>
+          </div>
+
+          <div class="sim-controls">
+            <div class="sim-btn-group">
+              <button class="sim-btn active" id="btn-sim-shock">Trigger Vibration Shock (High)</button>
+              <button class="sim-btn" id="btn-sim-bump">Trigger Moderate Bump (Warning)</button>
+              <button class="sim-btn" id="btn-sim-noise">Ambient Baseline (Normal)</button>
+              <button class="sim-btn" id="btn-sim-reset">Reset Peak</button>
+            </div>
+            <span class="sim-disclaimer">Interactive visualization demonstrating the ESP32 Wi-Fi AP real-time web telemetry architecture</span>
+          </div>
+        </div>
+
+        <!-- Full Technical Case Study -->
+        <div class="tech-details-grid">
+          <div class="detail-block">
+            <div class="detail-block-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+              Hardware BOM &amp; Pin Mapping
+            </div>
+            <table class="pin-table">
+              <thead><tr><th>Pin</th><th>Bus / Signal</th><th>Target Hardware</th></tr></thead>
+              <tbody>${pinoutRows}</tbody>
+            </table>
+          </div>
+
+          <div class="detail-block">
+            <div class="detail-block-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              Vibration Algorithm &amp; Thresholds
+            </div>
+            <ul class="detail-list">
+              <li><strong>Magnitude Calculation:</strong> Dynamic acceleration magnitude evaluated as <code>|a| = √(ax² + ay² + az²)</code> with static 1g gravity compensation.</li>
+              <li><strong>Threshold Gating (Prototype Calibration):</strong>
+                <ul>
+                  <li><span style="color:var(--emerald)">NORMAL:</span> &lt; 0.03 g dynamic vibration</li>
+                  <li><span style="color:var(--gold)">WARNING:</span> 0.03 g – 0.15 g (Amber visual indication)</li>
+                  <li><span style="color:var(--rose)">HIGH:</span> &gt; 0.15 g (Immediate LED + Buzzer latch)</li>
+                </ul>
+              </li>
+              <li><strong>MicroSD CSV Format:</strong> Logged to <code>/seismic.csv</code> (Time_ms, AX_g, AY_g, AZ_g, Vibration_g, Peak_g, Status). Compatible with Python Matplotlib &amp; Excel.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tech-details-grid">
+          <div class="detail-block">
+            <div class="detail-block-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              Engineering Challenges Solved
+            </div>
+            <ul class="detail-list">
+              ${p.challenges.map(c => `<li>${c}</li>`).join("")}
+            </ul>
+          </div>
+
+          <div class="detail-block">
+            <div class="detail-block-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Roadmap &amp; Next Revisions
+            </div>
+            <ul class="detail-list">
+              ${p.futureWork.map(fw => `<li>${fw}</li>`).join("")}
+            </ul>
+          </div>
+        </div>
+
+        <div class="honest-box">
+          <strong>Scientific &amp; Technical Boundary:</strong>
+          ${p.limitations}
+        </div>
+      `;
+      container.appendChild(card);
+
+      // Initialize the live canvas waveform simulator
+      initSeismicSimulator();
+    } else {
+      // Standard Project Cards
+      const card = document.createElement("article");
+      card.className = "project-card";
+      card.id = `project-${p.id}`;
+
+      let pinoutTable = "";
+      if (p.pinout && p.pinout.length > 0) {
+        const rows = p.pinout.map(r => `
+          <tr>
+            <td><strong>${r.pin}</strong></td>
+            <td>${r.role}</td>
+            <td>${r.dest}</td>
+          </tr>
+        `).join("");
+        pinoutTable = `
+          <div class="detail-block">
+            <div class="detail-block-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+              Hardware Connections &amp; Pinout
+            </div>
+            <table class="pin-table">
+              <thead><tr><th>Pin</th><th>Bus / Signal</th><th>Target Hardware</th></tr></thead>
+              <tbody>${rows}</tbody>
+            </table>
+          </div>
+        `;
+      }
+
+      const techBadges = p.hardware.concat(p.software.slice(0, 2)).map(t => `<span class="tech-tag">${t}</span>`).join("");
+
+      card.innerHTML = `
+        <button class="project-main-header" aria-expanded="false" aria-controls="drawer-${p.id}">
+          <div class="project-title-area">
+            <div class="project-title-row">
+              <span class="project-category-tag">${p.category}</span>
+              <span class="project-status-badge ${p.statusClass}">${p.status}</span>
+            </div>
+            <h3>${p.title}</h3>
+            <p class="project-summary">${p.summary}</p>
+            <div class="tech-tags">${techBadges}</div>
+          </div>
+          <span class="expand-toggle" aria-hidden="true">
+            <span>Details</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+
+        <div class="project-details-drawer" id="drawer-${p.id}">
+          <div class="drawer-inner">
+            <div class="drawer-content">
+              <div class="tech-details-grid">
+                ${pinoutTable}
+
+                <div class="detail-block">
+                  <div class="detail-block-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    Architecture &amp; Dataflow
+                  </div>
+                  <div class="workflow-flow">
+                    ${p.architecture.map((step, sidx) => `
+                      <span class="wf-step">${step}</span>
+                      ${sidx < p.architecture.length - 1 ? '<span class="wf-arrow">→</span>' : ''}
+                    `).join("")}
+                  </div>
+                </div>
+              </div>
+
+              <div class="tech-details-grid">
+                <div class="detail-block">
+                  <div class="detail-block-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    Engineering Challenges
+                  </div>
+                  <ul class="detail-list">
+                    ${p.challenges.map(c => `<li>${c}</li>`).join("")}
+                  </ul>
+                </div>
+
+                <div class="detail-block">
+                  <div class="detail-block-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Future Improvements
+                  </div>
+                  <ul class="detail-list">
+                    ${p.futureWork.map(fw => `<li>${fw}</li>`).join("")}
+                  </ul>
+                </div>
+              </div>
+
+              <div class="honest-box">
+                <strong>Technical Scope &amp; Constraints:</strong>
+                ${p.limitations}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Accordion toggle listener
+      const toggleBtn = card.querySelector(".project-main-header");
+      toggleBtn.addEventListener("click", () => {
+        const isOpen = card.classList.toggle("open");
+        toggleBtn.setAttribute("aria-expanded", isOpen);
+      });
+
+      container.appendChild(card);
+    }
+  });
+}
+
+// Render Project Filter Chips
+const projectCategories = ["All", "Embedded", "IoT", "PCB & Hardware", "Sensors", "Communication", "Experimental"];
+const projectsFilterBox = document.getElementById("projects-filter");
+let activeProjectFilter = "All";
+
+function buildProjectFilterChips() {
+  projectsFilterBox.innerHTML = "";
+  projectCategories.forEach(cat => {
+    const btn = document.createElement("button");
+    btn.className = "chip-btn";
+    btn.textContent = cat;
+    btn.setAttribute("aria-pressed", cat === activeProjectFilter);
+    btn.onclick = () => {
+      activeProjectFilter = cat;
+      buildProjectFilterChips();
+      renderProjects(cat);
+    };
+    projectsFilterBox.appendChild(btn);
+  });
+}
+
+// --- 4. SEISMIC WAVEFORM SIMULATOR ENGINE ---
+let seismicSimState = {
+  running: true,
+  shockIntensity: 0,
+  peak: 1.018,
+  pointsX: [],
+  pointsY: [],
+  pointsZ: [],
+  pointsMag: [],
+  maxPoints: 200,
+  lastSdWrite: 0
+};
+
+function initSeismicSimulator() {
+  const canvas = document.getElementById("seismic-canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+
+  // Resize canvas for high-DPI displays
+  function resizeCanvas() {
+    const rect = canvas.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.scale(dpr, dpr);
+  }
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+
+  // Prepopulate buffer with baseline quiet noise
+  seismicSimState.pointsX = new Array(seismicSimState.maxPoints).fill(0);
+  seismicSimState.pointsY = new Array(seismicSimState.maxPoints).fill(0);
+  seismicSimState.pointsZ = new Array(seismicSimState.maxPoints).fill(1.0);
+  seismicSimState.pointsMag = new Array(seismicSimState.maxPoints).fill(1.0);
+
+  // Buttons
+  const btnShock = document.getElementById("btn-sim-shock");
+  const btnBump = document.getElementById("btn-sim-bump");
+  const btnNoise = document.getElementById("btn-sim-noise");
+  const btnReset = document.getElementById("btn-sim-reset");
+
+  if (btnShock) {
+    btnShock.onclick = () => {
+      seismicSimState.shockIntensity = 0.38;
+      updateActiveBtn(btnShock);
+    };
+  }
+  if (btnBump) {
+    btnBump.onclick = () => {
+      seismicSimState.shockIntensity = 0.08;
+      updateActiveBtn(btnBump);
+    };
+  }
+  if (btnNoise) {
+    btnNoise.onclick = () => {
+      seismicSimState.shockIntensity = 0;
+      updateActiveBtn(btnNoise);
+    };
+  }
+  if (btnReset) {
+    btnReset.onclick = () => {
+      seismicSimState.peak = 1.002;
+      document.getElementById("sim-peak").textContent = "1.002 g";
+    };
+  }
+
+  function updateActiveBtn(activeBtn) {
+    [btnShock, btnBump, btnNoise].forEach(b => {
+      if (b) b.classList.toggle("active", b === activeBtn);
+    });
+  }
+
+  // Animation Loop
+  let frameCount = 0;
+  function animateWaveform() {
+    frameCount++;
+
+    // Decay shock intensity smoothly
+    if (seismicSimState.shockIntensity > 0) {
+      seismicSimState.shockIntensity *= 0.94;
+      if (seismicSimState.shockIntensity < 0.005) {
+        seismicSimState.shockIntensity = 0;
+        updateActiveBtn(btnNoise);
+      }
+    }
+
+    // Synthesize physical accelerometer readings
+    const shock = seismicSimState.shockIntensity;
+    const noiseFactor = 0.012;
+
+    const ax = (Math.random() - 0.5) * noiseFactor + (Math.sin(frameCount * 0.4) * shock * 0.85);
+    const ay = (Math.random() - 0.5) * noiseFactor + (Math.cos(frameCount * 0.35) * shock * 0.7);
+    const az = 1.0 + (Math.random() - 0.5) * noiseFactor + (Math.sin(frameCount * 0.5) * shock * 1.1);
+
+    const mag = Math.sqrt(ax * ax + ay * ay + az * az);
+    const dynamicVibe = Math.abs(mag - 1.0);
+
+    if (mag > seismicSimState.peak) {
+      seismicSimState.peak = mag;
+    }
+
+    // FIFO update
+    seismicSimState.pointsX.shift();
+    seismicSimState.pointsX.push(ax);
+    seismicSimState.pointsY.shift();
+    seismicSimState.pointsY.push(ay);
+    seismicSimState.pointsZ.shift();
+    seismicSimState.pointsZ.push(az);
+    seismicSimState.pointsMag.shift();
+    seismicSimState.pointsMag.push(mag);
+
+    // Update telemetry display every 6 frames
+    if (frameCount % 6 === 0) {
+      const magEl = document.getElementById("sim-mag");
+      const peakEl = document.getElementById("sim-peak");
+      const statusEl = document.getElementById("sim-status");
+      const sdDot = document.getElementById("sim-sd-dot");
+
+      if (magEl) magEl.textContent = mag.toFixed(3) + " g";
+      if (peakEl) peakEl.textContent = seismicSimState.peak.toFixed(3) + " g";
+
+      if (statusEl) {
+        statusEl.className = "telem-pill status-pill";
+        if (dynamicVibe > 0.15) {
+          statusEl.classList.add("high");
+          statusEl.textContent = "STATUS: HIGH (VIBRATION ALERT)";
+        } else if (dynamicVibe > 0.03) {
+          statusEl.classList.add("warning");
+          statusEl.textContent = "STATUS: WARNING (ELEVATED)";
+        } else {
+          statusEl.classList.add("normal");
+          statusEl.textContent = "STATUS: NORMAL (AMBIENT)";
+        }
+      }
+
+      // Blink SD logging pulse
+      if (sdDot) {
+        sdDot.style.opacity = (frameCount % 12 === 0) ? "1" : "0.3";
+      }
+    }
+
+    // Render Canvas Waveforms
+    const rect = canvas.getBoundingClientRect();
+    const w = rect.width;
+    const h = rect.height;
+
+    ctx.clearRect(0, 0, w, h);
+
+    // Draw subtle grid lines
+    ctx.strokeStyle = "#1E293B";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(0, h * 0.25); ctx.lineTo(w, h * 0.25);
+    ctx.moveTo(0, h * 0.5);  ctx.lineTo(w, h * 0.5);
+    ctx.moveTo(0, h * 0.75); ctx.lineTo(w, h * 0.75);
+    ctx.stroke();
+
+    // Baseline 1g reference
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.15)";
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    const baselineY = h * 0.5;
+    ctx.moveTo(0, baselineY);
+    ctx.lineTo(w, baselineY);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Helper to draw trace line
+    function drawTrace(points, color, width, offsetG = 0, scale = 70) {
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
+      ctx.beginPath();
+      const step = w / (points.length - 1);
+      points.forEach((val, i) => {
+        const y = h * 0.5 - (val - offsetG) * scale;
+        if (i === 0) ctx.moveTo(0, y);
+        else ctx.lineTo(i * step, y);
+      });
+      ctx.stroke();
+    }
+
+    // Render X, Y, Z, and Mag
+    drawTrace(seismicSimState.pointsX, "#06B6D4", 1.2, 0, 80);
+    drawTrace(seismicSimState.pointsY, "#A78BFA", 1.2, 0, 80);
+    drawTrace(seismicSimState.pointsZ, "#F59E0B", 1.2, 1.0, 80);
+    drawTrace(seismicSimState.pointsMag, "#FFFFFF", 2.2, 1.0, 80);
+
+    requestAnimationFrame(animateWaveform);
+  }
+
+  animateWaveform();
+}
+
+// --- 5. THEME TOGGLING ---
+const root = document.documentElement;
+const themeBtn = document.getElementById("theme-btn");
+const themeLabel = document.getElementById("theme-label");
+
+function getInitialTheme() {
+  const stored = localStorage.getItem("vijay-theme");
+  if (stored) return stored;
+  return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+}
+
+function setTheme(theme) {
+  root.dataset.theme = theme;
+  localStorage.setItem("vijay-theme", theme);
+  if (themeLabel) {
+    themeLabel.textContent = theme === "dark" ? "Dark" : "Light";
+  }
+}
+
+setTheme(getInitialTheme());
+
+if (themeBtn) {
+  themeBtn.addEventListener("click", () => {
+    const current = root.dataset.theme || "dark";
+    const next = current === "dark" ? "light" : "dark";
+    setTheme(next);
+  });
+}
+
+// --- 6. MOBILE DRAWER NAVIGATION ---
+const hamburgerBtn = document.getElementById("hamburger-btn");
+const closeDrawerBtn = document.getElementById("close-drawer");
+const drawer = document.getElementById("mobile-drawer");
+const overlay = document.getElementById("drawer-overlay");
+
+function toggleDrawer(open) {
+  drawer.classList.toggle("open", open);
+  overlay.classList.toggle("open", open);
+  drawer.setAttribute("aria-hidden", !open);
+  hamburgerBtn.setAttribute("aria-expanded", open);
+  if (open) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+}
+
+if (hamburgerBtn) hamburgerBtn.addEventListener("click", () => toggleDrawer(true));
+if (closeDrawerBtn) closeDrawerBtn.addEventListener("click", () => toggleDrawer(false));
+if (overlay) overlay.addEventListener("click", () => toggleDrawer(false));
+
+document.querySelectorAll(".drawer-link").forEach(link => {
+  link.addEventListener("click", () => toggleDrawer(false));
+});
+
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && drawer.classList.contains("open")) {
+    toggleDrawer(false);
+  }
+});
+
+// --- 7. SCROLL PROGRESS & SPY ---
+const progressBar = document.getElementById("scroll-progress");
+const navAnchors = document.querySelectorAll(".nav-links a");
+const sections = document.querySelectorAll("main section[id]");
+
+window.addEventListener("scroll", () => {
+  const scrollH = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollH > 0 ? (window.scrollY / scrollH) * 100 : 0;
+  if (progressBar) progressBar.style.width = progress + "%";
+}, { passive: true });
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navAnchors.forEach(a => {
+        a.classList.toggle("on", a.getAttribute("href") === "#" + id);
+      });
+      document.querySelectorAll(".drawer-link").forEach(a => {
+        a.classList.toggle("on", a.getAttribute("href") === "#" + id);
+      });
+    }
+  });
+}, { rootMargin: "-30% 0px -60% 0px" });
+
+sections.forEach(s => observer.observe(s));
+
+// --- 8. COPY EMAIL BUTTON ---
+const copyBtn = document.getElementById("copy-email-btn");
+const copyToast = document.getElementById("copy-toast");
+if (copyBtn) {
+  copyBtn.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText("vijaybaskaran117@gmail.com");
+      if (copyToast) {
+        copyToast.textContent = "Copied to clipboard!";
+        setTimeout(() => { copyToast.textContent = ""; }, 3000);
+      }
+    } catch (err) {
+      if (copyToast) {
+        copyToast.textContent = "Please copy directly: vijaybaskaran117@gmail.com";
+      }
+    }
+  });
+}
+
+// --- 9. DYNAMIC ROLE TYPING ANIMATION ---
+const roles = [
+  "Embedded Systems & Hardware Engineer",
+  "Firmware & IoT System Developer",
+  "PCB Designer (KiCad & Circuit Prototyping)",
+  "Sensor & Instrumentation Developer"
+];
+const typedEl = document.getElementById("typed-role");
+let roleIdx = 0, charIdx = roles[0].length, isDeleting = true;
+
+function typeLoop() {
+  const currentRole = roles[roleIdx];
+  if (isDeleting) {
+    charIdx--;
+    if (charIdx <= 0) {
+      isDeleting = false;
+      roleIdx = (roleIdx + 1) % roles.length;
+    }
+  } else {
+    charIdx++;
+    if (charIdx >= currentRole.length) {
+      isDeleting = true;
+    }
+  }
+
+  if (typedEl) {
+    typedEl.textContent = currentRole.slice(0, Math.max(charIdx, 0));
+  }
+
+  const delay = isDeleting && charIdx >= currentRole.length ? 1800 : isDeleting ? 30 : 65;
+  setTimeout(typeLoop, delay);
+}
+
+setTimeout(typeLoop, 2000);
+
+// --- 10. BACKGROUND CIRCUIT TRACE CANVAS ---
+(function() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const canvas = document.getElementById("bg-canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const GRID_SIZE = 56;
+  let W, H, paths = [];
+  let mouseX = -999, mouseY = -999;
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    generatePaths();
+  }
+
+  function generatePaths() {
+    paths = [];
+    const count = Math.round((W * H) / 36000);
+    for (let i = 0; i < count; i++) {
+      const startX = Math.floor((Math.random() * W) / GRID_SIZE) * GRID_SIZE;
+      const startY = Math.floor((Math.random() * H) / GRID_SIZE) * GRID_SIZE;
+      const pts = [[startX, startY]];
+      let isHorizontal = Math.random() < 0.5;
+      const segments = [];
+      let totalLen = 0;
+
+      const numTurns = 2 + Math.floor(Math.random() * 3);
+      for (let k = 0; k < numTurns; k++) {
+        const len = (1 + Math.floor(Math.random() * 3)) * GRID_SIZE * (Math.random() < 0.5 ? -1 : 1);
+        const last = pts[pts.length - 1];
+        pts.push(isHorizontal ? [last[0] + len, last[1]] : [last[0], last[1] + len]);
+        isHorizontal = !isHorizontal;
+        const dist = Math.abs(len);
+        segments.push(dist);
+        totalLen += dist;
+      }
+
+      paths.push({
+        pts,
+        segments,
+        totalLen,
+        pos: Math.random() * totalLen,
+        speed: 0.6 + Math.random() * 0.8
+      });
+    }
+  }
+
+  function getPointAlongPath(p, t) {
+    let d = t;
+    for (let k = 0; k < p.segments.length; k++) {
+      if (d <= p.segments[k]) {
+        const a = p.pts[k], b = p.pts[k + 1];
+        const frac = p.segments[k] > 0 ? d / p.segments[k] : 0;
+        return [a[0] + (b[0] - a[0]) * frac, a[1] + (b[1] - a[1]) * frac];
+      }
+      d -= p.segments[k];
+    }
+    return p.pts[p.pts.length - 1];
+  }
+
+  function renderCircuit() {
+    ctx.clearRect(0, 0, W, H);
+    const isDark = root.dataset.theme !== "light";
+    const lineColor = isDark ? "rgba(38, 51, 77, 0.45)" : "rgba(203, 213, 225, 0.6)";
+    const dotColor = isDark ? "rgba(245, 158, 11, 0.4)" : "rgba(217, 119, 6, 0.4)";
+    const pulseColor = isDark ? "#8B5CF6" : "#6D28D9";
+
+    ctx.lineWidth = 1.2;
+    ctx.lineJoin = "round";
+
+    paths.forEach(p => {
+      // Draw static track
+      ctx.strokeStyle = lineColor;
+      ctx.beginPath();
+      p.pts.forEach((pt, idx) => {
+        if (idx === 0) ctx.moveTo(pt[0], pt[1]);
+        else ctx.lineTo(pt[0], pt[1]);
+      });
+      ctx.stroke();
+
+      // End vias
+      ctx.fillStyle = dotColor;
+      [p.pts[0], p.pts[p.pts.length - 1]].forEach(v => {
+        ctx.beginPath();
+        ctx.arc(v[0], v[1], 2.5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // Flowing electron pulse
+      p.pos = (p.pos + p.speed) % p.totalLen;
+      const head = getPointAlongPath(p, p.pos);
+      ctx.fillStyle = pulseColor;
+      ctx.beginPath();
+      ctx.arc(head[0], head[1], 2.2, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    requestAnimationFrame(renderCircuit);
+  }
+
+  resize();
+  window.addEventListener("resize", () => {
+    resize();
+  });
+  renderCircuit();
 })();
+
+// --- 11. INITIALIZATION ---
+buildSkillFilterChips();
+renderSkills("All");
+
+buildProjectFilterChips();
+renderProjects("All");
+
+// Interactive 3D tilt for hero PCB board
+const pcbCard = document.getElementById("pcb-card");
+if (pcbCard && window.matchMedia("(hover: hover)").matches) {
+  pcbCard.addEventListener("pointermove", (e) => {
+    const rect = pcbCard.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    pcbCard.style.transform = `perspective(900px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
+  });
+
+  pcbCard.addEventListener("pointerleave", () => {
+    pcbCard.style.transform = "perspective(900px) rotateY(0deg) rotateX(0deg)";
+  });
+}
+
+// Hero Counter Observer (Counts 1 to 10)
+const statCountEl = document.getElementById("stat-count");
+if (statCountEl) {
+  let counted = false;
+  new IntersectionObserver((entries, obs) => {
+    if (entries[0].isIntersecting && !counted) {
+      counted = true;
+      let n = 0;
+      const iv = setInterval(() => {
+        statCountEl.textContent = ++n;
+        if (n >= 10) clearInterval(iv);
+      }, 120);
+      obs.disconnect();
+    }
+  }).observe(statCountEl);
+}
+
+// Hero SVG Animated Trace Pulses
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const ns = "http://www.w3.org/2000/svg";
+  const tracesGroup = document.getElementById("pcb-traces");
+  if (tracesGroup) {
+    tracesGroup.querySelectorAll(".tr").forEach((p, i) => {
+      const cc = document.createElementNS(ns, "circle");
+      cc.setAttribute("r", "3.5");
+      cc.setAttribute("fill", "#F59E0B");
+      cc.setAttribute("opacity", "0");
+      const a = document.createElementNS(ns, "animateMotion");
+      a.setAttribute("path", p.getAttribute("d"));
+      a.setAttribute("dur", (2.2 + i * 0.3) + "s");
+      a.setAttribute("begin", (0.3 + i * 0.25) + "s");
+      a.setAttribute("repeatCount", "indefinite");
+      const o = document.createElementNS(ns, "set");
+      o.setAttribute("attributeName", "opacity");
+      o.setAttribute("to", "1");
+      o.setAttribute("begin", (0.3 + i * 0.25) + "s");
+      cc.append(a, o);
+      tracesGroup.appendChild(cc);
+    });
+  }
+}
 </script>
 </body>
 </html>

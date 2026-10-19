@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vijay-portfolio-nine-alpha.vercel.app/sitemap.xml
