@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="100%" height="100%" style="background:#0F172A; font-family:'JetBrains Mono', monospace;">
+  <!-- Board Outline (Edge.Cuts) -->
+  <defs>
+    <pattern id="pcb-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="0.6" fill="#1E293B" />
+    </pattern>
+  </defs>
+
+  <rect width="900" height="600" fill="url(#pcb-grid)" />
+
+  <!-- PCB Board Substrate (FR-4 Dark Green #0A2616) -->
+  <g transform="translate(60, 40)">
+    <!-- Board Substrate with round corners -->
+    <rect width="780" height="520" rx="14" fill="#0A2616" stroke="#E2E8F0" stroke-width="2.5" />
+    <!-- Ground Pour Hatch Pattern -->
+    <rect width="768" height="508" x="6" y="6" rx="10" fill="#0D331E" opacity="0.9" />
+
+    <!-- Edge Cuts Dimensions and Corner Mounting Holes -->
+    <g fill="#0F172A" stroke="#D4AF37" stroke-width="3">
+      <circle cx="28" cy="28" r="10" />
+      <circle cx="752" cy="28" r="10" />
+      <circle cx="28" cy="492" r="10" />
+      <circle cx="752" cy="492" r="10" />
+    </g>
+    <!-- Center drill holes for mounting -->
+    <circle cx="28" cy="28" r="4.5" fill="#0F172A" />
+    <circle cx="752" cy="28" r="4.5" fill="#0F172A" />
+    <circle cx="28" cy="492" r="4.5" fill="#0F172A" />
+    <circle cx="752" cy="492" r="4.5" fill="#0F172A" />
+
+    <!-- Silkscreen Header Text (White) -->
+    <text x="30" y="55" font-size="14" font-weight="bold" fill="#F8FAFC" letter-spacing="1">R. VIJAYA BASKARAN &bull; 12V AC/DC TRANSFORMERLESS POWER SUPPLY</text>
+    <text x="30" y="74" font-size="11" fill="#94A3B8">REV 1.0 &bull; KiCad 10 2-LAYER BOARD &bull; 1.6mm FR-4 &bull; 1oz Cu &bull; HASL</text>
+
+    <!-- High-Voltage Isolation Barrier Line (Silkscreen) -->
+    <path d="M 330 20 L 330 500" stroke="#E2E8F0" stroke-width="1.8" stroke-dasharray="6,6" />
+    <text x="340" y="470" font-size="11" font-weight="bold" fill="#F59E0B" transform="rotate(-90 340 470)">⚡ PRIMARY AC MAINS HIGH VOLTAGE ZONE</text>
+    <text x="380" y="470" font-size="11" font-weight="bold" fill="#10B981" transform="rotate(-90 380 470)">✓ RECTIFIED REGULATED DC LOW VOLTAGE ZONE</text>
+
+    <!-- ================= COPPER TRACKS (B.Cu Blue #2563EB & F.Cu Red #DC2626) ================= -->
+    <!-- B.Cu (Bottom Layer Copper) -->
+    <g stroke="#3B82F6" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
+      <path d="M 80 180 L 150 180 L 150 250" />
+      <path d="M 80 320 L 260 320 L 390 320" />
+      <path d="M 230 250 L 290 250 L 390 180" />
+      <path d="M 460 210 L 530 210 L 530 290" />
+      <path d="M 460 290 L 530 290" />
+      <path d="M 530 290 L 620 290 L 620 340 L 710 340" />
+    </g>
+
+    <!-- F.Cu (Top Layer Copper - Thick High Current / Dropping Traces) -->
+    <g stroke="#EF4444" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9">
+      <path d="M 150 250 L 150 310" />
+      <path d="M 230 180 L 230 250" />
+      <path d="M 460 140 L 530 140 L 530 210" />
+      <path d="M 530 140 L 620 140 L 620 180 L 710 180" />
+      <path d="M 620 180 L 660 180 L 660 240" />
+    </g>
+
+    <!-- ================= SILKSCREEN COMPONENT OUTLINES & LABELS ================= -->
+    <!-- J1: AC Input Screw Terminal Block (5.08mm) -->
+    <g transform="translate(60, 160)">
+      <rect width="60" height="180" fill="none" stroke="#F8FAFC" stroke-width="1.8" rx="2" />
+      <circle cx="30" cy="40" r="14" fill="#D4AF37" stroke="#FFF" stroke-width="1.5" />
+      <circle cx="30" cy="40" r="6" fill="#0A2616" />
+      <circle cx="30" cy="140" r="14" fill="#D4AF37" stroke="#FFF" stroke-width="1.5" />
+      <circle cx="30" cy="140" r="6" fill="#0A2616" />
+      <text x="18" y="15" font-size="12" font-weight="bold" fill="#F8FAFC">J1</text>
+      <text x="12" y="70" font-size="10" fill="#E2E8F0">AC_L</text>
+      <text x="12" y="125" font-size="10" fill="#E2E8F0">AC_N</text>
+    </g>
+
+    <!-- C4: 2.2uF X2 Film AC Dropping Capacitor (Large Box Rectifier) -->
+    <g transform="translate(145, 140)">
+      <rect width="75" height="160" fill="none" stroke="#F8FAFC" stroke-width="2" rx="3" />
+      <circle cx="15" cy="40" r="9" fill="#D4AF37" stroke="#FFF" stroke-width="1.2" />
+      <circle cx="15" cy="40" r="3.5" fill="#0A2616" />
+      <circle cx="60" cy="120" r="9" fill="#D4AF37" stroke="#FFF" stroke-width="1.2" />
+      <circle cx="60" cy="120" r="3.5" fill="#0A2616" />
+      <text x="15" y="85" font-size="11" font-weight="bold" fill="#F8FAFC">C4</text>
+      <text x="10" y="100" font-size="9" fill="#CBD5E1">2.2µF 400V</text>
+    </g>
+
+    <!-- R1: 1M Bleeder Resistor -->
+    <g transform="translate(235, 150)">
+      <rect width="40" height="130" fill="none" stroke="#F8FAFC" stroke-width="1.5" rx="2" />
+      <circle cx="20" cy="20" r="7" fill="#D4AF37" stroke="#FFF" stroke-width="1" />
+      <circle cx="20" cy="20" r="2.8" fill="#0A2616" />
+      <circle cx="20" cy="110" r="7" fill="#D4AF37" stroke="#FFF" stroke-width="1" />
+      <circle cx="20" cy="110" r="2.8" fill="#0A2616" />
+      <text x="12" y="65" font-size="10" font-weight="bold" fill="#F8FAFC">R1</text>
+      <text x="10" y="78" font-size="9" fill="#CBD5E1">1MΩ</text>
+    </g>
+
+    <!-- R2, R3: Inrush Limiting Resistors -->
+    <g transform="translate(285, 160)">
+      <rect width="35" height="90" fill="none" stroke="#F8FAFC" stroke-width="1.2" />
+      <circle cx="17" cy="15" r="6" fill="#D4AF37" />
+      <circle cx="17" cy="15" r="2.5" fill="#0A2616" />
+      <circle cx="17" cy="75" r="6" fill="#D4AF37" />
+      <circle cx="17" cy="75" r="2.5" fill="#0A2616" />
+      <text x="8" y="48" font-size="9" font-weight="bold" fill="#F8FAFC">R2/3</text>
+    </g>
+
+    <!-- D1, D2, D3, D4: 1N4007 Full-Wave Rectifier Bridge Array -->
+    <g transform="translate(380, 130)">
+      <!-- D1 -->
+      <g transform="translate(0, 0)">
+        <rect width="70" height="30" fill="none" stroke="#F8FAFC" stroke-width="1.4" rx="2" />
+        <line x1="22" y1="0" x2="22" y2="30" stroke="#FFF" stroke-width="3" />
+        <circle cx="10" cy="15" r="7" fill="#D4AF37" /><circle cx="10" cy="15" r="2.8" fill="#0A2616" />
+        <circle cx="60" cy="15" r="7" fill="#D4AF37" /><circle cx="60" cy="15" r="2.8" fill="#0A2616" />
+        <text x="32" y="20" font-size="9" fill="#FFF">D1</text>
+      </g>
+      <!-- D2 -->
+      <g transform="translate(0, 50)">
+        <rect width="70" height="30" fill="none" stroke="#F8FAFC" stroke-width="1.4" rx="2" />
+        <line x1="22" y1="0" x2="22" y2="30" stroke="#FFF" stroke-width="3" />
+        <circle cx="10" cy="15" r="7" fill="#D4AF37" /><circle cx="10" cy="15" r="2.8" fill="#0A2616" />
+        <circle cx="60" cy="15" r="7" fill="#D4AF37" /><circle cx="60" cy="15" r="2.8" fill="#0A2616" />
+        <text x="32" y="20" font-size="9" fill="#FFF">D2</text>
+      </g>
+      <!-- D3 -->
+      <g transform="translate(0, 100)">
+        <rect width="70" height="30" fill="none" stroke="#F8FAFC" stroke-width="1.4" rx="2" />
+        <line x1="22" y1="0" x2="22" y2="30" stroke="#FFF" stroke-width="3" />
+        <circle cx="10" cy="15" r="7" fill="#D4AF37" /><circle cx="10" cy="15" r="2.8" fill="#0A2616" />
+        <circle cx="60" cy="15" r="7" fill="#D4AF37" /><circle cx="60" cy="15" r="2.8" fill="#0A2616" />
+        <text x="32" y="20" font-size="9" fill="#FFF">D3</text>
+      </g>
+      <!-- D4 -->
+      <g transform="translate(0, 150)">
+        <rect width="70" height="30" fill="none" stroke="#F8FAFC" stroke-width="1.4" rx="2" />
+        <line x1="22" y1="0" x2="22" y2="30" stroke="#FFF" stroke-width="3" />
+        <circle cx="10" cy="15" r="7" fill="#D4AF37" /><circle cx="10" cy="15" r="2.8" fill="#0A2616" />
+        <circle cx="60" cy="15" r="7" fill="#D4AF37" /><circle cx="60" cy="15" r="2.8" fill="#0A2616" />
+        <text x="32" y="20" font-size="9" fill="#FFF">D4</text>
+      </g>
+      <text x="12" y="200" font-size="10" fill="#94A3B8">BRIDGE 1N4007</text>
+    </g>
+
+    <!-- C2: 1000uF Radial Electrolytic Filter Capacitor (Radial Can D10mm) -->
+    <g transform="translate(485, 230)">
+      <circle cx="45" cy="45" r="42" fill="none" stroke="#F8FAFC" stroke-width="1.8" />
+      <path d="M 10 20 A 42 42 0 0 1 10 70" fill="none" stroke="#FFF" stroke-width="5" />
+      <circle cx="30" cy="45" r="8" fill="#D4AF37" stroke="#FFF" stroke-width="1.2" />
+      <circle cx="30" cy="45" r="3" fill="#0A2616" />
+      <circle cx="60" cy="45" r="8" fill="#D4AF37" stroke="#FFF" stroke-width="1.2" />
+      <circle cx="60" cy="45" r="3" fill="#0A2616" />
+      <text x="25" y="28" font-size="12" font-weight="bold" fill="#C00">+</text>
+      <text x="36" y="49" font-size="11" font-weight="bold" fill="#F8FAFC">C2</text>
+      <text x="15" y="105" font-size="10" fill="#94A3B8">1000µF / 25V</text>
+    </g>
+
+    <!-- U1: LM7805 TO-220 Voltage Regulator (Heatsink Footprint) -->
+    <g transform="translate(595, 170)">
+      <rect width="65" height="110" fill="none" stroke="#F8FAFC" stroke-width="1.8" rx="2" />
+      <line x1="0" y1="20" x2="65" y2="20" stroke="#FFF" stroke-width="2.5" />
+      <circle cx="15" cy="90" r="7" fill="#D4AF37" /><circle cx="15" cy="90" r="2.8" fill="#0A2616" />
+      <circle cx="32" cy="90" r="7" fill="#D4AF37" /><circle cx="32" cy="90" r="2.8" fill="#0A2616" />
+      <circle cx="50" cy="90" r="7" fill="#D4AF37" /><circle cx="50" cy="90" r="2.8" fill="#0A2616" />
+      <circle cx="32" cy="10" r="6" fill="#D4AF37" /><circle cx="32" cy="10" r="3" fill="#0A2616" />
+      <text x="12" y="45" font-size="11" font-weight="bold" fill="#F8FAFC">LM7805</text>
+      <text x="22" y="62" font-size="10" fill="#CBD5E1">U1</text>
+      <text x="12" y="125" font-size="9" fill="#94A3B8">1:IN 2:GND 3:OUT</text>
+    </g>
+
+    <!-- D7: LED Indicator & R4: 2.2K Resistor -->
+    <g transform="translate(680, 220)">
+      <circle cx="20" cy="20" r="16" fill="none" stroke="#F8FAFC" stroke-width="1.5" />
+      <line x1="4" y1="8" x2="4" y2="32" stroke="#FFF" stroke-width="2.5" />
+      <circle cx="14" cy="20" r="6" fill="#D4AF37" /><circle cx="14" cy="20" r="2.4" fill="#0A2616" />
+      <circle cx="26" cy="20" r="6" fill="#D4AF37" /><circle cx="26" cy="20" r="2.4" fill="#0A2616" />
+      <text x="10" y="50" font-size="10" font-weight="bold" fill="#10B981">D7 (LED)</text>
+    </g>
+
+    <!-- J2: DC Output Screw Terminal Block (5.08mm) -->
+    <g transform="translate(705, 150)">
+      <rect width="50" height="200" fill="none" stroke="#F8FAFC" stroke-width="1.8" rx="2" />
+      <circle cx="25" cy="40" r="14" fill="#D4AF37" stroke="#FFF" stroke-width="1.5" />
+      <circle cx="25" cy="40" r="6" fill="#0A2616" />
+      <circle cx="25" cy="160" r="14" fill="#D4AF37" stroke="#FFF" stroke-width="1.5" />
+      <circle cx="25" cy="160" r="6" fill="#0A2616" />
+      <text x="16" y="22" font-size="12" font-weight="bold" fill="#F8FAFC">J2</text>
+      <text x="10" y="70" font-size="11" font-weight="bold" fill="#EF4444">+12V</text>
+      <text x="10" y="145" font-size="11" font-weight="bold" fill="#3B82F6">GND</text>
+    </g>
+
+    <!-- Layer Stackup Legend (Bottom Left) -->
+    <g transform="translate(30, 430)">
+      <rect width="260" height="70" fill="#061A0E" stroke="#1E293B" stroke-width="1" rx="4" />
+      <text x="12" y="18" font-size="10" font-weight="bold" fill="#F8FAFC">BOARD LAYER IDENTIFIERS:</text>
+      <line x1="15" y1="32" x2="35" y2="32" stroke="#EF4444" stroke-width="3" />
+      <text x="45" y="36" font-size="9" fill="#E2E8F0">F.Cu (Top Layer Copper - VCC/AC)</text>
+      <line x1="15" y1="50" x2="35" y2="50" stroke="#3B82F6" stroke-width="3" />
+      <text x="45" y="54" font-size="9" fill="#E2E8F0">B.Cu (Bottom Layer Copper - Ground)</text>
+    </g>
+  </g>
+</svg>

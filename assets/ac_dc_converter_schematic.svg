@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" width="100%" height="100%" style="background:#FFFFFA; font-family:'JetBrains Mono', 'Courier New', monospace;">
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="0.8" fill="#D0D5DD" />
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#840000"/>
+    </marker>
+  </defs>
+
+  <!-- Background Grid -->
+  <rect width="1000" height="650" fill="url(#grid)" />
+  <rect width="990" height="640" x="5" y="5" fill="none" stroke="#840000" stroke-width="1.5" />
+  <rect width="982" height="632" x="9" y="9" fill="none" stroke="#840000" stroke-width="0.75" />
+
+  <!-- KiCad Title Block -->
+  <g transform="translate(680, 520)">
+    <rect width="310" height="120" fill="#FFFFFA" stroke="#840000" stroke-width="1.2" />
+    <line x1="0" y1="30" x2="310" y2="30" stroke="#840000" stroke-width="0.8" />
+    <line x1="0" y1="65" x2="310" y2="65" stroke="#840000" stroke-width="0.8" />
+    <line x1="0" y1="92" x2="310" y2="92" stroke="#840000" stroke-width="0.8" />
+    <line x1="180" y1="92" x2="180" y2="120" stroke="#840000" stroke-width="0.8" />
+    
+    <text x="10" y="20" font-size="11" fill="#840000" font-weight="bold">KiCad E.E.Schematic v10.0</text>
+    <text x="10" y="48" font-size="13" fill="#000084" font-weight="bold">Transformerless 12V AC→DC Converter</text>
+    <text x="10" y="82" font-size="11" fill="#333">Design: R. Vijaya Baskaran (ECE)</text>
+    <text x="10" y="108" font-size="10" fill="#555">Date: 2026-07-14</text>
+    <text x="190" y="108" font-size="10" fill="#555">Rev: 1.0 (KiCad)</text>
+  </g>
+
+  <!-- Title on Canvas -->
+  <text x="40" y="45" font-size="18" font-weight="bold" fill="#000084">TRANSFORMERLESS 12V AC TO DC POWER SUPPLY SCHEMATIC</text>
+  <text x="40" y="65" font-size="11" fill="#555">Capacitive Reactance AC Dropping &bull; Full-Bridge Rectifier &bull; Filter &bull; LM7805 Linear Regulation</text>
+
+  <!-- Wires & Junctions (KiCad Red #840000) -->
+  <g stroke="#840000" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- AC Input Line -->
+    <path d="M 120 180 L 190 180" />
+    <path d="M 120 340 L 400 340" />
+
+    <!-- C4 and R1 Parallel Dropping Stage -->
+    <path d="M 190 180 L 190 140 L 230 140" />
+    <path d="M 190 180 L 190 220 L 230 220" />
+    <path d="M 310 140 L 350 140 L 350 180 L 400 180" />
+    <path d="M 310 220 L 350 220 L 350 180" />
+
+    <!-- Current Limiting Resistors R2, R3 -->
+    <path d="M 400 180 L 440 180" />
+    <path d="M 500 180 L 530 180 L 530 230" />
+
+    <!-- Bridge Rectifier Node Connections -->
+    <!-- Top AC Node -->
+    <path d="M 530 230 L 580 230" />
+    <!-- Bottom AC Node -->
+    <path d="M 400 340 L 530 340 L 530 290 L 580 290" />
+    
+    <!-- Bridge to Filter Cap C2 & Zener D5/D6 -->
+    <path d="M 640 180 L 640 150 L 730 150" />
+    <path d="M 640 340 L 640 370 L 730 370" />
+
+    <!-- Filter Capacitors C2 (1000uF), C3 (470uF), Zener D5 in parallel -->
+    <path d="M 690 150 L 690 210" />
+    <path d="M 690 270 L 690 370" />
+    <path d="M 740 150 L 740 210" />
+    <path d="M 740 270 L 740 370" />
+
+    <!-- To LM7805 Regulator -->
+    <path d="M 740 150 L 790 150 L 790 200" />
+    <path d="M 740 370 L 820 370 L 820 280" />
+    <path d="M 850 200 L 850 150 L 910 150" />
+
+    <!-- Output Decoupling C1 (0.1uF), LED D7, Resistor R4 (2.2K) -->
+    <path d="M 880 150 L 880 210" />
+    <path d="M 880 270 L 880 370" />
+    <path d="M 910 150 L 910 210" />
+    <path d="M 910 270 L 910 370" />
+
+    <!-- DC Output Terminal J2 -->
+    <path d="M 910 150 L 960 150" />
+    <path d="M 910 370 L 960 370" />
+  </g>
+
+  <!-- Junction Dots (KiCad filled dots) -->
+  <g fill="#840000">
+    <circle cx="190" cy="180" r="3.5" />
+    <circle cx="350" cy="180" r="3.5" />
+    <circle cx="690" cy="150" r="3.5" />
+    <circle cx="690" cy="370" r="3.5" />
+    <circle cx="740" cy="150" r="3.5" />
+    <circle cx="740" cy="370" r="3.5" />
+    <circle cx="880" cy="150" r="3.5" />
+    <circle cx="880" cy="370" r="3.5" />
+    <circle cx="910" cy="150" r="3.5" />
+    <circle cx="910" cy="370" r="3.5" />
+    <circle cx="820" cy="370" r="3.5" />
+  </g>
+
+  <!-- J1: AC Input Terminal Block -->
+  <g transform="translate(60, 160)">
+    <rect width="60" height="200" fill="#E8EEF5" stroke="#000084" stroke-width="1.8" rx="4"/>
+    <circle cx="90" cy="20" r="7" fill="#FFF" stroke="#000084" stroke-width="1.5" />
+    <circle cx="90" cy="180" r="7" fill="#FFF" stroke="#000084" stroke-width="1.5" />
+    <text x="15" y="24" font-size="12" font-weight="bold" fill="#000084">L (AC)</text>
+    <text x="15" y="184" font-size="12" font-weight="bold" fill="#000084">N (AC)</text>
+    <text x="10" y="-12" font-size="13" font-weight="bold" fill="#000084">J1</text>
+    <text x="10" y="222" font-size="11" fill="#555">Terminal_01x02</text>
+  </g>
+
+  <!-- C4: 2.2uF / 225K 400V X2 AC Dropping Capacitor -->
+  <g transform="translate(230, 120)">
+    <rect width="80" height="40" fill="#FFFFE0" stroke="#008484" stroke-width="1.5" rx="2" />
+    <text x="14" y="25" font-size="12" font-weight="bold" fill="#008484">2.2µF</text>
+    <text x="12" y="-6" font-size="12" font-weight="bold" fill="#000084">C4</text>
+    <text x="6" y="55" font-size="10" fill="#555">225K / 400V (X2)</text>
+  </g>
+
+  <!-- R1: 1M Bleeder Resistor -->
+  <g transform="translate(230, 205)">
+    <rect width="80" height="30" fill="#FFF" stroke="#008484" stroke-width="1.5" />
+    <text x="24" y="20" font-size="12" font-weight="bold" fill="#008484">1MΩ</text>
+    <text x="22" y="-6" font-size="12" font-weight="bold" fill="#000084">R1</text>
+    <text x="15" y="46" font-size="10" fill="#555">Bleeder (1/2W)</text>
+  </g>
+
+  <!-- R2, R3: Current Inrush Limiting Resistors (20K) -->
+  <g transform="translate(440, 165)">
+    <rect width="60" height="30" fill="#FFF" stroke="#008484" stroke-width="1.5" />
+    <text x="14" y="20" font-size="12" font-weight="bold" fill="#008484">20kΩ</text>
+    <text x="14" y="-6" font-size="12" font-weight="bold" fill="#000084">R2, R3</text>
+    <text x="6" y="46" font-size="10" fill="#555">Inrush Limit</text>
+  </g>
+
+  <!-- Bridge Rectifier (D1, D2, D3, D4 - 1N4007) -->
+  <g transform="translate(560, 200)">
+    <polygon points="50,10 90,60 50,110 10,60" fill="#FFF8DC" stroke="#000084" stroke-width="1.8"/>
+    <!-- Diode Symbols on arms -->
+    <text x="40" y="35" font-size="10" fill="#840000" font-weight="bold">D1</text>
+    <text x="68" y="65" font-size="10" fill="#840000" font-weight="bold">D2</text>
+    <text x="40" y="95" font-size="10" fill="#840000" font-weight="bold">D3</text>
+    <text x="15" y="65" font-size="10" fill="#840000" font-weight="bold">D4</text>
+    <text x="32" y="65" font-size="13" font-weight="bold" fill="#000084">1N4007</text>
+    <!-- DC Output markers -->
+    <text x="43" y="-6" font-size="13" font-weight="bold" fill="#C00">+</text>
+    <text x="43" y="128" font-size="15" font-weight="bold" fill="#00C">−</text>
+  </g>
+
+  <!-- C2: 1000uF Filter Capacitor -->
+  <g transform="translate(670, 210)">
+    <line x1="0" y1="20" x2="40" y2="20" stroke="#000084" stroke-width="2.5" />
+    <path d="M 0 38 Q 20 48 40 38" stroke="#000084" stroke-width="2.5" fill="none" />
+    <text x="5" y="12" font-size="11" font-weight="bold" fill="#C00">+</text>
+    <text x="46" y="24" font-size="11" font-weight="bold" fill="#000084">C2</text>
+    <text x="46" y="38" font-size="11" fill="#008484">1000µF</text>
+    <text x="46" y="50" font-size="10" fill="#666">25V Elect.</text>
+  </g>
+
+  <!-- D5: Zener Clamping Diode -->
+  <g transform="translate(720, 210)">
+    <line x1="20" y1="0" x2="20" y2="20" stroke="#840000" stroke-width="1.5" />
+    <polygon points="10,20 30,20 20,38" fill="#000084" stroke="#000084" stroke-width="1.2"/>
+    <path d="M 6 38 L 10 38 L 30 38 L 34 34" stroke="#000084" stroke-width="1.8" fill="none"/>
+    <line x1="20" y1="38" x2="20" y2="60" stroke="#840000" stroke-width="1.5" />
+    <text x="36" y="24" font-size="11" font-weight="bold" fill="#000084">D5, D6</text>
+    <text x="36" y="38" font-size="11" fill="#008484">Zener 12V</text>
+  </g>
+
+  <!-- U1: LM7805 TO-220 Voltage Regulator -->
+  <g transform="translate(780, 200)">
+    <rect width="80" height="80" fill="#E8F4FD" stroke="#000084" stroke-width="1.8" rx="4"/>
+    <text x="12" y="35" font-size="12" font-weight="bold" fill="#000084">LM7805</text>
+    <text x="14" y="55" font-size="10" fill="#555">TO-220-3</text>
+    <text x="-16" y="16" font-size="10" fill="#000">VI (1)</text>
+    <text x="56" y="16" font-size="10" fill="#000">VO (3)</text>
+    <text x="24" y="95" font-size="10" fill="#000">GND (2)</text>
+    <text x="25" y="-10" font-size="12" font-weight="bold" fill="#000084">U1</text>
+  </g>
+
+  <!-- C1: 0.1uF Ceramic Decoupling -->
+  <g transform="translate(865, 215)">
+    <line x1="0" y1="20" x2="30" y2="20" stroke="#000084" stroke-width="2.5" />
+    <line x1="0" y1="32" x2="30" y2="32" stroke="#000084" stroke-width="2.5" />
+    <text x="35" y="22" font-size="11" font-weight="bold" fill="#000084">C1</text>
+    <text x="35" y="35" font-size="10" fill="#008484">0.1µF</text>
+  </g>
+
+  <!-- D7: LED Indicator + R4: 2.2K Resistor -->
+  <g transform="translate(900, 210)">
+    <polygon points="5,15 25,15 15,30" fill="#008400" stroke="#008400" stroke-width="1.2"/>
+    <line x1="5" y1="30" x2="25" y2="30" stroke="#008400" stroke-width="1.5"/>
+    <line x1="22" y1="20" x2="32" y2="12" stroke="#008400" stroke-width="1.2" marker-end="url(#arrow)"/>
+    <line x1="26" y1="26" x2="36" y2="18" stroke="#008400" stroke-width="1.2" marker-end="url(#arrow)"/>
+    <!-- R4 Resistor in series -->
+    <rect x="5" y="42" width="20" height="25" fill="#FFF" stroke="#008484" stroke-width="1.2"/>
+    <text x="32" y="24" font-size="11" font-weight="bold" fill="#008400">D7 (LED)</text>
+    <text x="32" y="58" font-size="10" fill="#008484">R4 2.2kΩ</text>
+  </g>
+
+  <!-- J2: DC Output Screw Terminal Block -->
+  <g transform="translate(940, 130)">
+    <rect width="45" height="260" fill="#E8EEF5" stroke="#000084" stroke-width="1.8" rx="4"/>
+    <circle cx="22" cy="20" r="7" fill="#FFF" stroke="#000084" stroke-width="1.5" />
+    <circle cx="22" cy="240" r="7" fill="#FFF" stroke="#000084" stroke-width="1.5" />
+    <text x="-30" y="25" font-size="12" font-weight="bold" fill="#C00">+12V</text>
+    <text x="-30" y="245" font-size="12" font-weight="bold" fill="#00C">GND</text>
+    <text x="8" y="-10" font-size="13" font-weight="bold" fill="#000084">J2</text>
+    <text x="-15" y="280" font-size="10" fill="#555">Output 01x02</text>
+  </g>
+
+  <!-- Engineering Safety Callout Box -->
+  <g transform="translate(40, 480)">
+    <rect width="610" height="135" fill="#FFFBEB" stroke="#B45309" stroke-width="1.2" rx="4"/>
+    <text x="15" y="24" font-size="12" font-weight="bold" fill="#92400E">⚡ ENGINEERING DESIGN &amp; SAFETY NOTE (MAINS NON-ISOLATED):</text>
+    <text x="15" y="45" font-size="11" fill="#78350F">1. Capacitive Dropping: Implements reactive impedance Xc = 1 / (2&pi;fC) &approx; 1.45 k&Omega; @ 50 Hz using 2.2µF X2 film capacitor.</text>
+    <text x="15" y="65" font-size="11" fill="#78350F">2. Discharge Bleeder: R1 (1 M&Omega;) safely discharges residual capacitor charge across AC line pins upon unplugging.</text>
+    <text x="15" y="85" font-size="11" fill="#78350F">3. Non-Isolated Ground: Output ground is referenced directly to AC neutral. Enclosure must be non-conductive.</text>
+    <text x="15" y="105" font-size="11" fill="#78350F">4. Voltage Regulation: Full-wave bridge rectifies AC, smoothed by 1000µF/470µF caps, clamped by Zener, regulated by LM7805.</text>
+    <text x="15" y="123" font-size="10" font-style="italic" fill="#B45309">Design Status: KiCad 10 schematic capture &amp; preliminary layout. Verified in LTspice transient simulation.</text>
+  </g>
+</svg>

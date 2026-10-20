@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="100%" height="100%" style="background:#0F172A; font-family:'Inter', sans-serif;">
+  <defs>
+    <linearGradient id="pcb-surface-mc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14532D" />
+      <stop offset="100%" stop-color="#052E16" />
+    </linearGradient>
+    <linearGradient id="terminal-green" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#15803D" />
+      <stop offset="100%" stop-color="#166534" />
+    </linearGradient>
+    <linearGradient id="mosfet-metal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#94A3B8" />
+      <stop offset="50%" stop-color="#E2E8F0" />
+      <stop offset="100%" stop-color="#64748B" />
+    </linearGradient>
+    <filter id="shadow-mc" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="25" stdDeviation="25" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <g transform="translate(40, 35)">
+    <rect width="280" height="34" rx="6" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+    <circle cx="18" cy="17" r="4.5" fill="#10B981"/>
+    <text x="32" y="21" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="bold" fill="#F8FAFC">KiCad 3D Raytraced Model</text>
+  </g>
+
+  <!-- Isometric Board Transformation -->
+  <g transform="translate(450, 330) rotate(-16) skewX(-24) scale(1, 0.65)" filter="url(#shadow-mc)">
+    <!-- PCB Core -->
+    <path d="M -320 -160 L 320 -160 L 320 160 L -320 160 Z" fill="#021C0D" />
+    <!-- 1.6mm thickness -->
+    <path d="M -320 160 L 320 160 L 320 178 L -320 178 Z" fill="#0F3D20" />
+    <path d="M 320 -160 L 320 160 L 320 178 L 320 -142 Z" fill="#0A2A16" />
+
+    <!-- Top Surface -->
+    <rect x="-320" y="-160" width="640" height="320" rx="8" fill="url(#pcb-surface-mc)" stroke="#22C55E" stroke-width="1.5" />
+
+    <!-- Corner Holes with Gold Rings -->
+    <g fill="#0F172A" stroke="#EAB308" stroke-width="3">
+      <circle cx="-295" cy="-135" r="13" />
+      <circle cx="295" cy="-135" r="13" />
+      <circle cx="-295" cy="135" r="13" />
+      <circle cx="295" cy="135" r="13" />
+    </g>
+
+    <!-- Silkscreen text -->
+    <text x="-260" y="-120" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="bold" fill="#FFFFFF">IC 555 PWM MOTOR SPEED CONTROLLER</text>
+    <text x="-260" y="-102" font-size="9" font-family="'JetBrains Mono', monospace" fill="#CBD5E1">DESIGN BY: R. VIJAYA BASKARAN &bull; REV 1.5</text>
+
+    <!-- Copper Traces -->
+    <g stroke="#15803D" stroke-width="4.5" fill="none" opacity="0.6">
+      <path d="M -240 0 L -160 0 L -160 50 L -40 50" />
+      <path d="M -40 0 L 80 0 L 80 -40 L 160 -40" />
+      <path d="M 120 40 L 240 40" />
+    </g>
+
+    <!-- ================= 3D MOUNTED COMPONENTS ================= -->
+
+    <!-- TP1: Power Input Terminal (Battery In) -->
+    <g transform="translate(-270, -40)">
+      <rect x="0" y="0" width="45" height="90" rx="3" fill="url(#terminal-green)" stroke="#14532D" stroke-width="1.8"/>
+      <circle cx="22" cy="25" r="10" fill="#0F172A" stroke="#86EFAC" stroke-width="1.5"/>
+      <circle cx="22" cy="65" r="10" fill="#0F172A" stroke="#86EFAC" stroke-width="1.5"/>
+      <text x="-4" y="-8" font-size="9" font-family="'JetBrains Mono', monospace" fill="#FFF" font-weight="bold">BAT IN (TP1)</text>
+    </g>
+
+    <!-- J1: 3-Pin Vertical Pin Header (Potentiometer) -->
+    <g transform="translate(-180, -50)">
+      <rect x="0" y="0" width="28" height="75" rx="2" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+      <rect x="6" y="8" width="16" height="14" fill="#EAB308"/>
+      <rect x="6" y="30" width="16" height="14" fill="#EAB308"/>
+      <rect x="6" y="52" width="16" height="14" fill="#EAB308"/>
+      <text x="-8" y="-8" font-size="9" font-family="'JetBrains Mono', monospace" fill="#FFF">POT (J1)</text>
+    </g>
+
+    <!-- D1, D2: Steering Diodes (1N4148 glass bodies) -->
+    <g transform="translate(-120, -40)">
+      <rect x="0" y="0" width="35" height="14" rx="4" fill="#EA580C" opacity="0.85" stroke="#C2410C" stroke-width="1"/>
+      <rect x="6" y="0" width="4" height="14" fill="#000"/>
+      <rect x="0" y="24" width="35" height="14" rx="4" fill="#EA580C" opacity="0.85" stroke="#C2410C" stroke-width="1"/>
+      <rect x="25" y="24" width="4" height="14" fill="#000"/>
+      <text x="-2" y="52" font-size="8" font-family="'JetBrains Mono', monospace" fill="#FFF">1N4148</text>
+    </g>
+
+    <!-- U1: NE555D SOIC-8 IC (Black epoxy package with gull-wing leads) -->
+    <g transform="translate(-50, -35)">
+      <rect x="0" y="0" width="55" height="75" rx="3" fill="#18181B" stroke="#3F3F46" stroke-width="1.5"/>
+      <!-- Index notch / dot -->
+      <circle cx="12" cy="12" r="3.5" fill="#52525B"/>
+      <!-- Silver lead legs -->
+      <g fill="#CBD5E1">
+        <rect x="-8" y="8" width="8" height="6"/>
+        <rect x="-8" y="24" width="8" height="6"/>
+        <rect x="-8" y="40" width="8" height="6"/>
+        <rect x="-8" y="56" width="8" height="6"/>
+        <rect x="55" y="8" width="8" height="6"/>
+        <rect x="55" y="24" width="8" height="6"/>
+        <rect x="55" y="40" width="8" height="6"/>
+        <rect x="55" y="56" width="8" height="6"/>
+      </g>
+      <text x="8" y="38" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="bold" fill="#FAFAFA">NE555</text>
+      <text x="8" y="50" font-size="8" font-family="'JetBrains Mono', monospace" fill="#A1A1AA">TI 555D</text>
+    </g>
+
+    <!-- C1, C2: Ceramic Disc Capacitors (Ochre discs) -->
+    <g transform="translate(35, -25)">
+      <circle cx="12" cy="12" r="11" fill="#D97706" stroke="#92400E" stroke-width="1.5"/>
+      <circle cx="12" cy="45" r="11" fill="#D97706" stroke="#92400E" stroke-width="1.5"/>
+      <text x="-6" y="-6" font-size="8" font-family="'JetBrains Mono', monospace" fill="#FFF">C1 / C2</text>
+    </g>
+
+    <!-- Q1: IRLZ44N TO-220-3 Power MOSFET with Metal Heatsink Tab -->
+    <g transform="translate(95, -45)">
+      <!-- Shiny Metal Tab on Back -->
+      <rect x="5" y="-12" width="45" height="14" rx="2" fill="url(#mosfet-metal)" stroke="#475569" stroke-width="1"/>
+      <circle cx="27" cy="-5" r="4" fill="#0F172A"/>
+      <!-- Plastic Body -->
+      <rect x="0" y="2" width="55" height="85" rx="3" fill="#18181B" stroke="#3F3F46" stroke-width="1.5"/>
+      <text x="6" y="32" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="bold" fill="#FFF">IRLZ44N</text>
+      <text x="6" y="48" font-size="8" font-family="'JetBrains Mono', monospace" fill="#A1A1AA">MOSFET</text>
+      <text x="6" y="64" font-size="8" font-family="'JetBrains Mono', monospace" fill="#10B981">Rds 28mΩ</text>
+    </g>
+
+    <!-- D_Flyback: 1N4007 Diode (Snubber across Motor) -->
+    <g transform="translate(170, -60)">
+      <rect x="0" y="0" width="45" height="18" rx="5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+      <rect x="8" y="0" width="5" height="18" fill="#E2E8F0"/>
+      <text x="-2" y="-6" font-size="8" font-family="'JetBrains Mono', monospace" fill="#FFF">1N4007</text>
+    </g>
+
+    <!-- TP2: Motor Output Terminal Block -->
+    <g transform="translate(225, -40)">
+      <rect x="0" y="0" width="45" height="90" rx="3" fill="url(#terminal-green)" stroke="#14532D" stroke-width="1.8"/>
+      <circle cx="22" cy="25" r="10" fill="#0F172A" stroke="#86EFAC" stroke-width="1.5"/>
+      <circle cx="22" cy="65" r="10" fill="#0F172A" stroke="#86EFAC" stroke-width="1.5"/>
+      <text x="-2" y="-8" font-size="9" font-family="'JetBrains Mono', monospace" fill="#FFF" font-weight="bold">MOTOR (TP2)</text>
+    </g>
+  </g>
+
+  <!-- Technical Callout Strip -->
+  <g transform="translate(50, 520)">
+    <rect width="800" height="55" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1.2"/>
+    <text x="25" y="24" font-size="12" font-weight="bold" fill="#F8FAFC">Physical Board Assembly Specifications:</text>
+    <text x="25" y="42" font-size="11" fill="#94A3B8">Package: SOIC-8 (NE555D) &bull; TO-220-3 (IRLZ44N) &bull; 2.00mm Potentiometer Header &bull; 1.27mm Power/Motor Pins &bull; 99 Tracks / 13 Vias</text>
+  </g>
+</svg>

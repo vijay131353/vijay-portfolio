@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="100%" height="100%" style="background:#0F172A; font-family:'Inter', sans-serif;">
+  <defs>
+    <linearGradient id="pcb-surface-tb" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14532D" />
+      <stop offset="100%" stop-color="#052E16" />
+    </linearGradient>
+    <linearGradient id="dip-body" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#18181B" />
+      <stop offset="50%" stop-color="#27272A" />
+      <stop offset="100%" stop-color="#09090B" />
+    </linearGradient>
+    <linearGradient id="buzzer-black" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#27272A" />
+      <stop offset="40%" stop-color="#3F3F46" />
+      <stop offset="100%" stop-color="#18181B" />
+    </linearGradient>
+    <linearGradient id="gold-touch" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FACC15" />
+      <stop offset="100%" stop-color="#CA8A04" />
+    </linearGradient>
+    <filter id="shadow-tb" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="25" stdDeviation="25" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <g transform="translate(40, 35)">
+    <rect width="280" height="34" rx="6" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+    <circle cx="18" cy="17" r="4.5" fill="#10B981"/>
+    <text x="32" y="21" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="bold" fill="#F8FAFC">KiCad 3D Raytraced Model</text>
+  </g>
+
+  <!-- Isometric Board Transformation -->
+  <g transform="translate(450, 330) rotate(-16) skewX(-24) scale(1, 0.65)" filter="url(#shadow-tb)">
+    <!-- Core & 1.6mm Thickness -->
+    <path d="M -320 -160 L 320 -160 L 320 160 L -320 160 Z" fill="#021C0D" />
+    <path d="M -320 160 L 320 160 L 320 178 L -320 178 Z" fill="#0F3D20" />
+    <path d="M 320 -160 L 320 160 L 320 178 L 320 -142 Z" fill="#0A2A16" />
+
+    <!-- Top Surface -->
+    <rect x="-320" y="-160" width="640" height="320" rx="8" fill="url(#pcb-surface-tb)" stroke="#22C55E" stroke-width="1.5" />
+
+    <!-- Corner Holes with Gold Rings -->
+    <g fill="#0F172A" stroke="#EAB308" stroke-width="3">
+      <circle cx="-295" cy="-135" r="13" />
+      <circle cx="295" cy="-135" r="13" />
+      <circle cx="-295" cy="135" r="13" />
+      <circle cx="295" cy="135" r="13" />
+    </g>
+
+    <!-- Silkscreen text -->
+    <text x="-260" y="-120" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="bold" fill="#FFFFFF">STEMTOY 555 TOUCH-ACTIVATED BUZZER</text>
+    <text x="-260" y="-102" font-size="9" font-family="'JetBrains Mono', monospace" fill="#CBD5E1">DESIGN BY: R. VIJAYA BASKARAN &bull; REV 1.0</text>
+
+    <!-- Copper Traces -->
+    <g stroke="#15803D" stroke-width="4.5" fill="none" opacity="0.6">
+      <path d="M -240 0 L -160 0 L -160 50 L -40 50" />
+      <path d="M -40 0 L 80 0 L 80 -40 L 160 -40" />
+      <path d="M 120 40 L 240 40" />
+    </g>
+
+    <!-- ================= 3D MOUNTED COMPONENTS ================= -->
+
+    <!-- +Bat-: DC Battery Input (1x02 Pin Socket) -->
+    <g transform="translate(-270, -40)">
+      <rect x="0" y="0" width="35" height="75" rx="3" fill="#18181B" stroke="#3F3F46" stroke-width="1.5"/>
+      <circle cx="17" cy="20" r="7" fill="#EAB308"/>
+      <circle cx="17" cy="55" r="7" fill="#EAB308"/>
+      <text x="-12" y="-10" font-size="9" font-family="'JetBrains Mono', monospace" fill="#FFF" font-weight="bold">+BAT- (DC IN)</text>
+    </g>
+
+    <!-- TOUCH CONTACT PADS (Shiny Gold Immersion Surface Electrodes) -->
+    <g transform="translate(-200, -50)">
+      <rect x="0" y="0" width="45" height="42" rx="4" fill="url(#gold-touch)" stroke="#FEF08A" stroke-width="2"/>
+      <rect x="0" y="55" width="45" height="42" rx="4" fill="url(#gold-touch)" stroke="#FEF08A" stroke-width="2"/>
+      <!-- Finger touch icon / text -->
+      <text x="-4" y="-8" font-size="10" font-family="'JetBrains Mono', monospace" fill="#FEF08A" font-weight="bold">TOUCH PADS</text>
+      <text x="5" y="26" font-size="9" font-family="'JetBrains Mono', monospace" fill="#713F12">TRIG</text>
+      <text x="7" y="80" font-size="9" font-family="'JetBrains Mono', monospace" fill="#713F12">GND</text>
+    </g>
+
+    <!-- 10K Resistor (Axial DIN0207 Horizontal) -->
+    <g transform="translate(-130, -40)">
+      <rect x="0" y="0" width="20" height="75" rx="5" fill="#FDE68A" stroke="#D97706" stroke-width="1.5"/>
+      <!-- Brown, Black, Orange, Gold -->
+      <rect x="0" y="12" width="20" height="5" fill="#78350F"/>
+      <rect x="0" y="24" width="20" height="5" fill="#000"/>
+      <rect x="0" y="36" width="20" height="5" fill="#EA580C"/>
+      <rect x="0" y="55" width="20" height="5" fill="#EAB308"/>
+      <text x="-4" y="-8" font-size="8" font-family="'JetBrains Mono', monospace" fill="#FFF">10KΩ</text>
+    </g>
+
+    <!-- 1K Resistor (Axial DIN0207 Horizontal) -->
+    <g transform="translate(-95, -40)">
+      <rect x="0" y="0" width="20" height="75" rx="5" fill="#FDE68A" stroke="#D97706" stroke-width="1.5"/>
+      <!-- Brown, Black, Red, Gold -->
+      <rect x="0" y="12" width="20" height="5" fill="#78350F"/>
+      <rect x="0" y="24" width="20" height="5" fill="#000"/>
+      <rect x="0" y="36" width="20" height="5" fill="#DC2626"/>
+      <rect x="0" y="55" width="20" height="5" fill="#EAB308"/>
+      <text x="-2" y="-8" font-size="8" font-family="'JetBrains Mono', monospace" fill="#FFF">1KΩ</text>
+    </g>
+
+    <!-- IC555: DIP-8 Dual In-Line Package in IC Socket -->
+    <g transform="translate(-50, -50)">
+      <!-- Socket -->
+      <rect x="-6" y="-6" width="84" height="112" rx="4" fill="#09090B" stroke="#27272A" stroke-width="1"/>
+      <!-- DIP-8 Body -->
+      <rect x="0" y="0" width="72" height="100" rx="3" fill="url(#dip-body)" stroke="#3F3F46" stroke-width="1.5"/>
+      <!-- Index Notch -->
+      <path d="M 28 0 A 8 8 0 0 0 44 0" fill="#09090B" stroke="#3F3F46" stroke-width="1"/>
+      <circle cx="12" cy="14" r="3" fill="#52525B"/>
+      <!-- Silver Pins -->
+      <g fill="#CBD5E1">
+        <circle cx="-12" cy="15" r="4.5"/><circle cx="-12" cy="40" r="4.5"/><circle cx="-12" cy="65" r="4.5"/><circle cx="-12" cy="85" r="4.5"/>
+        <circle cx="84" cy="15" r="4.5"/><circle cx="84" cy="40" r="4.5"/><circle cx="84" cy="65" r="4.5"/><circle cx="84" cy="85" r="4.5"/>
+      </g>
+      <text x="12" y="45" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="bold" fill="#FAFAFA">NE555P</text>
+      <text x="14" y="62" font-size="9" font-family="'JetBrains Mono', monospace" fill="#A1A1AA">TI DIP-8</text>
+    </g>
+
+    <!-- 100uF Radial Electrolytic Timing Capacitor -->
+    <g transform="translate(65, -45)">
+      <circle cx="40" cy="40" r="38" fill="#475569" stroke="#1E293B" stroke-width="2"/>
+      <line x1="22" y1="22" x2="58" y2="58" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="22" y1="58" x2="58" y2="22" stroke="#64748B" stroke-width="1.5"/>
+      <!-- Negative Stripe -->
+      <path d="M 58 8 A 38 38 0 0 1 74 52" stroke="#000" stroke-width="12" fill="none"/>
+      <text x="10" y="95" font-size="9" font-family="'JetBrains Mono', monospace" fill="#FFF" font-weight="bold">100µF / 16V</text>
+    </g>
+
+    <!-- 1nF Noise Bypass Ceramic Disc -->
+    <g transform="translate(130, -35)">
+      <circle cx="12" cy="12" r="12" fill="#D97706" stroke="#92400E" stroke-width="1.5"/>
+      <text x="-4" y="-8" font-size="8" font-family="'JetBrains Mono', monospace" fill="#FFF">1nF</text>
+    </g>
+
+    <!-- Buzz: Active Piezo Buzzer (Cylindrical Black Housing with Sound Hole) -->
+    <g transform="translate(180, -45)">
+      <circle cx="45" cy="45" r="45" fill="url(#buzzer-black)" stroke="#09090B" stroke-width="2.5"/>
+      <!-- Top Center Sound Aperture Hole -->
+      <circle cx="45" cy="45" r="14" fill="#09090B" stroke="#27272A" stroke-width="1.5"/>
+      <!-- Polarity marking (+) -->
+      <text x="68" y="32" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="bold" fill="#EF4444">+</text>
+      <text x="18" y="105" font-size="10" font-family="'JetBrains Mono', monospace" fill="#FFF" font-weight="bold">ACTIVE BUZZER</text>
+    </g>
+  </g>
+
+  <!-- Technical Callout Strip -->
+  <g transform="translate(50, 520)">
+    <rect width="800" height="55" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1.2"/>
+    <text x="25" y="24" font-size="12" font-weight="bold" fill="#F8FAFC">Physical Board Assembly Specifications:</text>
+    <text x="25" y="42" font-size="11" fill="#94A3B8">Package: DIP-8 (NE555P) &bull; Gold Immersion Touch Pads &bull; Radial 8mm Can &bull; Piezo Buzzer 12mm &bull; 43 Tracks / 1 Via</text>
+  </g>
+</svg>

@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="100%" height="100%" style="background:#0F172A; font-family:'JetBrains Mono', monospace;">
+  <defs>
+    <pattern id="pcb-grid3" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="0.6" fill="#1E293B" />
+    </pattern>
+  </defs>
+
+  <rect width="900" height="600" fill="url(#pcb-grid3)" />
+
+  <!-- PCB Board Substrate -->
+  <g transform="translate(100, 50)">
+    <!-- Board Substrate with round corners -->
+    <rect width="700" height="500" rx="14" fill="#0A2616" stroke="#E2E8F0" stroke-width="2.5" />
+    <!-- Ground Pour Layer Hatching -->
+    <rect width="688" height="488" x="6" y="6" rx="10" fill="#0D331E" opacity="0.9" />
+
+    <!-- Corner Mounting Holes -->
+    <g fill="#0F172A" stroke="#D4AF37" stroke-width="3">
+      <circle cx="28" cy="28" r="10" />
+      <circle cx="672" cy="28" r="10" />
+      <circle cx="28" cy="472" r="10" />
+      <circle cx="672" cy="472" r="10" />
+    </g>
+    <circle cx="28" cy="28" r="4.5" fill="#0F172A" />
+    <circle cx="672" cy="28" r="4.5" fill="#0F172A" />
+    <circle cx="28" cy="472" r="4.5" fill="#0F172A" />
+    <circle cx="672" cy="472" r="4.5" fill="#0F172A" />
+
+    <!-- Silkscreen Header Text -->
+    <text x="30" y="55" font-size="14" font-weight="bold" fill="#F8FAFC" letter-spacing="1">R. VIJAYA BASKARAN &bull; STEMTOY 555 TOUCH BUZZER</text>
+    <text x="30" y="74" font-size="11" fill="#94A3B8">REV 1.0 &bull; 43 TRACKS &bull; 1 VIA &bull; 2-LAYER FR-4 &bull; EXPOSED TOUCH ELECTRODES</text>
+
+    <!-- ================= COPPER TRACKS ================= -->
+    <!-- B.Cu (Bottom Layer Copper Blue #3B82F6 - Power & Ground Return) -->
+    <g stroke="#3B82F6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
+      <path d="M 80 180 L 140 180 L 140 280 L 220 280" />
+      <path d="M 80 320 L 160 320 L 220 400 L 460 400" />
+      <path d="M 220 280 L 320 280 L 320 240" />
+      <path d="M 380 240 L 460 240 L 460 340 L 580 340" />
+      <path d="M 580 340 L 620 340 L 620 220" />
+    </g>
+
+    <!-- F.Cu (Top Layer Copper Red #EF4444 - Signal Traces) -->
+    <g stroke="#EF4444" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9">
+      <path d="M 120 240 L 180 240 L 220 200 L 280 200" />
+      <path d="M 280 200 L 320 200 L 340 240" />
+      <path d="M 340 240 L 420 240 L 420 200 L 480 200" />
+      <path d="M 420 240 L 420 300 L 520 300" />
+      <path d="M 520 220 L 520 280 L 620 280" />
+    </g>
+
+    <!-- Vias -->
+    <g fill="#D4AF37" stroke="#0F172A" stroke-width="1.5">
+      <circle cx="340" cy="240" r="5.5" /><circle cx="340" cy="240" r="2" fill="#0F172A" />
+    </g>
+
+    <!-- ================= SILKSCREEN & COMPONENTS ================= -->
+
+    <!-- +Bat-: DC Battery Input (1x02 Connector) -->
+    <g transform="translate(60, 210)">
+      <rect width="45" height="110" fill="none" stroke="#F8FAFC" stroke-width="1.8" rx="2" />
+      <circle cx="22" cy="25" r="11" fill="#D4AF37" stroke="#FFF" stroke-width="1.2" />
+      <circle cx="22" cy="25" r="4.5" fill="#0A2616" />
+      <circle cx="22" cy="85" r="11" fill="#D4AF37" stroke="#FFF" stroke-width="1.2" />
+      <circle cx="22" cy="85" r="4.5" fill="#0A2616" />
+      <text x="4" y="15" font-size="10" font-weight="bold" fill="#F8FAFC">+Bat-</text>
+      <text x="12" y="45" font-size="11" font-weight="bold" fill="#EF4444">+V</text>
+      <text x="12" y="75" font-size="12" font-weight="bold" fill="#3B82F6">GND</text>
+    </g>
+
+    <!-- TOUCH PADS: Exposed Gold Immersion Contact Electrodes -->
+    <g transform="translate(135, 180)">
+      <!-- Gold Touch Electrodes -->
+      <rect x="0" y="0" width="40" height="45" rx="4" fill="#D4AF37" stroke="#F8FAFC" stroke-width="1.5"/>
+      <rect x="0" y="55" width="40" height="45" rx="4" fill="#D4AF37" stroke="#F8FAFC" stroke-width="1.5"/>
+      <circle cx="20" cy="22" r="4" fill="#0A2616"/>
+      <circle cx="20" cy="78" r="4" fill="#0A2616"/>
+      <text x="-6" y="-8" font-size="10" font-weight="bold" fill="#EAB308">TOUCH</text>
+      <text x="-4" y="115" font-size="9" fill="#94A3B8">FINGER PAD</text>
+    </g>
+
+    <!-- 10K Pull-Up Resistor (Axial DIN0207 Horizontal) -->
+    <g transform="translate(200, 160)">
+      <rect width="35" height="110" fill="none" stroke="#F8FAFC" stroke-width="1.4" rx="2" />
+      <circle cx="17" cy="18" r="7" fill="#D4AF37" /><circle cx="17" cy="92" r="7" fill="#D4AF37" />
+      <text x="6" y="58" font-size="10" font-weight="bold" fill="#F8FAFC">10K</text>
+    </g>
+
+    <!-- 1K Timing Resistor (Axial DIN0207 Horizontal) -->
+    <g transform="translate(250, 160)">
+      <rect width="35" height="110" fill="none" stroke="#F8FAFC" stroke-width="1.4" rx="2" />
+      <circle cx="17" cy="18" r="7" fill="#D4AF37" /><circle cx="17" cy="92" r="7" fill="#D4AF37" />
+      <text x="10" y="58" font-size="10" font-weight="bold" fill="#F8FAFC">1K</text>
+    </g>
+
+    <!-- IC555: Through-Hole DIP-8 Package -->
+    <g transform="translate(315, 180)">
+      <rect width="90" height="120" fill="none" stroke="#F8FAFC" stroke-width="1.8" rx="3" />
+      <!-- Top notch -->
+      <path d="M 35 0 A 10 10 0 0 0 55 0" fill="none" stroke="#FFF" stroke-width="1.8"/>
+      <!-- 8 Through-Hole Pins -->
+      <g fill="#D4AF37" stroke="#FFF" stroke-width="1">
+        <circle cx="15" cy="20" r="7" /><circle cx="15" cy="20" r="2.8" fill="#0A2616" />
+        <circle cx="15" cy="48" r="7" /><circle cx="15" cy="48" r="2.8" fill="#0A2616" />
+        <circle cx="15" cy="76" r="7" /><circle cx="15" cy="76" r="2.8" fill="#0A2616" />
+        <circle cx="15" cy="104" r="7" /><circle cx="15" cy="104" r="2.8" fill="#0A2616" />
+        <circle cx="75" cy="20" r="7" /><circle cx="75" cy="20" r="2.8" fill="#0A2616" />
+        <circle cx="75" cy="48" r="7" /><circle cx="75" cy="48" r="2.8" fill="#0A2616" />
+        <circle cx="75" cy="76" r="7" /><circle cx="75" cy="76" r="2.8" fill="#0A2616" />
+        <circle cx="75" cy="104" r="7" /><circle cx="75" cy="104" r="2.8" fill="#0A2616" />
+      </g>
+      <text x="24" y="65" font-size="12" font-weight="bold" fill="#F8FAFC">NE555P</text>
+      <text x="32" y="80" font-size="9" fill="#94A3B8">DIP-8</text>
+    </g>
+
+    <!-- 100uF Radial Timing Capacitor -->
+    <g transform="translate(435, 180)">
+      <circle cx="40" cy="40" r="38" fill="none" stroke="#F8FAFC" stroke-width="1.6" />
+      <circle cx="26" cy="40" r="8" fill="#D4AF37" stroke="#FFF" stroke-width="1.2" />
+      <circle cx="26" cy="40" r="3" fill="#0A2616" />
+      <circle cx="54" cy="40" r="8" fill="#D4AF37" stroke="#FFF" stroke-width="1.2" />
+      <circle cx="54" cy="40" r="3" fill="#0A2616" />
+      <text x="22" y="24" font-size="11" font-weight="bold" fill="#C00">+</text>
+      <text x="24" y="44" font-size="10" font-weight="bold" fill="#F8FAFC">100uF</text>
+      <text x="18" y="95" font-size="9" fill="#94A3B8">100µF / 16V</text>
+    </g>
+
+    <!-- 1nF Disc Ceramic Capacitor -->
+    <g transform="translate(450, 290)">
+      <circle cx="18" cy="18" r="16" fill="none" stroke="#F8FAFC" stroke-width="1.2" />
+      <circle cx="12" cy="18" r="5" fill="#D4AF37" /><circle cx="24" cy="18" r="5" fill="#D4AF37" />
+      <text x="10" y="45" font-size="9" fill="#FFF">1nF</text>
+    </g>
+
+    <!-- OUT: Diagnostic Test Point Header -->
+    <g transform="translate(540, 260)">
+      <rect width="35" height="60" fill="none" stroke="#F8FAFC" stroke-width="1.2" rx="2" />
+      <circle cx="17" cy="18" r="6" fill="#D4AF37" /><circle cx="17" cy="42" r="6" fill="#D4AF37" />
+      <text x="6" y="-6" font-size="9" font-weight="bold" fill="#F8FAFC">OUT</text>
+    </g>
+
+    <!-- Buzz: Active Buzzer Output Connector (1x02) -->
+    <g transform="translate(605, 200)">
+      <rect width="50" height="110" fill="none" stroke="#F8FAFC" stroke-width="1.8" rx="2" />
+      <circle cx="25" cy="25" r="11" fill="#D4AF37" stroke="#FFF" stroke-width="1.2" />
+      <circle cx="25" cy="25" r="4.5" fill="#0A2616" />
+      <circle cx="25" cy="85" r="11" fill="#D4AF37" stroke="#FFF" stroke-width="1.2" />
+      <circle cx="25" cy="85" r="4.5" fill="#0A2616" />
+      <text x="10" y="15" font-size="10" font-weight="bold" fill="#F8FAFC">Buzz</text>
+      <text x="12" y="45" font-size="11" font-weight="bold" fill="#EF4444">(+)</text>
+      <text x="12" y="75" font-size="12" font-weight="bold" fill="#3B82F6">(−)</text>
+      <text x="-8" y="130" font-size="9" fill="#94A3B8">BUZZER OUT</text>
+    </g>
+
+    <!-- Layer Stackup Legend -->
+    <g transform="translate(30, 420)">
+      <rect width="250" height="60" fill="#061A0E" stroke="#1E293B" stroke-width="1" rx="4" />
+      <line x1="15" y1="22" x2="35" y2="22" stroke="#EF4444" stroke-width="3" />
+      <text x="45" y="26" font-size="9" fill="#E2E8F0">F.Cu (Top Signal &amp; Touch Contacts)</text>
+      <line x1="15" y1="42" x2="35" y2="42" stroke="#3B82F6" stroke-width="3" />
+      <text x="45" y="46" font-size="9" fill="#E2E8F0">B.Cu (Bottom Ground Pour &amp; VCC)</text>
+    </g>
+  </g>
+</svg>

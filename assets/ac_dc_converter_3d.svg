@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="100%" height="100%" style="background:#0F172A; font-family:'Inter', sans-serif;">
+  <defs>
+    <linearGradient id="pcb-surface" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14532D" />
+      <stop offset="100%" stop-color="#052E16" />
+    </linearGradient>
+    <linearGradient id="pcb-edge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F3D20" />
+      <stop offset="100%" stop-color="#021C0D" />
+    </linearGradient>
+    <linearGradient id="aluminum" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#94A3B8" />
+      <stop offset="50%" stop-color="#F1F5F9" />
+      <stop offset="100%" stop-color="#64748B" />
+    </linearGradient>
+    <linearGradient id="diode-body" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="40%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="terminal-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#1D4ED8" />
+    </linearGradient>
+    <linearGradient id="film-yellow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <filter id="board-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="25" stdDeviation="25" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Title Badge -->
+  <g transform="translate(40, 35)">
+    <rect width="280" height="34" rx="6" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+    <circle cx="18" cy="17" r="4.5" fill="#10B981"/>
+    <text x="32" y="21" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="bold" fill="#F8FAFC">KiCad 3D Raytraced Model</text>
+  </g>
+
+  <!-- 3D Isometric Board Transformation -->
+  <g transform="translate(450, 330) rotate(-16) skewX(-24) scale(1, 0.65)" filter="url(#board-shadow)">
+    <!-- Bottom Thickness / PCB Core FR-4 -->
+    <path d="M -340 -180 L 340 -180 L 340 180 L -340 180 Z" fill="#021C0D" />
+    <!-- 3D Extrusion thickness (1.6mm board) -->
+    <path d="M -340 180 L 340 180 L 340 198 L -340 198 Z" fill="#0F3D20" />
+    <path d="M 340 -180 L 340 180 L 340 198 L 340 -162 Z" fill="#0A2A16" />
+
+    <!-- Top Solder Mask Surface -->
+    <rect x="-340" y="-180" width="680" height="360" rx="8" fill="url(#pcb-surface)" stroke="#22C55E" stroke-width="1.5" />
+
+    <!-- Corner Mounting Holes with Gold Immersion Ring -->
+    <g fill="#0F172A" stroke="#EAB308" stroke-width="3">
+      <circle cx="-315" cy="-155" r="14" />
+      <circle cx="315" cy="-155" r="14" />
+      <circle cx="-315" cy="155" r="14" />
+      <circle cx="315" cy="155" r="14" />
+    </g>
+
+    <!-- Silkscreen Text on Board -->
+    <text x="-280" y="-140" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="bold" fill="#FFFFFF">12V AC->DC CONVERTER (TRANSFORMERLESS)</text>
+    <text x="-280" y="-120" font-size="10" font-family="'JetBrains Mono', monospace" fill="#CBD5E1">DESIGN BY: R. VIJAYA BASKARAN &bull; REV 1.0</text>
+
+    <!-- Copper Traces visible under mask -->
+    <g stroke="#15803D" stroke-width="5" fill="none" opacity="0.6">
+      <path d="M -260 0 L -180 0 L -180 -60 L -100 -60" />
+      <path d="M -260 60 L -100 60" />
+      <path d="M 0 -60 L 100 -60 L 100 0 L 200 0" />
+      <path d="M 0 60 L 200 60" />
+    </g>
+
+    <!-- ================= 3D MOUNTED COMPONENTS ================= -->
+
+    <!-- J1: 2-Pin Blue Screw Terminal Block (AC Input) -->
+    <g transform="translate(-290, -40)">
+      <rect x="0" y="0" width="55" height="110" rx="4" fill="url(#terminal-blue)" stroke="#1E40AF" stroke-width="2"/>
+      <!-- Wire entry holes -->
+      <circle cx="28" cy="30" r="12" fill="#0F172A" stroke="#93C5FD" stroke-width="2"/>
+      <circle cx="28" cy="80" r="12" fill="#0F172A" stroke="#93C5FD" stroke-width="2"/>
+      <!-- Brass screw heads inside -->
+      <circle cx="28" cy="30" r="7" fill="#EAB308"/>
+      <line x1="23" y1="30" x2="33" y2="30" stroke="#713F12" stroke-width="2"/>
+      <circle cx="28" cy="80" r="7" fill="#EAB308"/>
+      <line x1="23" y1="80" x2="33" y2="80" stroke="#713F12" stroke-width="2"/>
+      <text x="6" y="-10" font-size="10" font-family="'JetBrains Mono', monospace" fill="#FFF" font-weight="bold">AC IN (J1)</text>
+    </g>
+
+    <!-- C4: 2.2uF 400V X2 Yellow Box Capacitor -->
+    <g transform="translate(-200, -70)">
+      <rect x="0" y="0" width="65" height="140" rx="5" fill="url(#film-yellow)" stroke="#B45309" stroke-width="2"/>
+      <text x="8" y="55" font-size="12" font-weight="bold" fill="#78350F" transform="rotate(90 15 55)">2.2µF 400V~ X2</text>
+      <text x="8" y="115" font-size="9" fill="#92400E" transform="rotate(90 15 115)">MKP 225K</text>
+    </g>
+
+    <!-- R1: 1M Bleeder Resistor (Axial cylinder) -->
+    <g transform="translate(-115, -40)">
+      <rect x="0" y="0" width="22" height="70" rx="6" fill="#FDE68A" stroke="#D97706" stroke-width="1.5"/>
+      <!-- Color bands (Brown, Black, Green, Gold) -->
+      <rect x="0" y="12" width="22" height="6" fill="#78350F"/>
+      <rect x="0" y="24" width="22" height="6" fill="#000"/>
+      <rect x="0" y="36" width="22" height="6" fill="#15803D"/>
+      <rect x="0" y="52" width="22" height="6" fill="#EAB308"/>
+      <text x="-4" y="-8" font-size="9" font-family="'JetBrains Mono', monospace" fill="#FFF">R1 (1MΩ)</text>
+    </g>
+
+    <!-- D1 - D4: 1N4007 Rectifier Diode Array (Black cylinders with silver cathode band) -->
+    <g transform="translate(-70, -60)">
+      <!-- Diode 1 -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="45" height="18" rx="5" fill="url(#diode-body)" stroke="#475569" stroke-width="1"/>
+        <rect x="8" y="0" width="5" height="18" fill="#E2E8F0"/>
+      </g>
+      <!-- Diode 2 -->
+      <g transform="translate(0, 30)">
+        <rect x="0" y="0" width="45" height="18" rx="5" fill="url(#diode-body)" stroke="#475569" stroke-width="1"/>
+        <rect x="8" y="0" width="5" height="18" fill="#E2E8F0"/>
+      </g>
+      <!-- Diode 3 -->
+      <g transform="translate(0, 60)">
+        <rect x="0" y="0" width="45" height="18" rx="5" fill="url(#diode-body)" stroke="#475569" stroke-width="1"/>
+        <rect x="8" y="0" width="5" height="18" fill="#E2E8F0"/>
+      </g>
+      <!-- Diode 4 -->
+      <g transform="translate(0, 90)">
+        <rect x="0" y="0" width="45" height="18" rx="5" fill="url(#diode-body)" stroke="#475569" stroke-width="1"/>
+        <rect x="8" y="0" width="5" height="18" fill="#E2E8F0"/>
+      </g>
+      <text x="2" y="125" font-size="9" font-family="'JetBrains Mono', monospace" fill="#FFF">1N4007 BRIDGE</text>
+    </g>
+
+    <!-- C2: 1000uF 25V Radial Can Electrolytic Filter (Large Aluminum Can) -->
+    <g transform="translate(30, -50)">
+      <circle cx="45" cy="45" r="44" fill="url(#aluminum)" stroke="#334155" stroke-width="2"/>
+      <!-- Vent score mark on top of can -->
+      <line x1="25" y1="25" x2="65" y2="65" stroke="#94A3B8" stroke-width="1.8"/>
+      <line x1="25" y1="65" x2="65" y2="25" stroke="#94A3B8" stroke-width="1.8"/>
+      <!-- Negative Stripe -->
+      <path d="M 65 10 A 44 44 0 0 1 85 60" stroke="#000" stroke-width="14" fill="none"/>
+      <text x="20" y="105" font-size="10" font-family="'JetBrains Mono', monospace" fill="#FFF" font-weight="bold">C2 (1000µF)</text>
+    </g>
+
+    <!-- U1: LM7805 TO-220 Linear Voltage Regulator (Standing with metal tab) -->
+    <g transform="translate(135, -50)">
+      <!-- Heatsink metal tab -->
+      <rect x="5" y="-12" width="40" height="12" fill="#CBD5E1" stroke="#64748B" stroke-width="1"/>
+      <circle cx="25" cy="-6" r="3.5" fill="#0F172A"/>
+      <!-- Black plastic body -->
+      <rect x="0" y="0" width="50" height="75" rx="3" fill="#1E293B" stroke="#475569" stroke-width="1.5"/>
+      <text x="6" y="32" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="bold" fill="#FFF">LM7805</text>
+      <text x="6" y="48" font-size="8" font-family="'JetBrains Mono', monospace" fill="#94A3B8">TO-220</text>
+    </g>
+
+    <!-- D7: Green 5mm LED Indicator -->
+    <g transform="translate(205, -20)">
+      <circle cx="15" cy="15" r="14" fill="#22C55E" stroke="#16A34A" stroke-width="2" opacity="0.95"/>
+      <circle cx="12" cy="12" r="5" fill="#86EFAC"/>
+      <text x="0" y="42" font-size="9" font-family="'JetBrains Mono', monospace" fill="#FFF">LED D7</text>
+    </g>
+
+    <!-- J2: 2-Pin Blue Screw Terminal Block (DC Output) -->
+    <g transform="translate(240, -40)">
+      <rect x="0" y="0" width="55" height="110" rx="4" fill="url(#terminal-blue)" stroke="#1E40AF" stroke-width="2"/>
+      <circle cx="28" cy="30" r="12" fill="#0F172A" stroke="#93C5FD" stroke-width="2"/>
+      <circle cx="28" cy="80" r="12" fill="#0F172A" stroke="#93C5FD" stroke-width="2"/>
+      <circle cx="28" cy="30" r="7" fill="#EAB308"/>
+      <line x1="23" y1="30" x2="33" y2="30" stroke="#713F12" stroke-width="2"/>
+      <circle cx="28" cy="80" r="7" fill="#EAB308"/>
+      <line x1="23" y1="80" x2="33" y2="80" stroke="#713F12" stroke-width="2"/>
+      <text x="2" y="-10" font-size="10" font-family="'JetBrains Mono', monospace" fill="#FFF" font-weight="bold">DC OUT (J2)</text>
+    </g>
+  </g>
+
+  <!-- Technical Callout Strip (Bottom) -->
+  <g transform="translate(50, 520)">
+    <rect width="800" height="55" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1.2"/>
+    <text x="25" y="24" font-size="12" font-weight="bold" fill="#F8FAFC">Physical Board Assembly Specifications:</text>
+    <text x="25" y="42" font-size="11" fill="#94A3B8">Footprint: MetzConnect 5.08mm Screw Terminals &bull; X2 Rectangular 15mm Box &bull; Radial Can 10mm &bull; DO-41 Rectifier &bull; TO-220-3 Vertical</text>
+  </g>
+</svg>

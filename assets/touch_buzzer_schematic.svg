@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" width="100%" height="100%" style="background:#FFFFFA; font-family:'JetBrains Mono', 'Courier New', monospace;">
+  <defs>
+    <pattern id="grid3" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="0.8" fill="#D0D5DD" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="650" fill="url(#grid3)" />
+  <rect width="990" height="640" x="5" y="5" fill="none" stroke="#840000" stroke-width="1.5" />
+  <rect width="982" height="632" x="9" y="9" fill="none" stroke="#840000" stroke-width="0.75" />
+
+  <!-- KiCad Title Block -->
+  <g transform="translate(680, 520)">
+    <rect width="310" height="120" fill="#FFFFFA" stroke="#840000" stroke-width="1.2" />
+    <line x1="0" y1="30" x2="310" y2="30" stroke="#840000" stroke-width="0.8" />
+    <line x1="0" y1="65" x2="310" y2="65" stroke="#840000" stroke-width="0.8" />
+    <line x1="0" y1="92" x2="310" y2="92" stroke="#840000" stroke-width="0.8" />
+    <line x1="180" y1="92" x2="180" y2="120" stroke="#840000" stroke-width="0.8" />
+    
+    <text x="10" y="20" font-size="11" fill="#840000" font-weight="bold">KiCad E.E.Schematic v10.0</text>
+    <text x="10" y="48" font-size="13" fill="#000084" font-weight="bold">StemToy: 555 Touch Buzzer</text>
+    <text x="10" y="82" font-size="11" fill="#333">Design: R. Vijaya Baskaran (ECE)</text>
+    <text x="10" y="108" font-size="10" fill="#555">Date: 2026-01-17</text>
+    <text x="190" y="108" font-size="10" fill="#555">Rev: 1.0 (KiCad)</text>
+  </g>
+
+  <!-- Title on Canvas -->
+  <text x="40" y="45" font-size="18" font-weight="bold" fill="#000084">TOUCH-ACTIVATED MONOSTABLE BUZZER ALARM SCHEMATIC</text>
+  <text x="40" y="65" font-size="11" fill="#555">Skin Impedance Trigger &bull; NE555 Monostable Pulse Generator &bull; Audio Buzzer Output</text>
+
+  <!-- Wires & Junctions (KiCad Red #840000) -->
+  <g stroke="#840000" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- VCC Rail (+9V Battery) -->
+    <path d="M 80 120 L 450 120 L 780 120 L 880 120" />
+    <!-- GND Rail -->
+    <path d="M 80 440 L 450 440 L 780 440 L 880 440" />
+
+    <!-- 555 Power Connections: Pin 8 (VCC) & Pin 4 (RESET) to +9V -->
+    <path d="M 380 120 L 380 180" />
+    <path d="M 430 120 L 430 180" />
+    <!-- Pin 1 (GND) to Ground -->
+    <path d="M 380 340 L 380 440" />
+
+    <!-- Pull-Up Resistor 10K to VCC and Pin 2 (TRIG) -->
+    <path d="M 220 120 L 220 180 L 220 220" />
+    <path d="M 220 260 L 220 280 L 320 280" />
+
+    <!-- Touch Contact Pads ("Humans" Sensor Electrodes) -->
+    <path d="M 120 280 L 220 280" />
+    <path d="M 120 330 L 120 440" />
+
+    <!-- Timing Resistor 1K & Timing Capacitor 100uF to Pin 6 (THRESH) & Pin 7 (DISCH) -->
+    <path d="M 480 120 L 480 180 L 520 180" />
+    <path d="M 520 210 L 520 230 L 320 230" />
+    <path d="M 520 230 L 520 260 L 320 260" />
+    <path d="M 520 260 L 580 260 L 580 340 L 580 440" />
+
+    <!-- Control Voltage Pin 5 to Decoupling Cap 1nF -->
+    <path d="M 450 340 L 450 390 L 480 390 L 480 440" />
+
+    <!-- Output Pin 3 to Buzzer & Test Point -->
+    <path d="M 520 280 L 680 280 L 780 280" />
+    <path d="M 780 280 L 780 340" />
+    <path d="M 780 380 L 780 440" />
+  </g>
+
+  <!-- Junction Dots -->
+  <g fill="#840000">
+    <circle cx="220" cy="120" r="3.5" />
+    <circle cx="220" cy="280" r="3.5" />
+    <circle cx="380" cy="120" r="3.5" />
+    <circle cx="430" cy="120" r="3.5" />
+    <circle cx="380" cy="440" r="3.5" />
+    <circle cx="120" cy="440" r="3.5" />
+    <circle cx="480" cy="120" r="3.5" />
+    <circle cx="520" cy="230" r="3.5" />
+    <circle cx="520" cy="260" r="3.5" />
+    <circle cx="580" cy="440" r="3.5" />
+    <circle cx="780" cy="440" r="3.5" />
+  </g>
+
+  <!-- +Bat-: DC Battery Input (1x02 Connector) -->
+  <g transform="translate(30, 240)">
+    <rect width="50" height="120" fill="#E8EEF5" stroke="#000084" stroke-width="1.8" rx="4"/>
+    <circle cx="25" cy="25" r="7" fill="#FFF" stroke="#000084" stroke-width="1.5" />
+    <circle cx="25" cy="95" r="7" fill="#FFF" stroke="#000084" stroke-width="1.5" />
+    <text x="-15" y="-10" font-size="12" font-weight="bold" fill="#000084">+BAT- (BATTERY)</text>
+    <text x="12" y="30" font-size="11" font-weight="bold" fill="#C00">+</text>
+    <text x="12" y="100" font-size="13" font-weight="bold" fill="#00C">−</text>
+    <path d="M 80 265 L 80 120" stroke="#840000" stroke-width="1.8" fill="none" />
+    <path d="M 80 335 L 80 440" stroke="#840000" stroke-width="1.8" fill="none" />
+  </g>
+
+  <!-- Touch Contact Pads ("Humans" Finger Touch Electrodes) -->
+  <g transform="translate(100, 260)">
+    <!-- Electrode A (to Pin 2 Trigger) -->
+    <rect x="0" y="10" width="30" height="20" rx="3" fill="#FEF08A" stroke="#CA8A04" stroke-width="1.8"/>
+    <!-- Interdigitated Gap -->
+    <!-- Electrode B (to Ground) -->
+    <rect x="0" y="55" width="30" height="20" rx="3" fill="#FEF08A" stroke="#CA8A04" stroke-width="1.8"/>
+    <!-- Finger Touch Symbol -->
+    <text x="-15" y="4" font-size="11" font-weight="bold" fill="#B45309">TOUCH PADS</text>
+    <text x="-25" y="95" font-size="10" fill="#555">Exposed Copper</text>
+  </g>
+
+  <!-- 10K Pull-Up Resistor (Sets Trig High in Standby) -->
+  <g transform="translate(205, 180)">
+    <rect width="30" height="40" fill="#FFF" stroke="#008484" stroke-width="1.5"/>
+    <text x="4" y="24" font-size="10" font-weight="bold" fill="#008484">10kΩ</text>
+    <text x="36" y="24" font-size="10" font-weight="bold" fill="#000084">10K</text>
+    <text x="-8" y="55" font-size="9" fill="#555">Pull-Up</text>
+  </g>
+
+  <!-- IC555: NE555P Timer IC (DIP-8 Package) -->
+  <g transform="translate(320, 180)">
+    <rect width="200" height="160" fill="#FEFCE8" stroke="#000084" stroke-width="2" rx="4"/>
+    <text x="75" y="35" font-size="16" font-weight="bold" fill="#000084">NE555P</text>
+    <text x="72" y="55" font-size="11" fill="#555">MONOSTABLE</text>
+    
+    <!-- Pin Labels Left -->
+    <text x="10" y="35" font-size="11" fill="#333">4 RESET</text>
+    <text x="10" y="60" font-size="11" fill="#333">7 DISCH</text>
+    <text x="10" y="110" font-size="11" fill="#333">2 TRIG</text>
+    <text x="10" y="85" font-size="11" fill="#333">6 THRESH</text>
+    
+    <!-- Pin Labels Right / Top / Bottom -->
+    <text x="135" y="35" font-size="11" fill="#333">8 VCC</text>
+    <text x="135" y="110" font-size="11" fill="#333">3 OUT</text>
+    <text x="135" y="145" font-size="11" fill="#333">5 CTRL</text>
+    <text x="85" y="152" font-size="11" fill="#333">1 GND</text>
+
+    <!-- Component Designator -->
+    <text x="75" y="-10" font-size="13" font-weight="bold" fill="#000084">IC555 (DIP-8)</text>
+  </g>
+
+  <!-- 1K Timing / Discharge Resistor -->
+  <g transform="translate(505, 175)">
+    <rect width="30" height="35" fill="#FFF" stroke="#008484" stroke-width="1.5"/>
+    <text x="6" y="22" font-size="11" font-weight="bold" fill="#008484">1kΩ</text>
+    <text x="36" y="22" font-size="11" font-weight="bold" fill="#000084">1K</text>
+  </g>
+
+  <!-- 100uF Timing Capacitor (Sets Active Alarm Pulse Duration) -->
+  <g transform="translate(565, 340)">
+    <line x1="0" y1="20" x2="30" y2="20" stroke="#000084" stroke-width="2.5" />
+    <path d="M 0 35 Q 15 45 30 35" stroke="#000084" stroke-width="2.5" fill="none" />
+    <text x="4" y="12" font-size="10" font-weight="bold" fill="#C00">+</text>
+    <text x="36" y="24" font-size="11" font-weight="bold" fill="#000084">100uF</text>
+    <text x="36" y="38" font-size="10" fill="#008484">100µF 16V</text>
+    <text x="36" y="50" font-size="9" fill="#555">T &approx; 0.11s</text>
+  </g>
+
+  <!-- 1nF Noise Bypass Capacitor (Pin 5 CTRL) -->
+  <g transform="translate(465, 390)">
+    <line x1="0" y1="10" x2="30" y2="10" stroke="#000084" stroke-width="2.5" />
+    <line x1="0" y1="20" x2="30" y2="20" stroke="#000084" stroke-width="2.5" />
+    <text x="35" y="14" font-size="11" font-weight="bold" fill="#000084">1nF</text>
+    <text x="35" y="27" font-size="10" fill="#008484">1nF (50V)</text>
+  </g>
+
+  <!-- OUT: Diagnostic Test Point Connector -->
+  <g transform="translate(660, 240)">
+    <circle cx="15" cy="15" r="5" fill="#D4AF37" stroke="#000084" stroke-width="1.5"/>
+    <text x="0" y="-8" font-size="10" font-weight="bold" fill="#000084">OUT (TP)</text>
+  </g>
+
+  <!-- Buzz: Active Buzzer Output (1x02 Connector) -->
+  <g transform="translate(750, 330)">
+    <path d="M 15 0 L 45 0 L 55 15 L 55 45 L 45 60 L 15 60 L 15 0 Z" fill="#FEF3C7" stroke="#000084" stroke-width="2"/>
+    <line x1="15" y1="20" x2="0" y2="20" stroke="#840000" stroke-width="1.8"/>
+    <line x1="15" y1="40" x2="0" y2="40" stroke="#840000" stroke-width="1.8"/>
+    <text x="18" y="35" font-size="11" font-weight="bold" fill="#000084">BUZZ</text>
+    <text x="-4" y="-10" font-size="11" font-weight="bold" fill="#000084">BUZZER (Buzz)</text>
+    <text x="6" y="80" font-size="10" fill="#555">Piezo / Active</text>
+  </g>
+
+  <!-- Operation Theory Box -->
+  <g transform="translate(40, 480)">
+    <rect width="610" height="135" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.2" rx="4"/>
+    <text x="15" y="24" font-size="12" font-weight="bold" fill="#1E40AF">⚡ STEMTOY TOUCH-ACTIVATED BUZZER CIRCUIT OPERATION:</text>
+    <text x="15" y="45" font-size="11" fill="#1E3A8A">1. High-Impedance Standby: Pin 2 (TRIG) is held at VCC by R_10K (quiescent current &lt; 50 µA).</text>
+    <text x="15" y="65" font-size="11" fill="#1E3A8A">2. Human Skin Trigger: Bridging the exposed touch pads introduces ~100kΩ–500kΩ skin impedance to GND, pulling Pin 2 below 1/3 VCC.</text>
+    <text x="15" y="85" font-size="11" fill="#1E3A8A">3. One-Shot Pulse: Internal flip-flop latches; Pin 3 OUT drives the buzzer high while C_100uF charges through R_1K.</text>
+    <text x="15" y="105" font-size="11" fill="#1E3A8A">4. Automatic Reset: Once threshold reaches 2/3 VCC, discharge transistor drains C_100uF and buzzer silences.</text>
+    <text x="15" y="123" font-size="10" font-style="italic" fill="#2563EB">PCB Design: 2-layer compact educational board, 43 tracks, DIP-8 footprint, gold-plated touch pads.</text>
+  </g>
+</svg>
